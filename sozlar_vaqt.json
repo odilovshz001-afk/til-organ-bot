@@ -1,0 +1,32 @@
+{
+  "sozlar": [
+    {"ru": "Всегда", "uz": "Har doim", "en": "Always", "talaffuz": "Vsegda", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Часто", "uz": "Tez-tez", "en": "Often", "talaffuz": "Chasto", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Иногда", "uz": "Ba'zan", "en": "Sometimes", "talaffuz": "Inogda", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Редко", "uz": "Kamdan-kam", "en": "Rarely", "talaffuz": "Redko", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Никогда", "uz": "Hech qachon", "en": "Never", "talaffuz": "Nikogda", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Сейчас", "uz": "Hozir", "en": "Now", "talaffuz": "Seychas", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Потом", "uz": "Keyin", "en": "Later", "talaffuz": "Potom", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Быстро", "uz": "Tez", "en": "Fast", "talaffuz": "Bistro", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Медленно", "uz": "Sekin", "en": "Slowly", "talaffuz": "Medlenno", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Вчера", "uz": "Kecha", "en": "Yesterday", "talaffuz": "Vchera", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Сегодня", "uz": "Bugun", "en": "Today", "talaffuz": "Segodnya", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Завтра", "uz": "Ertaga", "en": "Tomorrow", "talaffuz": "Zavtra", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Далеко", "uz": "Uzoq", "en": "Far", "talaffuz": "Daleko", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Близко", "uz": "Yaqin", "en": "Close", "talaffuz": "Blizko", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Дома", "uz": "Uyda", "en": "At home", "talaffuz": "Doma", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Вместе", "uz": "Birga", "en": "Together", "talaffuz": "Vmeste", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Отдельно", "uz": "Alohida", "en": "Separately", "talaffuz": "Otdelno", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Тихо", "uz": "Sekin, jim", "en": "Quietly", "talaffuz": "Tixo", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Внимательно", "uz": "Diqqat bilan", "en": "Attentively", "talaffuz": "Vnimatelno", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Аккуратно", "uz": "Ehtiyotkorlik bilan", "en": "Carefully", "talaffuz": "Akkuratno", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Интересно", "uz": "Qiziq", "en": "Interesting", "talaffuz": "Interesno", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Понятно", "uz": "Tushunarli", "en": "Clear", "talaffuz": "Ponyatno", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Трудно", "uz": "Qiyin", "en": "Difficult", "talaffuz": "Trudno", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Легко", "uz": "Oson", "en": "Easy", "talaffuz": "Legko", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Рано", "uz": "Erta", "en": "Early", "talaffuz": "Rano", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Поздно", "uz": "Kech", "en": "Late", "talaffuz": "Pozdno", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Здесь", "uz": "Bu yerda", "en": "Here", "talaffuz": "Zdes", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Там", "uz": "U yerda", "en": "There", "talaffuz": "Tam", "misol_ru": "", "misol_uz": ""}
+  ]
+}

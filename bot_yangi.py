@@ -18,6 +18,16 @@ from datetime import datetime
 T = "8774189119:AAGM1_wXOJ_pGwkyYKSIdgkOSWPVoudTn6M"
 A = 8178917212
 
+REKLAMA = "\n\n━━━━━━━━━━━━━━━━\n📸 Instagram: @odilov03_\n💬 Telegram: @odilov0_3"
+
+def insta_btn():
+    m = types.InlineKeyboardMarkup(row_width=2)
+    m.add(
+        types.InlineKeyboardButton("📸 Instagram", url="https://instagram.com/odilov03_"),
+        types.InlineKeyboardButton("💬 Telegram", url="https://t.me/odilov0_3")
+    )
+    return m
+
 bot = telebot.TeleBot(T)
 U = {}
 kor = set()
@@ -60,28 +70,30 @@ def start(m):
         bot.send_message(c, "Admin"); return
     if c in U and U[c].get("ism"):
         st[c] = {"i":0,"s":0,"t":0,"a":False}
-        bot.send_message(c, f"Salom, {U[c]['ism']}!\n\n{len(S)} ta so'z.", reply_markup=menu())
+        bot.send_message(c, f"Salom, {U[c]['ism']}!\n\n{len(S)} ta so'z mavjud.{REKLAMA}", reply_markup=menu())
+        bot.send_message(c, "Bizni kuzatib boring 👇", reply_markup=insta_btn())
         return
     U[c] = {"id":m.chat.id,"ism":"","familiya":"","tel":"","h":"ism","sana":datetime.now().strftime("%d.%m.%Y %H:%M")}
     saqlash()
-    bot.send_message(c, "Assalomu alaykum!\n\nIsmingizni kiriting:", reply_markup=types.ReplyKeyboardRemove())
+    bot.send_message(c, f"Assalomu alaykum!\n\nIsmingizni kiriting:{REKLAMA}", reply_markup=types.ReplyKeyboardRemove())
 
 @bot.message_handler(func=lambda m: str(m.chat.id) in U and U[str(m.chat.id)].get("h"))
 def reg(m):
     c = str(m.chat.id); u = U[c]; t = m.text.strip()
     if u["h"] == "ism":
         u["ism"] = t; u["h"] = "fam"; saqlash()
-        bot.send_message(c, "Familiyangizni kiriting:")
+        bot.send_message(c, f"Familiyangizni kiriting:{REKLAMA}")
     elif u["h"] == "fam":
         u["familiya"] = t; u["h"] = "tel"; saqlash()
-        bot.send_message(c, "Telefon raqamingizni kiriting:")
+        bot.send_message(c, f"Telefon raqamingizni kiriting:{REKLAMA}")
     elif u["h"] == "tel":
         u["tel"] = t; u["h"] = ""; saqlash()
-        bot.send_message(c, f"Rahmat, {u['ism']}!\n\n{len(S)} ta so'z mavjud.")
+        bot.send_message(c, f"Rahmat, {u['ism']}!\n\n{len(S)} ta so'z mavjud.{REKLAMA}")
         try: bot.send_message(A, f"YANGI:\n{u['ism']} {u['familiya']}\n{u['tel']}")
         except: pass
         st[c] = {"i":0,"s":0,"t":0,"a":False}
-        bot.send_message(c, "Menyu:", reply_markup=menu())
+        bot.send_message(c, f"Menyu:{REKLAMA}", reply_markup=menu())
+        bot.send_message(c, "Bizni kuzatib boring 👇", reply_markup=insta_btn())
 
 @bot.message_handler(func=lambda m: True)
 def hand(m):
@@ -94,17 +106,17 @@ def hand(m):
     if x.get("ta") and x.get("ca"):
         if t == x["ca"]:
             x["ts"] = x.get("ts",0)+1; x["tt"] = x.get("tt",0)+1; x["ti"] = x.get("ti",0)+1
-            st[c] = x; bot.send_message(c, "Togri!"); test(c); return
+            st[c] = x; bot.send_message(c, f"Togri!{REKLAMA}"); test(c); return
         elif t in [s["uz"] for s in S]:
             x["tt"] = x.get("tt",0)+1; x["ti"] = x.get("ti",0)+1
-            st[c] = x; bot.send_message(c, f"Notogri. Togri: {x['ca']}"); test(c); return
+            st[c] = x; bot.send_message(c, f"Notogri. Togri: {x['ca']}{REKLAMA}"); test(c); return
 
     if t == "📅 Kundalik":
         k = datetime.now().day; gs = 10; jg = max(1, len(S)//gs); gi = k % jg
         sz = S[gi*gs:(gi+1)*gs]
         txt = f"Kundalik - {datetime.now().strftime('%d.%m.%Y')}\n\n"
         for i, s in enumerate(sz, 1): txt += f"{i}. {s['ru']} - {s['uz']}\n\n"
-        bot.send_message(c, txt)
+        bot.send_message(c, txt + REKLAMA)
     elif t == "📚 Flashcard":
         st[c] = {"i":0,"s":0,"t":0,"a":True}; flash(c)
     elif t == "🎯 Testlar":
@@ -112,14 +124,14 @@ def hand(m):
     elif t == "📖 Barcha":
         barcha(c, 0)
     elif t == "📊 Statistika":
-        bot.send_message(c, f"Jami: {len(S)}\nKorilgan: {x.get('i',0)}\nTogri: {x.get('s',0)}")
+        bot.send_message(c, f"Jami: {len(S)}\nKorilgan: {x.get('i',0)}\nTogri: {x.get('s',0)}{REKLAMA}")
     elif t == "ℹ️ Yordam":
-        bot.send_message(c, "Yordam")
+        bot.send_message(c, f"Yordam{REKLAMA}")
     elif t == "👁 Ko'rsatish":
         idx = x.get("i",0)
         if idx < len(S):
             s = S[idx]
-            bot.send_message(c, f"Tarjima:\n\n{s['ru']} -> {s['uz']}", reply_markup=flash_btn())
+            bot.send_message(c, f"Tarjima:\n\n{s['ru']} -> {s['uz']}{REKLAMA}", reply_markup=flash_btn())
     elif t == "✅ Bilaman":
         x["s"] = x.get("s",0)+1; x["t"] = x.get("t",0)+1; x["i"] = x.get("i",0)+1
         st[c] = x; flash(c)
@@ -128,41 +140,41 @@ def hand(m):
         st[c] = x; flash(c)
     elif t == "⏹ To'xtatish":
         x["a"] = False; st[c] = x
-        bot.send_message(c, "To'xtatildi.", reply_markup=menu())
+        bot.send_message(c, f"To'xtatildi.{REKLAMA}", reply_markup=menu())
     elif t == "⏹ Testdan chiqish":
         x["ta"] = False; st[c] = x
-        bot.send_message(c, "To'xtatildi.", reply_markup=menu())
+        bot.send_message(c, f"To'xtatildi.{REKLAMA}", reply_markup=menu())
     elif t == "⬅️ Oldingi":
         sh = x.get("sh",0)-1
-        if sh < 0: bot.send_message(c, "Birinchi sahifa.")
+        if sh < 0: bot.send_message(c, f"Birinchi sahifa.{REKLAMA}")
         else: barcha(c, sh)
     elif t == "➡️ Keyingi":
         sh = x.get("sh",0)+1
         js = (len(S)+19)//20
-        if sh >= js: bot.send_message(c, "Oxirgi sahifa.")
+        if sh >= js: bot.send_message(c, f"Oxirgi sahifa.{REKLAMA}")
         else: barcha(c, sh)
     elif t == "⬅️ Orqaga":
         x["ta"] = False; st[c] = x
-        bot.send_message(c, "Menyu:", reply_markup=menu())
+        bot.send_message(c, f"Menyu:{REKLAMA}", reply_markup=menu())
     else:
-        bot.send_message(c, "Tugmalardan birini tanlang", reply_markup=menu())
+        bot.send_message(c, f"Tugmalardan birini tanlang{REKLAMA}", reply_markup=menu())
 
 def flash(c):
     x = st.get(c,{}); idx = x.get("i",0)
     if idx >= len(S):
-        bot.send_message(c, "Tugadi!", reply_markup=menu()); return
+        bot.send_message(c, f"Tugadi!{REKLAMA}", reply_markup=menu()); return
     s = S[idx]
-    bot.send_message(c, f"Flashcard ({idx+1}/{len(S)})\n\nRuscha: {s['ru']}", reply_markup=flash_btn())
+    bot.send_message(c, f"Flashcard ({idx+1}/{len(S)})\n\nRuscha: {s['ru']}{REKLAMA}", reply_markup=flash_btn())
 
 def test(c):
     x = st.get(c,{}); idx = x.get("ti",0)
     if idx >= len(S):
         sc = x.get("ts",0); tt = x.get("tt",0)
         x["ta"] = False; st[c] = x
-        bot.send_message(c, f"Tugadi!\n\nJami: {tt}\nTogri: {sc}", reply_markup=menu()); return
+        bot.send_message(c, f"Tugadi!\n\nJami: {tt}\nTogri: {sc}{REKLAMA}", reply_markup=menu()); return
     tg = S[idx]
     bs = [s for s in S if s["uz"] != tg["uz"]]
-    if len(bs) < 3: bot.send_message(c, "So'zlar kam."); return
+    if len(bs) < 3: bot.send_message(c, f"So'zlar kam.{REKLAMA}"); return
     nt = random.sample(bs, 3)
     vr = [tg] + nt
     random.shuffle(vr)
@@ -170,7 +182,7 @@ def test(c):
     mk = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
     for v in vr: mk.add(v["uz"])
     mk.add("⏹ Testdan chiqish")
-    bot.send_message(c, f"Test ({idx+1}/{len(S)})\n\n{tg['ru']} - ?", reply_markup=mk)
+    bot.send_message(c, f"Test ({idx+1}/{len(S)})\n\n{tg['ru']} - ?{REKLAMA}", reply_markup=mk)
 
 def barcha(c, sh=0):
     ss = 20; j = len(S); js = (j+ss-1)//ss
@@ -183,9 +195,9 @@ def barcha(c, sh=0):
     x = st.get(c,{}); x["sh"] = sh; st[c] = x
     mk = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
     mk.add("⬅️ Oldingi","➡️ Keyingi","⬅️ Orqaga")
-    bot.send_message(c, txt, reply_markup=mk)
+    bot.send_message(c, txt + REKLAMA, reply_markup=mk)
 
 print("Bot ishga tushdi...")
 while True:
-    try: bot.polling(none_stop=True, timeout=60)
+    try: bot.polling(non_stop=True, timeout=60)
     except Exception as e: print("Xato:", e); time.sleep(5)

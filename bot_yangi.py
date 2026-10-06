@@ -15,13 +15,11 @@ import telebot, random, json, time
 from telebot import types
 from datetime import datetime
 
-# Tarjima kutubxonasi
 try:
     from deep_translator import GoogleTranslator
     TARJIMA_BOR = True
 except:
     TARJIMA_BOR = False
-    print("⚠️ deep-translator yo'q — tarjima ishlamaydi")
 
 T = "8774189119:AAGM1_wXOJ_pGwkyYKSIdgkOSWPVoudTn6M"
 A = 8178917212
@@ -38,6 +36,7 @@ def insta_btn():
 
 bot = telebot.TeleBot(T)
 U = {}
+R = {}  # Reyting: {user_id: ball}
 kor = set()
 S = []
 
@@ -54,6 +53,10 @@ if os.path.exists("users.json"):
     try: U = json.load(open("users.json", encoding="utf-8"))
     except: pass
 
+if os.path.exists("reyting.json"):
+    try: R = json.load(open("reyting.json", encoding="utf-8"))
+    except: pass
+
 print(f"JAMI: {len(S)} ta so'z")
 
 st = {}
@@ -61,9 +64,17 @@ st = {}
 def saqlash():
     json.dump(U, open("users.json","w",encoding="utf-8"), ensure_ascii=False)
 
+def reyting_saqlash():
+    json.dump(R, open("reyting.json","w",encoding="utf-8"), ensure_ascii=False)
+
+def ball_qosh(user_id, ball):
+    uid = str(user_id)
+    R[uid] = R.get(uid, 0) + ball
+    reyting_saqlash()
+
 def menu():
     m = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
-    m.add("📅 Kundalik","📚 Flashcard","🎯 Testlar","📖 Barcha","🔄 Tarjima","📊 Statistika","ℹ️ Yordam")
+    m.add("📅 Kundalik","📚 Flashcard","🎯 Testlar","🎮 O'yin","🏆 Reyting","🔄 Tarjima","📊 Statistika","ℹ️ Yordam")
     return m
 
 def flash_btn():
@@ -76,13 +87,18 @@ def tarjima_menu():
     m.add("🇷🇺 Ruscha → 🇺🇿 O'zbekcha","🇺🇿 O'zbekcha → 🇷🇺 Ruscha","⬅️ Orqaga")
     return m
 
+def reyting_menu():
+    m = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
+    m.add("🥇 TOP-10","📊 Mening reytingim","⬅️ Orqaga")
+    return m
+
 @bot.message_handler(commands=['start'])
 def start(m):
     c = str(m.chat.id)
     if m.chat.id == A:
         bot.send_message(c, "Admin"); return
     if c in U and U[c].get("ism"):
-        st[c] = {"i":0,"s":0,"t":0,"a":False,"tarj":False,"tarj_til":"ru-uz"}
+        st[c] = {"i":0,"s":0,"t":0,"a":False,"tarj":False,"tarj_til":"ru-uz","oyin":False}
         bot.send_message(c, f"Salom, {U[c]['ism']}!\n\n{len(S)} ta so'z mavjud.{REKLAMA}", reply_markup=menu())
         bot.send_message(c, "Bizni kuzatib boring 👇", reply_markup=insta_btn())
         return
@@ -101,10 +117,11 @@ def reg(m):
         bot.send_message(c, f"Telefon raqamingizni kiriting:{REKLAMA}")
     elif u["h"] == "tel":
         u["tel"] = t; u["h"] = ""; saqlash()
-        bot.send_message(c, f"Rahmat, {u['ism']}!\n\n{len(S)} ta so'z mavjud.{REKLAMA}")
+        ball_qosh(m.chat.id, 5)  # Ro'yxatdan o'tish uchun +5 ball
+        bot.send_message(c, f"Rahmat, {u['ism']}!\n\n{len(S)} ta so'z mavjud.\n\n🎁 Ro'yxatdan o'tganingiz uchun +5 ball!{REKLAMA}")
         try: bot.send_message(A, f"YANGI:\n{u['ism']} {u['familiya']}\n{u['tel']}")
         except: pass
-        st[c] = {"i":0,"s":0,"t":0,"a":False,"tarj":False,"tarj_til":"ru-uz"}
+        st[c] = {"i":0,"s":0,"t":0,"a":False,"tarj":False,"tarj_til":"ru-uz","oyin":False}
         bot.send_message(c, f"Menyu:{REKLAMA}", reply_markup=menu())
         bot.send_message(c, "Bizni kuzatib boring 👇", reply_markup=insta_btn())
 
@@ -113,10 +130,32 @@ def hand(m):
     c = str(m.chat.id); t = m.text
     if m.chat.id == A: return
     if c not in U or not U[c].get("ism") or U[c].get("h"): return
-    if c not in st: st[c] = {"i":0,"s":0,"t":0,"a":False,"tarj":False,"tarj_til":"ru-uz"}
+    if c not in st: st[c] = {"i":0,"s":0,"t":0,"a":False,"tarj":False,"tarj_til":"ru-uz","oyin":False}
     x = st[c]
 
-    # ===== TARJIMA REJIMI =====
+    # ===== O'YIN =====
+    if x.get("oyin"):
+        if t == "⏹ To'xtatish":
+            x["oyin"] = False; st[c] = x
+            bot.send_message(c, f"O'yin to'xtatildi.{REKLAMA}", reply_markup=menu())
+            return
+        # Javobni tekshiramiz
+        if x.get("oyin_javob"):
+            togri = x["oyin_javob"]
+            if t.lower().strip() == togri.lower().strip():
+                ball_qosh(m.chat.id, 10)
+                x["oyin_javob"] = None
+                st[c] = x
+                bot.send_message(c, f"✅ To'g'ri! +10 ball{REKLAMA}")
+                oyin_navbat(c)
+            else:
+                x["oyin_javob"] = None
+                st[c] = x
+                bot.send_message(c, f"❌ Noto'g'ri. To'g'ri javob: {togri}{REKLAMA}")
+                oyin_navbat(c)
+            return
+
+    # ===== TARJIMA =====
     if x.get("tarj"):
         if t == "⬅️ Orqaga":
             x["tarj"] = False; st[c] = x
@@ -124,13 +163,12 @@ def hand(m):
             return
         if t == "🇷🇺 Ruscha → 🇺🇿 O'zbekcha":
             x["tarj_til"] = "ru-uz"; st[c] = x
-            bot.send_message(c, f"✅ Ruscha → O'zbekcha rejimi.\n\nEndi ruscha so'z yoki gap yozing.{REKLAMA}")
+            bot.send_message(c, f"✅ Ruscha → O'zbekcha.{REKLAMA}")
             return
         if t == "🇺🇿 O'zbekcha → 🇷🇺 Ruscha":
             x["tarj_til"] = "uz-ru"; st[c] = x
-            bot.send_message(c, f"✅ O'zbekcha → Ruscha rejimi.\n\nEndi o'zbekcha so'z yoki gap yozing.{REKLAMA}")
+            bot.send_message(c, f"✅ O'zbekcha → Ruscha.{REKLAMA}")
             return
-        # Tarjima qilamiz
         if TARJIMA_BOR:
             try:
                 if x["tarj_til"] == "ru-uz":
@@ -139,47 +177,58 @@ def hand(m):
                 else:
                     natija = GoogleTranslator(source='uz', target='ru').translate(t)
                     bot.send_message(c, f"🇺🇿 {t}\n\n🇷🇺 {natija}{REKLAMA}")
-            except Exception as e:
-                bot.send_message(c, f"❌ Tarjima xatosi: {e}{REKLAMA}")
-        else:
-            bot.send_message(c, f"❌ Tarjima xizmati ishlamayapti.{REKLAMA}")
+            except:
+                bot.send_message(c, f"❌ Tarjima xatosi.{REKLAMA}")
         return
 
-    # ===== TEST JAVOBI =====
+    # ===== TEST =====
     if x.get("ta") and x.get("ca"):
         if t == x["ca"]:
             x["ts"] = x.get("ts",0)+1; x["tt"] = x.get("tt",0)+1; x["ti"] = x.get("ti",0)+1
-            st[c] = x; bot.send_message(c, f"Togri!{REKLAMA}"); test(c); return
+            st[c] = x; ball_qosh(m.chat.id, 5)
+            bot.send_message(c, f"✅ Togri! +5 ball{REKLAMA}"); test(c); return
         elif t in [s["uz"] for s in S]:
             x["tt"] = x.get("tt",0)+1; x["ti"] = x.get("ti",0)+1
-            st[c] = x; bot.send_message(c, f"Notogri. Togri: {x['ca']}{REKLAMA}"); test(c); return
+            st[c] = x; bot.send_message(c, f"❌ Notogri. Togri: {x['ca']}{REKLAMA}"); test(c); return
 
     # ===== MENYU =====
     if t == "📅 Kundalik":
+        ball_qosh(m.chat.id, 1)
         k = datetime.now().day; gs = 10; jg = max(1, len(S)//gs); gi = k % jg
         sz = S[gi*gs:(gi+1)*gs]
-        txt = f"Kundalik - {datetime.now().strftime('%d.%m.%Y')}\n\n"
+        txt = f"📅 Kundalik - {datetime.now().strftime('%d.%m.%Y')}\n\n"
         for i, s in enumerate(sz, 1): txt += f"{i}. {s['ru']} - {s['uz']}\n\n"
-        bot.send_message(c, txt + REKLAMA)
+        txt += f"🎁 +1 ball{REKLAMA}"
+        bot.send_message(c, txt)
     elif t == "📚 Flashcard":
-        st[c] = {"i":0,"s":0,"t":0,"a":True,"tarj":False,"tarj_til":"ru-uz"}; flash(c)
+        st[c] = {"i":0,"s":0,"t":0,"a":True,"tarj":False,"tarj_til":"ru-uz","oyin":False}; flash(c)
     elif t == "🎯 Testlar":
-        st[c] = {"ti":0,"ts":0,"tt":0,"ta":True,"ca":None,"tarj":False}; test(c)
+        st[c] = {"ti":0,"ts":0,"tt":0,"ta":True,"ca":None,"tarj":False,"oyin":False}; test(c)
+    elif t == "🎮 O'yin":
+        st[c] = {"oyin":True,"oyin_javob":None,"tarj":False,"a":False}; oyin_navbat(c)
+    elif t == "🏆 Reyting":
+        bot.send_message(c, f"🏆 Reyting menyusi:{REKLAMA}", reply_markup=reyting_menu())
+    elif t == "🥇 TOP-10":
+        top10(c)
+    elif t == "📊 Mening reytingim":
+        mening_reyting(c)
     elif t == "📖 Barcha":
         barcha(c, 0)
     elif t == "🔄 Tarjima":
         x["tarj"] = True; st[c] = x
-        bot.send_message(c, f"🔄 Tarjima rejimi.\n\nYo'nalishni tanlang:{REKLAMA}", reply_markup=tarjima_menu())
+        bot.send_message(c, f"🔄 Tarjima rejimi.{REKLAMA}", reply_markup=tarjima_menu())
     elif t == "📊 Statistika":
-        bot.send_message(c, f"Jami: {len(S)}\nKorilgan: {x.get('i',0)}\nTogri: {x.get('s',0)}{REKLAMA}")
+        ball = R.get(str(m.chat.id), 0)
+        bot.send_message(c, f"📊 Statistika\n\nJami so'zlar: {len(S)}\nKo'rilgan: {x.get('i',0)}\nTo'g'ri: {x.get('s',0)}\n\n🏆 Sizning ballingiz: {ball}{REKLAMA}")
     elif t == "ℹ️ Yordam":
-        bot.send_message(c, f"📖 Yordam\n\n• 📅 Kundalik — kunlik so'zlar\n• 📚 Flashcard — so'z yodlash\n• 🎯 Testlar — bilim sinash\n• 📖 Barcha — hamma so'zlar\n• 🔄 Tarjima — matn tarjimasi{REKLAMA}")
+        bot.send_message(c, f"📖 Yordam\n\n• 📅 Kundalik\n• 📚 Flashcard\n• 🎯 Testlar\n• 🎮 O'yin\n• 🏆 Reyting\n• 🔄 Tarjima{REKLAMA}")
     elif t == "👁 Ko'rsatish":
         idx = x.get("i",0)
         if idx < len(S):
             s = S[idx]
             bot.send_message(c, f"Tarjima:\n\n{s['ru']} -> {s['uz']}{REKLAMA}", reply_markup=flash_btn())
     elif t == "✅ Bilaman":
+        ball_qosh(m.chat.id, 2)
         x["s"] = x.get("s",0)+1; x["t"] = x.get("t",0)+1; x["i"] = x.get("i",0)+1
         st[c] = x; flash(c)
     elif t == "❌ Bilmayman":
@@ -201,10 +250,9 @@ def hand(m):
         if sh >= js: bot.send_message(c, f"Oxirgi sahifa.{REKLAMA}")
         else: barcha(c, sh)
     elif t == "⬅️ Orqaga":
-        x["ta"] = False; x["tarj"] = False; st[c] = x
+        x["ta"] = False; x["tarj"] = False; x["oyin"] = False; st[c] = x
         bot.send_message(c, f"Menyu:{REKLAMA}", reply_markup=menu())
     else:
-        # Agar foydalanuvchi menuda bo'lmasa va matn yozsa
         if TARJIMA_BOR and len(t) > 2:
             try:
                 natija = GoogleTranslator(source='auto', target='uz').translate(t)
@@ -212,6 +260,43 @@ def hand(m):
                 return
             except: pass
         bot.send_message(c, f"Tugmalardan birini tanlang{REKLAMA}", reply_markup=menu())
+
+def oyin_navbat(c):
+    x = st.get(c, {})
+    if len(S) < 4:
+        bot.send_message(c, f"So'zlar kam.{REKLAMA}", reply_markup=menu()); return
+    s = random.choice(S)
+    x["oyin_javob"] = s["uz"]
+    x["oyin"] = True
+    st[c] = x
+    mk = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
+    mk.add("⏹ To'xtatish")
+    bot.send_message(c, f"🎮 O'yin\n\nRuscha: *{s['ru']}*\n\nO'zbekcha tarjimasini yozing:\n(To'g'ri javob: +10 ball){REKLAMA}", parse_mode='Markdown', reply_markup=mk)
+
+def top10(c):
+    if not R:
+        bot.send_message(c, f"🏆 Hozircha reyting bo'sh.{REKLAMA}"); return
+    saralangan = sorted(R.items(), key=lambda x: x[1], reverse=True)[:10]
+    txt = "🏆 *TOP-10*\n\n"
+    medallar = ["🥇", "🥈", "🥉", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣", "🔟"]
+    for i, (uid, ball) in enumerate(saralangan):
+        ism = U.get(uid, {}).get("ism", "Noma'lum")
+        txt += f"{medallar[i]} {ism} — {ball} ball\n"
+    txt += REKLAMA
+    bot.send_message(c, txt, parse_mode='Markdown')
+
+def mening_reyting(c):
+    ball = R.get(str(c), 0)
+    if not R:
+        orin = 1
+    else:
+        saralangan = sorted(R.items(), key=lambda x: x[1], reverse=True)
+        orin = 1
+        for i, (uid, b) in enumerate(saralangan, 1):
+            if uid == str(c):
+                orin = i
+                break
+    bot.send_message(c, f"📊 *Sizning reytingingiz*\n\n🏆 Ball: *{ball}*\n📍 O'rin: *{orin}* / {len(R)}{REKLAMA}", parse_mode='Markdown')
 
 def flash(c):
     x = st.get(c,{}); idx = x.get("i",0)

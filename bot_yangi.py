@@ -34,6 +34,122 @@ def reklama_btn():
     )
     return m
 
+# ============================================
+# ANTI-SPAM MODULI (ICHIDA)
+# ============================================
+BLOKLANGAN_SOZLAR = [
+    "tucosprofit", "tucosal", "premium", "kanalni ko'rish", "kanalni korish",
+    "join our channel", "to use this bot", "must join", "подключит",
+    "подпишись", "подпишитесь", "обязательно", "реклама", "продвижение",
+    "промокод", "заработок", "заработать", "криптовалюта", "инвестиции",
+    "халява", "скидка", "акция", "успей", "торопись", "выигрыш", "приз",
+    "лотерея", "казино", "ставки", "букмекер", "обменник", "обмен валют",
+    "бинарные опционы", "форекс", "инвестируй", "получи доход"
+]
+
+BLOKLANGAN_LINKLAR = [
+    "t.me/tucosprofit", "t.me/tucosal", "t.me/joinchat", "t.me/+",
+    "instagram.com/", "youtube.com/", "youtu.be/", "facebook.com/",
+    "tiktok.com/", "whatsapp.com/", "viber.com/"
+]
+
+BOT_USERNAME_PATTERN = re.compile(r'@[a-zA-Z0-9_]+_?bot', re.IGNORECASE)
+SPAM_HISTORY = {}
+
+def matn_tekshir(matn):
+    if not matn: return False, None
+    matn_lower = matn.lower()
+    for soz in BLOKLANGAN_SOZLAR:
+        if soz.lower() in matn_lower:
+            return True, f"So'z: {soz}"
+    for link in BLOKLANGAN_LINKLAR:
+        if link.lower() in matn_lower:
+            return True, f"Link: {link}"
+    if BOT_USERNAME_PATTERN.search(matn):
+        return True, "Bot username"
+    linklar = re.findall(r'https?://[^\s]+', matn)
+    if len(linklar) >= 3:
+        return True, f"Ko'p link: {len(linklar)}"
+    usernames = re.findall(r'@[a-zA-Z0-9_]+', matn)
+    if len(usernames) >= 3:
+        return True, f"Ko'p username: {len(usernames)}"
+    return False, None
+
+def forward_tekshir(message):
+    if message.forward_from:
+        return True, f"Forward: {message.forward_from.first_name}"
+    if message.forward_from_chat:
+        return True, f"Forward chat: {message.forward_from_chat.title}"
+    if message.forward_sender_name:
+        return True, f"Forward: {message.forward_sender_name}"
+    try:
+        if message.forward_origin:
+            return True, "Forward origin"
+    except: pass
+    return False, None
+
+def bot_tekshir(message):
+    if hasattr(message.from_user, 'is_bot') and message.from_user.is_bot:
+        return True, f"Bot: @{message.from_user.username}"
+    if message.reply_to_message:
+        if hasattr(message.reply_to_message.from_user, 'is_bot') and message.reply_to_message.from_user.is_bot:
+            return True, "Reply botga"
+    return False, None
+
+def inline_tekshir(message):
+    if message.reply_markup:
+        if hasattr(message.reply_markup, 'inline_keyboard'):
+            for row in message.reply_markup.inline_keyboard:
+                for button in row:
+                    if hasattr(button, 'url') and button.url:
+                        for link in BLOKLANGAN_LINKLAR:
+                            if link.lower() in button.url.lower():
+                                return True, f"Inline: {button.url}"
+    return False, None
+
+def spam_tekshir(message):
+    user_id = message.from_user.id if message.from_user else None
+    blok, sabab = forward_tekshir(message)
+    if blok: return True, sabab
+    blok, sabab = bot_tekshir(message)
+    if blok: return True, sabab
+    blok, sabab = inline_tekshir(message)
+    if blok: return True, sabab
+    if message.text:
+        blok, sabab = matn_tekshir(message.text)
+        if blok: return True, sabab
+    if message.caption:
+        blok, sabab = matn_tekshir(message.caption)
+        if blok: return True, sabab
+    if user_id:
+        hozir = time.time()
+        if user_id not in SPAM_HISTORY:
+            SPAM_HISTORY[user_id] = []
+        SPAM_HISTORY[user_id] = [t for t in SPAM_HISTORY[user_id] if hozir - t < 60]
+        SPAM_HISTORY[user_id].append(hozir)
+        if len(SPAM_HISTORY[user_id]) > 20:
+            return True, f"Rate limit: {len(SPAM_HISTORY[user_id])}"
+    return False, None
+
+def anti_spam_handler(message):
+    user_id = message.from_user.id if message.from_user else None
+    ism = message.from_user.first_name if message.from_user else "?"
+    if user_id == A:
+        return False
+    blok, sabab = spam_tekshir(message)
+    if blok:
+        try:
+            bot.send_message(A, f"🚫 SPAM BLOKLANDI\n\n👤 {ism}\n🆔 {user_id}\n📛 {sabab}\n💬 {message.text[:100] if message.text else 'Media'}")
+        except: pass
+        try:
+            bot.send_message(message.chat.id, f"🚫 Xabaringiz bloklandi.\n\nSabab: {sabab}")
+        except: pass
+        return True
+    return False
+
+# ============================================
+# BOT KODI
+# ============================================
 bot = telebot.TeleBot(T)
 U, R, D, F, SV, TT = {}, {}, {}, {}, {}, {}
 kor = set()
@@ -296,8 +412,7 @@ def kundalik_gaplar(c):
     txt = f"💬 Kundalik muloqot gaplari\n📅 {datetime.now().strftime('%d.%m.%Y')}\n\n"
     for i, g in enumerate(gaplar, 1):
         txt += f"{i}. 🇷🇺 {g['ru']}\n     🇺🇿 {g['uz']}\n\n"
-    txt += f"🎁 +1 ball\n🏆 Jami: {R.get(c, 0)}\n\n"
-    txt += f"📚 Jami gaplar: {len(KUNDALIK_GAPLAR)} ta"
+    txt += f"🎁 +1 ball\n🏆 Jami: {R.get(c, 0)}\n\n📚 Jami gaplar: {len(KUNDALIK_GAPLAR)} ta"
     st[c] = st.get(c, {})
     st[c]["kundalik_gaplar"] = gaplar
     bot.send_message(c, txt, reply_markup=kundalik_menu())
@@ -521,6 +636,12 @@ def reg(m):
 @bot.message_handler(func=lambda m: True)
 def hand(m):
     c = str(m.chat.id); t = m.text
+
+    # ANTI-SPAM BOSHLANISHI
+    if anti_spam_handler(m):
+        return
+    # ANTI-SPAM TUGADI
+
     if m.chat.id == A: return
     if c not in U or not U[c].get("ism") or U[c].get("h"): return
     if c not in st: st[c] = {"i":0,"s":0,"t":0,"a":False,"tarj":False,"tarj_til":"ru-uz","oyin":False}

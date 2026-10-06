@@ -60,6 +60,17 @@ for fname in ["users.json","reyting.json","kunlik.json","dostlar.json","sevimlil
             elif fname == "talablar.json": TT = data
         except: pass
 
+# ===== KUNDALIK GAPLAR (2 ta fayldan) =====
+KUNDALIK_GAPLAR = []
+for fname in ["kundalik_gaplar.json", "kundalik_gaplar2.json"]:
+    if os.path.exists(fname):
+        try:
+            d = json.load(open(fname, encoding="utf-8"))
+            KUNDALIK_GAPLAR.extend(d["gaplar"])
+            print(f"✅ {fname}: {len(d['gaplar'])} ta")
+        except: pass
+print(f"📚 JAMI kundalik gaplar: {len(KUNDALIK_GAPLAR)} ta")
+
 SUHBAT_GAPLAR = {
     "💼 Ishda": [
         {"ru": "Доброе утро!", "uz": "Xayrli tong!"},
@@ -163,7 +174,7 @@ CHAT_SAVOLLAR = [
     {"savol":"Где ты живёшь?","javob":"Я живу в..."}
 ]
 
-print(f"JAMI: {len(S)} ta so'z")
+print(f"📚 JAMI so'zlar: {len(S)} ta")
 
 st = {}
 
@@ -278,12 +289,16 @@ def talab_menu():
     m.add("📢 Talab/taklif yozish","📋 Mening talablarim","⬅️ Orqaga")
     return m
 
-# ===== AVTOMATIK REKLAMA (HAR 1 SOATDA) =====
+def kundalik_menu():
+    m = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
+    m.add("🔊 Eshitish","🔄 Yangilash")
+    m.add("⬅️ Orqaga")
+    return m
+
 def reklama_yubor():
     while True:
-        time.sleep(3600)  # 1 soat
+        time.sleep(3600)
         try:
-            print(f"📢 Reklama ({len(U)} ta)")
             for uid in list(U.keys()):
                 try:
                     bot.send_message(int(uid), REKLAMA_MATN, parse_mode='Markdown', reply_markup=reklama_btn())
@@ -293,7 +308,6 @@ def reklama_yubor():
 
 Thread(target=reklama_yubor, daemon=True).start()
 
-# ===== HAFTALIK TURNIR =====
 def haftalik_tekshir():
     while True:
         try:
@@ -303,8 +317,6 @@ def haftalik_tekshir():
                 for i, (uid, ball) in enumerate(saralangan):
                     bonus = [100, 50, 25][i]
                     ball_qosh(uid, bonus)
-                    try: bot.send_message(int(uid), f"🏆 Haftalik turnir! {i+1}-o'rin! +{bonus} ball!")
-                    except: pass
             time.sleep(3600)
         except: time.sleep(3600)
 
@@ -314,7 +326,7 @@ Thread(target=haftalik_tekshir, daemon=True).start()
 def start(m):
     c = str(m.chat.id)
     if m.chat.id == A:
-        bot.send_message(c, "👑 Admin\n\n/royxat — Foydalanuvchilar\n/talablar — Talab va takliflar"); return
+        bot.send_message(c, "👑 Admin\n\n/royxat\n/talablar"); return
     if len(m.text.split()) > 1:
         try:
             taklif = m.text.split()[1]
@@ -330,7 +342,7 @@ def start(m):
         streak = kunlik_tekshir(m.chat.id)
         ball_qosh(m.chat.id, 1)
         st[c] = {"i":0,"s":0,"t":0,"a":False,"tarj":False,"tarj_til":"ru-uz","oyin":False}
-        bot.send_message(c, f"Salom, {U[c]['ism']}! 👋\n\n📚 {len(S)} ta so'z\n💬 Suhbat gaplari\n🔥 Streak: {streak} kun\n🏆 Ball: {R.get(c,0)}\n🎁 +1 ball!", reply_markup=menu())
+        bot.send_message(c, f"Salom, {U[c]['ism']}! 👋\n\n📚 {len(S)} ta so'z\n💬 {len(KUNDALIK_GAPLAR)} ta gap\n🔥 Streak: {streak} kun\n🏆 Ball: {R.get(c,0)}\n🎁 +1 ball!", reply_markup=menu())
         bot.send_message(c, REKLAMA_MATN, parse_mode='Markdown', reply_markup=reklama_btn())
         return
     U[c] = {"id":m.chat.id,"ism":"","familiya":"","sana_tugilgan":"","tel":"","h":"ism","sana":datetime.now().strftime("%d.%m.%Y %H:%M")}
@@ -350,7 +362,7 @@ def talablar_admin(m):
     if m.chat.id != A: return
     if not TT:
         bot.send_message(m.chat.id, "📭 Talablar yo'q."); return
-    txt = f"📢 *Talab va takliflar:* {len(TT)} ta\n\n"
+    txt = f"📢 *Talablar:* {len(TT)} ta\n\n"
     for i, (uid, talab) in enumerate(list(TT.items())[-20:], 1):
         ism = U.get(uid, {}).get("ism", "?")
         txt += f"{i}. {ism}:\n{talab['matn']}\n\n"
@@ -380,7 +392,6 @@ def reg(m):
         u["tel"] = t; u["h"] = ""; saqlash()
         ball_qosh(m.chat.id, 5); kunlik_tekshir(m.chat.id)
         bot.send_message(c, f"🎉 Rahmat, {u['ism']}!\n\n🎁 +5 ball!")
-        # REKLAMA
         bot.send_message(c, REKLAMA_MATN, parse_mode='Markdown', reply_markup=reklama_btn())
         try: bot.send_message(A, f"👤 YANGI:\n{u['ism']} {u['familiya']}\n{u['sana_tugilgan']}\n{u['tel']}")
         except: pass
@@ -395,14 +406,31 @@ def hand(m):
     if c not in st: st[c] = {"i":0,"s":0,"t":0,"a":False,"tarj":False,"tarj_til":"ru-uz","oyin":False}
     x = st[c]
 
-    # ===== TALAB VA TAKLIF =====
+    # ===== KUNDALIK GAPLAR =====
+    if x.get("kundalik_gaplar"):
+        if t == "🔄 Yangilash":
+            kundalik_gaplar(c); return
+        if t == "🔊 Eshitish":
+            gaplar = x.get("kundalik_gaplar", [])
+            for g in gaplar[:3]:
+                try:
+                    url = f"https://translate.google.com/translate_tts?ie=UTF-8&q={g['ru']}&tl=ru&client=tw-ob"
+                    bot.send_voice(c, url)
+                    time.sleep(0.5)
+                except: pass
+            return
+        if t == "⬅️ Orqaga":
+            x["kundalik_gaplar"] = None; st[c] = x
+            bot.send_message(c, "Menyu:", reply_markup=menu()); return
+
+    # ===== TALAB =====
     if x.get("talab"):
         if t == "⬅️ Orqaga":
-            x["talab"] = False; st[c] = x
+            x["talab"] = False; x["talab_yozish"] = False; st[c] = x
             bot.send_message(c, "Menyu:", reply_markup=menu()); return
         if t == "📢 Talab/taklif yozish":
             x["talab_yozish"] = True; st[c] = x
-            bot.send_message(c, "📢 *Talab yoki taklifingizni yozing:*\n\n_(Admin ko'radi va javob beradi)_", parse_mode='Markdown')
+            bot.send_message(c, "📢 *Talab yoki taklifingizni yozing:*", parse_mode='Markdown')
             return
         if t == "📋 Mening talablarim":
             mening = TT.get(c, {}).get("matn", "Yo'q")
@@ -436,7 +464,7 @@ def hand(m):
             suhbat_korsat(c); return
         if t == "⬅️ Orqaga":
             x["suhbat_kat"] = None; st[c] = x
-            bot.send_message(c, "Suhbat kategoriyalari:", reply_markup=suhbat_menu()); return
+            bot.send_message(c, "Suhbat:", reply_markup=suhbat_menu()); return
 
     if x.get("suhbat"):
         if t == "⬅️ Orqaga":
@@ -612,12 +640,7 @@ def hand(m):
     # MENYU
     if t == "📅 Kundalik":
         ball_qosh(m.chat.id, 1)
-        k = datetime.now().day; gs = 10; jg = max(1, len(S)//gs); gi = k % jg
-        sz = S[gi*gs:(gi+1)*gs]
-        txt = f"📅 Kundalik - {datetime.now().strftime('%d.%m.%Y')}\n\n"
-        for i, s in enumerate(sz, 1): txt += f"{i}. {s['ru']} - {s['uz']}\n\n"
-        txt += f"🎁 +1 ball\n🏆 Jami: {R.get(c,0)}"
-        bot.send_message(c, txt)
+        kundalik_gaplar(c)
     elif t == "📚 Flashcard":
         st[c] = {"i":0,"s":0,"t":0,"a":True,"tarj":False,"tarj_til":"ru-uz","oyin":False}; flash(c)
     elif t == "🎯 Testlar":
@@ -644,7 +667,7 @@ def hand(m):
         st[c] = {"chat":True}
         next_savol(c)
     elif t == "📢 Talab va taklif":
-        st[c] = {"talab":True}; bot.send_message(c, "📢 Talab va taklif:", reply_markup=talab_menu())
+        st[c] = {"talab":True}; bot.send_message(c, "📢 Talab:", reply_markup=talab_menu())
     elif t == "🏆 Reyting":
         bot.send_message(c, "🏆 Reyting:", reply_markup=reyting_menu())
     elif t == "🥇 TOP-10":
@@ -657,7 +680,7 @@ def hand(m):
         grafik(c)
     elif t == "📊 Statistika":
         ball = R.get(c, 0); streak = D.get(c, {}).get("streak", 0)
-        bot.send_message(c, f"📊 *Statistika*\n\n📚 Jami: {len(S)}\n📖 Ko'rilgan: {x.get('i',0)}\n✅ To'g'ri: {x.get('s',0)}\n\n🏆 Ball: {ball}\n📊 Daraja: {daraja(ball)}\n🔥 Streak: {streak} kun", parse_mode='Markdown')
+        bot.send_message(c, f"📊 *Statistika*\n\n📚 Jami: {len(S)}\n💬 Gaplar: {len(KUNDALIK_GAPLAR)}\n📖 Ko'rilgan: {x.get('i',0)}\n✅ To'g'ri: {x.get('s',0)}\n\n🏆 Ball: {ball}\n📊 Daraja: {daraja(ball)}\n🔥 Streak: {streak} kun", parse_mode='Markdown')
     elif t == "ℹ️ Yordam":
         bot.send_message(c, "📖 Yordam\n\n📅 Kundalik (+1)\n📚 Flashcard (+2)\n🎯 Testlar (+5)\n🎮 O'yin (+10)\n📝 Gap tuzish (+15)\n🎁 Challenge (+20)\n👥 Do'stlar (+50)\n🎁 Sovga\n🎵 Talaffuz\n📚 Kategoriya\n📖 Grammatika\n💬 Chat\n📢 Talab va taklif\n⭐ Sevimlilar\n🏆 Reyting\n🔄 Tarjima")
     elif t == "👁 Ko'rsatish":
@@ -705,7 +728,7 @@ def hand(m):
         if sh >= js: bot.send_message(c, "Oxirgi sahifa.")
         else: barcha(c, sh)
     elif t == "⬅️ Orqaga":
-        for k in ["ta","tarj","oyin","challenge","kat","dost","gap","gram","chat","talaffuz","suhbat","suhbat_kat","talab"]:
+        for k in ["ta","tarj","oyin","challenge","kat","dost","gap","gram","chat","talaffuz","suhbat","suhbat_kat","talab","kundalik_gaplar"]:
             x[k] = False
         st[c] = x
         bot.send_message(c, "Menyu:", reply_markup=menu())
@@ -717,6 +740,19 @@ def hand(m):
                 return
             except: pass
         bot.send_message(c, "Tugmalardan birini tanlang", reply_markup=menu())
+
+def kundalik_gaplar(c):
+    if not KUNDALIK_GAPLAR:
+        bot.send_message(c, "❌ Gaplar bazasi yo'q."); return
+    gaplar = random.sample(KUNDALIK_GAPLAR, min(10, len(KUNDALIK_GAPLAR)))
+    txt = f"💬 *Kundalik muloqot gaplari*\n📅 {datetime.now().strftime('%d.%m.%Y')}\n\n"
+    for i, g in enumerate(gaplar, 1):
+        txt += f"*{i}.* 🇷🇺 {g['ru']}\n     🇺🇿 _{g['uz']}_\n\n"
+    txt += f"🎁 +1 ball\n🏆 Jami: {R.get(c, 0)}\n\n"
+    txt += f"📚 Jami gaplar: {len(KUNDALIK_GAPLAR)} ta"
+    st[c] = st.get(c, {})
+    st[c]["kundalik_gaplar"] = gaplar
+    bot.send_message(c, txt, parse_mode='Markdown', reply_markup=kundalik_menu())
 
 def suhbat_korsat(c):
     x = st.get(c, {})
@@ -870,7 +906,7 @@ def oyin_navbat(c):
     mk.add("⏹ To'xtatish")
     bot.send_message(c, f"🎮 O'yin\n\nRuscha: *{s['ru']}*\n\nTarjima yozing:\n🎁 +10 ball", parse_mode='Markdown', reply_markup=mk)
 
-print("Bot ishga tushdi...")
+print("🚀 Bot ishga tushdi...")
 while True:
     try: bot.polling(non_stop=True, timeout=60)
     except Exception as e: print("Xato:", e); time.sleep(5)

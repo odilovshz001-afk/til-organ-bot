@@ -24,7 +24,7 @@ except:
 T = "8774189119:AAGM1_wXOJ_pGwkyYKSIdgkOSWPVoudTn6M"
 A = 8178917212
 
-REKLAMA_MATN = "📢 Bizni kuzatib boring!\n\n📸 Instagram: @odilov03_\n💬 Telegram: @odilov0_3"
+REKLAMA_MATN = "📢 *Bizni kuzatib boring!*\n\n📸 Instagram: @odilov03_\n💬 Telegram: @odilov0_3"
 
 def reklama_btn():
     m = types.InlineKeyboardMarkup(row_width=2)
@@ -34,122 +34,6 @@ def reklama_btn():
     )
     return m
 
-# ============================================
-# ANTI-SPAM MODULI (ICHIDA)
-# ============================================
-BLOKLANGAN_SOZLAR = [
-    "tucosprofit", "tucosal", "premium", "kanalni ko'rish", "kanalni korish",
-    "join our channel", "to use this bot", "must join", "подключит",
-    "подпишись", "подпишитесь", "обязательно", "реклама", "продвижение",
-    "промокод", "заработок", "заработать", "криптовалюта", "инвестиции",
-    "халява", "скидка", "акция", "успей", "торопись", "выигрыш", "приз",
-    "лотерея", "казино", "ставки", "букмекер", "обменник", "обмен валют",
-    "бинарные опционы", "форекс", "инвестируй", "получи доход"
-]
-
-BLOKLANGAN_LINKLAR = [
-    "t.me/tucosprofit", "t.me/tucosal", "t.me/joinchat", "t.me/+",
-    "instagram.com/", "youtube.com/", "youtu.be/", "facebook.com/",
-    "tiktok.com/", "whatsapp.com/", "viber.com/"
-]
-
-BOT_USERNAME_PATTERN = re.compile(r'@[a-zA-Z0-9_]+_?bot', re.IGNORECASE)
-SPAM_HISTORY = {}
-
-def matn_tekshir(matn):
-    if not matn: return False, None
-    matn_lower = matn.lower()
-    for soz in BLOKLANGAN_SOZLAR:
-        if soz.lower() in matn_lower:
-            return True, f"So'z: {soz}"
-    for link in BLOKLANGAN_LINKLAR:
-        if link.lower() in matn_lower:
-            return True, f"Link: {link}"
-    if BOT_USERNAME_PATTERN.search(matn):
-        return True, "Bot username"
-    linklar = re.findall(r'https?://[^\s]+', matn)
-    if len(linklar) >= 3:
-        return True, f"Ko'p link: {len(linklar)}"
-    usernames = re.findall(r'@[a-zA-Z0-9_]+', matn)
-    if len(usernames) >= 3:
-        return True, f"Ko'p username: {len(usernames)}"
-    return False, None
-
-def forward_tekshir(message):
-    if message.forward_from:
-        return True, f"Forward: {message.forward_from.first_name}"
-    if message.forward_from_chat:
-        return True, f"Forward chat: {message.forward_from_chat.title}"
-    if message.forward_sender_name:
-        return True, f"Forward: {message.forward_sender_name}"
-    try:
-        if message.forward_origin:
-            return True, "Forward origin"
-    except: pass
-    return False, None
-
-def bot_tekshir(message):
-    if hasattr(message.from_user, 'is_bot') and message.from_user.is_bot:
-        return True, f"Bot: @{message.from_user.username}"
-    if message.reply_to_message:
-        if hasattr(message.reply_to_message.from_user, 'is_bot') and message.reply_to_message.from_user.is_bot:
-            return True, "Reply botga"
-    return False, None
-
-def inline_tekshir(message):
-    if message.reply_markup:
-        if hasattr(message.reply_markup, 'inline_keyboard'):
-            for row in message.reply_markup.inline_keyboard:
-                for button in row:
-                    if hasattr(button, 'url') and button.url:
-                        for link in BLOKLANGAN_LINKLAR:
-                            if link.lower() in button.url.lower():
-                                return True, f"Inline: {button.url}"
-    return False, None
-
-def spam_tekshir(message):
-    user_id = message.from_user.id if message.from_user else None
-    blok, sabab = forward_tekshir(message)
-    if blok: return True, sabab
-    blok, sabab = bot_tekshir(message)
-    if blok: return True, sabab
-    blok, sabab = inline_tekshir(message)
-    if blok: return True, sabab
-    if message.text:
-        blok, sabab = matn_tekshir(message.text)
-        if blok: return True, sabab
-    if message.caption:
-        blok, sabab = matn_tekshir(message.caption)
-        if blok: return True, sabab
-    if user_id:
-        hozir = time.time()
-        if user_id not in SPAM_HISTORY:
-            SPAM_HISTORY[user_id] = []
-        SPAM_HISTORY[user_id] = [t for t in SPAM_HISTORY[user_id] if hozir - t < 60]
-        SPAM_HISTORY[user_id].append(hozir)
-        if len(SPAM_HISTORY[user_id]) > 20:
-            return True, f"Rate limit: {len(SPAM_HISTORY[user_id])}"
-    return False, None
-
-def anti_spam_handler(message):
-    user_id = message.from_user.id if message.from_user else None
-    ism = message.from_user.first_name if message.from_user else "?"
-    if user_id == A:
-        return False
-    blok, sabab = spam_tekshir(message)
-    if blok:
-        try:
-            bot.send_message(A, f"🚫 SPAM BLOKLANDI\n\n👤 {ism}\n🆔 {user_id}\n📛 {sabab}\n💬 {message.text[:100] if message.text else 'Media'}")
-        except: pass
-        try:
-            bot.send_message(message.chat.id, f"🚫 Xabaringiz bloklandi.\n\nSabab: {sabab}")
-        except: pass
-        return True
-    return False
-
-# ============================================
-# BOT KODI
-# ============================================
 bot = telebot.TeleBot(T)
 U, R, D, F, SV, TT = {}, {}, {}, {}, {}, {}
 kor = set()
@@ -407,15 +291,16 @@ def gap_menu():
 
 def kundalik_gaplar(c):
     if not KUNDALIK_GAPLAR:
-        bot.send_message(c, "Gaplar bazasi yoq."); return
+        bot.send_message(c, "❌ Gaplar bazasi yo'q."); return
     gaplar = random.sample(KUNDALIK_GAPLAR, min(10, len(KUNDALIK_GAPLAR)))
-    txt = f"💬 Kundalik muloqot gaplari\n📅 {datetime.now().strftime('%d.%m.%Y')}\n\n"
+    txt = f"💬 *Kundalik muloqot gaplari*\n📅 {datetime.now().strftime('%d.%m.%Y')}\n\n"
     for i, g in enumerate(gaplar, 1):
-        txt += f"{i}. 🇷🇺 {g['ru']}\n     🇺🇿 {g['uz']}\n\n"
-    txt += f"🎁 +1 ball\n🏆 Jami: {R.get(c, 0)}\n\n📚 Jami gaplar: {len(KUNDALIK_GAPLAR)} ta"
+        txt += f"*{i}.* 🇷🇺 {g['ru']}\n     🇺🇿 _{g['uz']}_\n\n"
+    txt += f"🎁 +1 ball\n🏆 Jami: {R.get(c, 0)}\n\n"
+    txt += f"📚 Jami gaplar: {len(KUNDALIK_GAPLAR)} ta"
     st[c] = st.get(c, {})
     st[c]["kundalik_gaplar"] = gaplar
-    bot.send_message(c, txt, reply_markup=kundalik_menu())
+    bot.send_message(c, txt, parse_mode='Markdown', reply_markup=kundalik_menu())
 
 def suhbat_korsat(c):
     x = st.get(c, {})
@@ -425,13 +310,13 @@ def suhbat_korsat(c):
     gaplar = SUHBAT_GAPLAR[kat]
     if i >= len(gaplar):
         x["suhbat_kat"] = None; st[c] = x
-        bot.send_message(c, "Tugadi!", reply_markup=menu()); return
+        bot.send_message(c, "✅ Tugadi!", reply_markup=menu()); return
     gap = gaplar[i]
-    txt = f"💬 {kat} ({i+1}/{len(gaplar)})\n\n🇷🇺 {gap['ru']}\n\n🇺🇿 {gap['uz']}"
+    txt = f"💬 *{kat}* ({i+1}/{len(gaplar)})\n\n🇷🇺 *{gap['ru']}*\n\n🇺🇿 {gap['uz']}"
     mk = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=3)
     mk.add("🔊 Eshitish","⬅️ Oldingi","➡️ Keyingi")
     mk.add("⬅️ Orqaga")
-    bot.send_message(c, txt, reply_markup=mk)
+    bot.send_message(c, txt, parse_mode='Markdown', reply_markup=mk)
 
 def next_savol(c):
     x = st.get(c, {})
@@ -439,26 +324,26 @@ def next_savol(c):
     x["chat_savol"] = savol; x["chat"] = True; st[c] = x
     mk = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
     mk.add("⬅️ Orqaga")
-    bot.send_message(c, f"💬 Chat\n\n{savol['savol']}\n\nRuscha javob yozing\n{savol['javob']}", reply_markup=mk)
+    bot.send_message(c, f"💬 *Chat*\n\n{savol['savol']}\n\n_(Ruscha javob yozing)_\n💡 {savol['javob']}", parse_mode='Markdown', reply_markup=mk)
 
 def gap_tuzish(c):
     g = random.choice(GAPLAR)
     sozlar = g["sozlar"].copy(); random.shuffle(sozlar)
     st[c] = {"gap":True,"gap_togri":g["togri"],"tarj":False,"oyin":False,"a":False}
-    txt = f"📝 Gap tuzish\n\nSo'zlardan gap tuzing:\n\n"
+    txt = f"📝 *Gap tuzish*\n\nSo'zlardan gap tuzing:\n\n"
     for s in sozlar: txt += f"• {s}\n"
-    txt += f"\n💡 {g['tarjima']}\n🎁 +15 ball"
-    bot.send_message(c, txt, reply_markup=gap_menu())
+    txt += f"\n💡 _{g['tarjima']}_\n🎁 +15 ball"
+    bot.send_message(c, txt, parse_mode='Markdown', reply_markup=gap_menu())
 
 def sovga(c):
     uid = str(c); bugun = datetime.now().strftime("%d.%m.%Y")
     if uid not in D: D[uid] = {"oxirgi_kun":bugun,"streak":1,"challenge":False,"sovga":False}
     if D[uid].get("sovga"):
-        bot.send_message(c, "Bugungi sovgani oldingiz!", reply_markup=menu()); return
+        bot.send_message(c, "✅ Bugungi sovgani oldingiz!", reply_markup=menu()); return
     ball = random.choice([10,20,30,50,100])
     ball_qosh(c, ball)
     D[uid]["sovga"] = True; kunlik_saqlash()
-    bot.send_message(c, f"🎁 Kunlik sovga!\n\nSizga +{ball} ball!\n🏆 Jami: {R.get(c,0)}", reply_markup=menu())
+    bot.send_message(c, f"🎁 *Kunlik sovga!*\n\nSizga *+{ball} ball*!\n🏆 Jami: {R.get(c,0)}", parse_mode='Markdown', reply_markup=menu())
 
 def talaffuz(c):
     if len(S) < 1: return
@@ -466,12 +351,12 @@ def talaffuz(c):
     st[c] = {"talaffuz":s,"tarj":False,"oyin":False,"a":False}
     mk = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
     mk.add("🔊 Eshitish","👁 Tarjima","➡️ Keyingi so'z","⏹ To'xtatish")
-    bot.send_message(c, f"🎵 Talaffuz\n\nRuscha: {s['ru']}\n\nEshitish", reply_markup=mk)
+    bot.send_message(c, f"🎵 *Talaffuz*\n\nRuscha: *{s['ru']}*\n\n«🔊 Eshitish»", parse_mode='Markdown', reply_markup=mk)
 
 def yutuqlarim(c):
     uid = str(c); ball = R.get(uid, 0); streak = D.get(uid, {}).get("streak", 0)
     dostlar = len(F.get(uid, []))
-    txt = "🏅 Yutuqlaringiz\n\n"
+    txt = "🏅 *Yutuqlaringiz*\n\n"
     if ball >= 1000: txt += "✅ 👑 Legenda (1000)\n"
     elif ball >= 500: txt += "✅ 🥇 Ustoz (500)\n"
     elif ball >= 100: txt += "✅ 🥈 Faol (100)\n"
@@ -481,36 +366,36 @@ def yutuqlarim(c):
     else: txt += f"⏳ 🔥 7 kun ({streak}/7)\n"
     if dostlar >= 1: txt += "✅ 👥 Do'st\n"
     else: txt += "⏳ 👥 Do'st (0/1)\n"
-    bot.send_message(c, txt)
+    bot.send_message(c, txt, parse_mode='Markdown')
 
 def grafik(c):
     uid = str(c); ball = R.get(uid, 0)
-    txt = "📊 Grafik\n\n"
+    txt = "📊 *Grafik*\n\n"
     for d in [0, 100, 500, 1500, 3000, 5000]:
         if ball >= d: txt += f"✅ {d} ball\n"
         else: txt += f"⬜ {d} ball\n"
     txt += f"\n🏆 Siz: {ball}\n📊 {daraja(ball)}"
-    bot.send_message(c, txt)
+    bot.send_message(c, txt, parse_mode='Markdown')
 
 def sevimlilar(c):
     uid = str(c)
     if uid not in SV or not SV[uid]:
-        bot.send_message(c, "⭐ Bosh. Flashcard da Saqlash bosing."); return
-    txt = "⭐ Sevimlilar:\n\n"
+        bot.send_message(c, "⭐ Bo'sh. Flashcard da «⭐ Saqlash» bosing."); return
+    txt = "⭐ *Sevimlilar:*\n\n"
     for i, rus in enumerate(SV[uid], 1):
         for s in S:
             if s["ru"] == rus: txt += f"{i}. {s['ru']} — {s['uz']}\n"; break
-    bot.send_message(c, txt)
+    bot.send_message(c, txt, parse_mode='Markdown')
 
 def top10(c):
-    if not R: bot.send_message(c, "🏆 Bosh."); return
+    if not R: bot.send_message(c, "🏆 Bo'sh."); return
     saralangan = sorted(R.items(), key=lambda x: x[1], reverse=True)[:10]
-    txt = "🏆 TOP-10\n\n"
+    txt = "🏆 *TOP-10*\n\n"
     medallar = ["🥇","🥈","🥉","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣","🔟"]
     for i, (uid, ball) in enumerate(saralangan):
-        ism = U.get(uid, {}).get("ism", "Nomalum")
+        ism = U.get(uid, {}).get("ism", "Noma'lum")
         txt += f"{medallar[i]} {ism} — {ball}\n"
-    bot.send_message(c, txt)
+    bot.send_message(c, txt, parse_mode='Markdown')
 
 def mening_reyting(c):
     ball = R.get(str(c), 0)
@@ -521,7 +406,7 @@ def mening_reyting(c):
         for i, (uid, b) in enumerate(saralangan, 1):
             if uid == str(c): orin = i; break
     streak = D.get(c, {}).get("streak", 0)
-    bot.send_message(c, f"📊 Reytingingiz\n\n🏆 Ball: {ball}\n📍 Orin: {orin} / {len(R)}\n📊 {daraja(ball)}\n🔥 Streak: {streak} kun")
+    bot.send_message(c, f"📊 *Reytingingiz*\n\n🏆 Ball: *{ball}*\n📍 O'rin: *{orin}* / {len(R)}\n📊 {daraja(ball)}\n🔥 Streak: {streak} kun", parse_mode='Markdown')
 
 def flash(c):
     x = st.get(c,{}); idx = x.get("i",0)
@@ -546,6 +431,19 @@ def test(c):
     mk.add("⏹ Testdan chiqish")
     bot.send_message(c, f"Test ({idx+1}/{len(S)})\n\n{tg['ru']} - ?", reply_markup=mk)
 
+def barcha(c, sh=0):
+    ss = 20; j = len(S); js = (j+ss-1)//ss
+    if sh < 0: sh = 0
+    if sh >= js: sh = js-1
+    sz = S[sh*ss:(sh+1)*ss]
+    txt = f"Barcha - {sh+1}/{js}\n\n"
+    for i, s in enumerate(sz, sh*ss+1):
+        txt += f"{i}. {s['ru']} - {s['uz']}\n"
+    x = st.get(c,{}); x["sh"] = sh; st[c] = x
+    mk = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
+    mk.add("⬅️ Oldingi","➡️ Keyingi","⬅️ Orqaga")
+    bot.send_message(c, txt, reply_markup=mk)
+
 def oyin_navbat(c):
     x = st.get(c, {})
     if len(S) < 4:
@@ -554,7 +452,7 @@ def oyin_navbat(c):
     x["oyin_javob"] = s["uz"]; x["oyin"] = True; st[c] = x
     mk = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
     mk.add("⏹ To'xtatish")
-    bot.send_message(c, f"🎮 O'yin\n\nRuscha: {s['ru']}\n\nTarjima yozing\n🎁 +10 ball", reply_markup=mk)
+    bot.send_message(c, f"🎮 O'yin\n\nRuscha: *{s['ru']}*\n\nTarjima yozing:\n🎁 +10 ball", parse_mode='Markdown', reply_markup=mk)
 
 def reklama_yubor():
     while True:
@@ -562,7 +460,7 @@ def reklama_yubor():
         try:
             for uid in list(U.keys()):
                 try:
-                    bot.send_message(int(uid), REKLAMA_MATN, reply_markup=reklama_btn())
+                    bot.send_message(int(uid), REKLAMA_MATN, parse_mode='Markdown', reply_markup=reklama_btn())
                     time.sleep(0.1)
                 except: pass
         except: pass
@@ -573,62 +471,62 @@ Thread(target=reklama_yubor, daemon=True).start()
 def start(m):
     c = str(m.chat.id)
     if m.chat.id == A:
-        bot.send_message(c, "Admin\n\n/royxat\n/talablar"); return
+        bot.send_message(c, "👑 Admin\n\n/royxat\n/talablar"); return
     if c in U and U[c].get("ism"):
         streak = kunlik_tekshir(m.chat.id)
         ball_qosh(m.chat.id, 1)
         st[c] = {"i":0,"s":0,"t":0,"a":False,"tarj":False,"tarj_til":"ru-uz","oyin":False}
-        bot.send_message(c, f"Salom, {U[c]['ism']}!\n\n📚 {len(S)} ta soz\n💬 {len(KUNDALIK_GAPLAR)} ta gap\n🔥 Streak: {streak} kun\n🏆 Ball: {R.get(c,0)}\n🎁 +1 ball!", reply_markup=menu())
+        bot.send_message(c, f"Salom, {U[c]['ism']}! 👋\n\n📚 {len(S)} ta so'z\n💬 {len(KUNDALIK_GAPLAR)} ta gap\n🔥 Streak: {streak} kun\n🏆 Ball: {R.get(c,0)}\n🎁 +1 ball!", reply_markup=menu())
         return
     U[c] = {"id":m.chat.id,"ism":"","familiya":"","sana_tugilgan":"","tel":"","h":"ism","sana":datetime.now().strftime("%d.%m.%Y %H:%M")}
     saqlash()
-    bot.send_message(c, "Assalomu alaykum!\n\nIsmingizni kiriting:", reply_markup=types.ReplyKeyboardRemove())
+    bot.send_message(c, "🌍 Assalomu alaykum!\n\n📝 Ismingizni kiriting:\n_(Har qanday alifboda)_", parse_mode='Markdown', reply_markup=types.ReplyKeyboardRemove())
 
 @bot.message_handler(commands=['royxat'])
 def royxat(m):
     if m.chat.id != A: return
-    txt = f"Foydalanuvchilar: {len(U)}\n\n"
+    txt = f"👥 Foydalanuvchilar: {len(U)}\n\n"
     for uid, u in list(U.items())[:20]:
-        txt += f"{u.get('ism','?')} {u.get('familiya','')} — {R.get(uid,0)} ball\n"
+        txt += f"• {u.get('ism','?')} {u.get('familiya','')} — {R.get(uid,0)} ball\n"
     bot.send_message(m.chat.id, txt)
 
 @bot.message_handler(commands=['talablar'])
 def talablar_admin(m):
     if m.chat.id != A: return
     if not TT:
-        bot.send_message(m.chat.id, "Talablar yoq."); return
-    txt = f"Talablar: {len(TT)} ta\n\n"
+        bot.send_message(m.chat.id, "📭 Talablar yo'q."); return
+    txt = f"📢 *Talablar:* {len(TT)} ta\n\n"
     for i, (uid, talab) in enumerate(list(TT.items())[-20:], 1):
         ism = U.get(uid, {}).get("ism", "?")
         txt += f"{i}. {ism}:\n{talab['matn']}\n\n"
-    bot.send_message(m.chat.id, txt)
+    bot.send_message(m.chat.id, txt, parse_mode='Markdown')
 
 @bot.message_handler(func=lambda m: str(m.chat.id) in U and U[str(m.chat.id)].get("h"))
 def reg(m):
     c = str(m.chat.id); u = U[c]; t = m.text.strip()
     if u["h"] == "ism":
         if not ism_tekshir(t):
-            bot.send_message(c, "Ism notogri!\nKamida 2 harf.\nQaytadan:"); return
+            bot.send_message(c, "❌ Ism noto'g'ri!\nKamida 2 harf.\nQaytadan:"); return
         u["ism"] = t; u["h"] = "fam"; saqlash()
-        bot.send_message(c, "Familiyangizni kiriting:")
+        bot.send_message(c, "✅ Familiyangizni kiriting:")
     elif u["h"] == "fam":
         if not ism_tekshir(t):
-            bot.send_message(c, "Familiya notogri!\nKamida 2 harf.\nQaytadan:"); return
+            bot.send_message(c, "❌ Familiya noto'g'ri!\nKamida 2 harf.\nQaytadan:"); return
         u["familiya"] = t; u["h"] = "sana"; saqlash()
-        bot.send_message(c, "Tugilgan sana:\n\nFormat: DD.MM.YYYY")
+        bot.send_message(c, "✅ Tug'ilgan sana:\n\nFormat: `DD.MM.YYYY`", parse_mode='Markdown')
     elif u["h"] == "sana":
         if not sana_tekshir(t):
-            bot.send_message(c, "Sana notogri!\n\nFormat: DD.MM.YYYY\nMasalan: 15.05.1995\nQaytadan:"); return
+            bot.send_message(c, "❌ Sana noto'g'ri!\n\nFormat: `DD.MM.YYYY`\nMasalan: `15.05.1995`\nQaytadan:", parse_mode='Markdown'); return
         u["sana_tugilgan"] = t; u["h"] = "tel"; saqlash()
-        bot.send_message(c, "Telefon:\n\nFormat: +XXXXXXXXXXXX")
+        bot.send_message(c, "✅ Telefon:\n\nFormat: `+XXXXXXXXXXXX`", parse_mode='Markdown')
     elif u["h"] == "tel":
         if not telefon_tekshir(t):
-            bot.send_message(c, "Telefon notogri!\n\nMasalan: +998901234567\nQaytadan:"); return
+            bot.send_message(c, "❌ Telefon noto'g'ri!\n\nMasalan: `+998901234567`\nQaytadan:"); return
         u["tel"] = t; u["h"] = ""; saqlash()
         ball_qosh(m.chat.id, 5); kunlik_tekshir(m.chat.id)
-        bot.send_message(c, f"Rahmat, {u['ism']}!\n\n🎁 +5 ball!")
-        bot.send_message(c, REKLAMA_MATN, reply_markup=reklama_btn())
-        try: bot.send_message(A, f"YANGI:\n{u['ism']} {u['familiya']}\n{u['sana_tugilgan']}\n{u['tel']}")
+        bot.send_message(c, f"🎉 Rahmat, {u['ism']}!\n\n🎁 +5 ball!")
+        bot.send_message(c, REKLAMA_MATN, parse_mode='Markdown', reply_markup=reklama_btn())
+        try: bot.send_message(A, f"👤 YANGI:\n{u['ism']} {u['familiya']}\n{u['sana_tugilgan']}\n{u['tel']}")
         except: pass
         st[c] = {"i":0,"s":0,"t":0,"a":False,"tarj":False,"tarj_til":"ru-uz","oyin":False}
         bot.send_message(c, "Menyu:", reply_markup=menu())
@@ -636,12 +534,6 @@ def reg(m):
 @bot.message_handler(func=lambda m: True)
 def hand(m):
     c = str(m.chat.id); t = m.text
-
-    # ANTI-SPAM BOSHLANISHI
-    if anti_spam_handler(m):
-        return
-    # ANTI-SPAM TUGADI
-
     if m.chat.id == A: return
     if c not in U or not U[c].get("ism") or U[c].get("h"): return
     if c not in st: st[c] = {"i":0,"s":0,"t":0,"a":False,"tarj":False,"tarj_til":"ru-uz","oyin":False}
@@ -666,14 +558,14 @@ def hand(m):
             bot.send_message(c, "Menyu:", reply_markup=menu()); return
         if t == "📢 Talab/taklif yozish":
             x["talab_yozish"] = True; st[c] = x
-            bot.send_message(c, "Talab yoki taklifingizni yozing:"); return
+            bot.send_message(c, "📢 Talab yoki taklifingizni yozing:"); return
         if t == "📋 Mening talablarim":
-            bot.send_message(c, f"{TT.get(c, {}).get('matn', 'Yoq')}"); return
+            bot.send_message(c, f"📋 {TT.get(c, {}).get('matn', 'Yoq')}"); return
         if x.get("talab_yozish"):
             TT[c] = {"matn": t, "sana": datetime.now().strftime("%d.%m.%Y %H:%M")}
             talablar_saqlash()
-            bot.send_message(c, "Rahmat!", reply_markup=menu())
-            try: bot.send_message(A, f"YANGI:\n{U[c].get('ism','?')}:\n{t}")
+            bot.send_message(c, "✅ Rahmat!", reply_markup=menu())
+            try: bot.send_message(A, f"📢 YANGI:\n{U[c].get('ism','?')}:\n{t}")
             except: pass
             x["talab_yozish"] = False; x["talab"] = False; st[c] = x
             return
@@ -705,13 +597,13 @@ def hand(m):
     if x.get("gap"):
         if t == "⏹ To'xtatish":
             x["gap"] = False; st[c] = x
-            bot.send_message(c, "Toxtatildi.", reply_markup=menu()); return
+            bot.send_message(c, "To'xtatildi.", reply_markup=menu()); return
         if t.strip().lower() == x.get("gap_togri","").lower():
             ball_qosh(m.chat.id, 15)
-            bot.send_message(c, "Togri! +15 ball")
+            bot.send_message(c, f"✅ To'g'ri! +15 ball")
             x["gap"] = False; st[c] = x
-            bot.send_message(c, "Yana oynash uchun Gap tuzish ni bosing.", reply_markup=menu())
-        else: bot.send_message(c, f"Notogri. Togri: {x.get('gap_togri','')}")
+            bot.send_message(c, "Yana o'ynash uchun «📝 Gap tuzish» ni bosing.", reply_markup=menu())
+        else: bot.send_message(c, f"❌ Noto'g'ri. To'g'ri: {x.get('gap_togri','')}")
         return
 
     if x.get("kat"):
@@ -739,22 +631,22 @@ def hand(m):
             x["dost"] = False; st[c] = x
             bot.send_message(c, "Menyu:", reply_markup=menu()); return
         if t == "🔗 Havola":
-            bot.send_message(c, f"Havolangiz:\n\nhttps://t.me/Til_organ_uz_bot?start={c}\n\n+50 ball!")
+            bot.send_message(c, f"🔗 Havolangiz:\n\nhttps://t.me/Til_organ_uz_bot?start={c}\n\n+50 ball!")
         elif t == "👥 Do'stlarim":
             dostlar = F.get(c, [])
-            if not dostlar: bot.send_message(c, "Dostlaringiz yoq.")
+            if not dostlar: bot.send_message(c, "Do'stlaringiz yo'q.")
             else:
-                txt = "Dostlaringiz:\n\n"
+                txt = "👥 Do'stlaringiz:\n\n"
                 for i, d in enumerate(dostlar, 1):
                     txt += f"{i}. {U.get(d,{}).get('ism','?')} — {R.get(d,0)} ball\n"
                 bot.send_message(c, txt)
         elif t == "🏆 Do'stlar reytingi":
             dostlar = F.get(c, [])
-            if not dostlar: bot.send_message(c, "Dostlar yoq.")
+            if not dostlar: bot.send_message(c, "Do'stlar yo'q.")
             else:
                 ballar = [(d, R.get(d,0)) for d in dostlar + [c]]
                 ballar.sort(key=lambda x: x[1], reverse=True)
-                txt = "Dostlar:\n\n"
+                txt = "🏆 Do'stlar:\n\n"
                 for i, (d, b) in enumerate(ballar, 1):
                     ism = U.get(d,{}).get("ism","?") if d != c else "Siz"
                     txt += f"{i}. {ism} — {b} ball\n"
@@ -764,7 +656,7 @@ def hand(m):
     if x.get("talaffuz"):
         if t == "⏹ To'xtatish":
             x["talaffuz"] = None; st[c] = x
-            bot.send_message(c, "Toxtatildi.", reply_markup=menu()); return
+            bot.send_message(c, "To'xtatildi.", reply_markup=menu()); return
         if t == "🔊 Eshitish":
             s = x.get("talaffuz")
             if s:
@@ -786,7 +678,7 @@ def hand(m):
             if TARJIMA_BOR:
                 try:
                     natija = GoogleTranslator(source='auto', target='ru').translate(t)
-                    bot.send_message(c, f"RU: {natija}")
+                    bot.send_message(c, f"🇷🇺 {natija}")
                 except: pass
             next_savol(c)
         return
@@ -794,16 +686,32 @@ def hand(m):
     if x.get("oyin"):
         if t == "⏹ To'xtatish":
             x["oyin"] = False; st[c] = x
-            bot.send_message(c, "Toxtatildi.", reply_markup=menu()); return
+            bot.send_message(c, "To'xtatildi.", reply_markup=menu()); return
         if x.get("oyin_javob"):
             togri = x["oyin_javob"]
             if t.lower().strip() == togri.lower().strip():
                 ball_qosh(m.chat.id, 10)
-                bot.send_message(c, "Togri! +10 ball")
+                bot.send_message(c, f"✅ To'g'ri! +10 ball")
                 oyin_navbat(c)
             else:
-                bot.send_message(c, f"Notogri. Togri: {togri}")
+                bot.send_message(c, f"❌ Noto'g'ri. To'g'ri: {togri}")
                 oyin_navbat(c)
+            return
+
+    if x.get("challenge"):
+        if t == "⏹ To'xtatish":
+            x["challenge"] = False; st[c] = x
+            bot.send_message(c, "To'xtatildi.", reply_markup=menu()); return
+        if x.get("javob"):
+            togri = x["javob"]
+            if t.lower().strip() == togri.lower().strip():
+                ball_qosh(m.chat.id, 20)
+                if c in D: D[c]["challenge"] = True; kunlik_saqlash()
+                x["javob"] = None; x["challenge"] = False; st[c] = x
+                bot.send_message(c, f"✅ To'g'ri! +20 ball", reply_markup=menu())
+            else:
+                x["javob"] = None; x["challenge"] = False; st[c] = x
+                bot.send_message(c, f"❌ Noto'g'ri. To'g'ri: {togri}", reply_markup=menu())
             return
 
     if x.get("tarj"):
@@ -812,29 +720,29 @@ def hand(m):
             bot.send_message(c, "Menyu:", reply_markup=menu()); return
         if t == "🇷🇺 Ruscha → 🇺🇿 O'zbekcha":
             x["tarj_til"] = "ru-uz"; st[c] = x
-            bot.send_message(c, "Ruscha → Ozbekcha."); return
+            bot.send_message(c, "✅ Ruscha → O'zbekcha."); return
         if t == "🇺🇿 O'zbekcha → 🇷🇺 Ruscha":
             x["tarj_til"] = "uz-ru"; st[c] = x
-            bot.send_message(c, "Ozbekcha → Ruscha."); return
+            bot.send_message(c, "✅ O'zbekcha → Ruscha."); return
         if TARJIMA_BOR:
             try:
                 if x["tarj_til"] == "ru-uz":
                     natija = GoogleTranslator(source='ru', target='uz').translate(t)
-                    bot.send_message(c, f"RU: {t}\n\nUZ: {natija}")
+                    bot.send_message(c, f"🇷🇺 {t}\n\n🇺🇿 {natija}")
                 else:
                     natija = GoogleTranslator(source='uz', target='ru').translate(t)
-                    bot.send_message(c, f"UZ: {t}\n\nRU: {natija}")
-            except: bot.send_message(c, "Tarjima xatosi.")
+                    bot.send_message(c, f"🇺🇿 {t}\n\n🇷🇺 {natija}")
+            except: bot.send_message(c, "❌ Tarjima xatosi.")
         return
 
     if x.get("ta") and x.get("ca"):
         if t == x["ca"]:
             x["ts"] = x.get("ts",0)+1; x["tt"] = x.get("tt",0)+1; x["ti"] = x.get("ti",0)+1
             st[c] = x; ball_qosh(m.chat.id, 5)
-            bot.send_message(c, "Togri! +5 ball"); test(c); return
+            bot.send_message(c, "✅ Togri! +5 ball"); test(c); return
         elif t in [s["uz"] for s in S]:
             x["tt"] = x.get("tt",0)+1; x["ti"] = x.get("ti",0)+1
-            st[c] = x; bot.send_message(c, f"Notogri. Togri: {x['ca']}"); test(c); return
+            st[c] = x; bot.send_message(c, f"❌ Notogri. Togri: {x['ca']}"); test(c); return
 
     if t == "📅 Kundalik":
         ball_qosh(m.chat.id, 1)
@@ -846,28 +754,28 @@ def hand(m):
     elif t == "🎮 O'yin":
         st[c] = {"oyin":True,"oyin_javob":None,"tarj":False,"a":False}; oyin_navbat(c)
     elif t == "💬 Suhbat":
-        st[c] = {"suhbat":True}; bot.send_message(c, "Suhbat:", reply_markup=suhbat_menu())
+        st[c] = {"suhbat":True}; bot.send_message(c, "💬 Suhbat:", reply_markup=suhbat_menu())
     elif t == "📝 Gap tuzish":
         gap_tuzish(c)
     elif t == "📚 Kategoriya":
-        st[c] = {"kat":True}; bot.send_message(c, "Kategoriya:", reply_markup=kategoriya_menu())
+        st[c] = {"kat":True}; bot.send_message(c, "📚 Kategoriya:", reply_markup=kategoriya_menu())
     elif t == "🎵 Talaffuz":
         talaffuz(c)
     elif t == "🎁 Sovga":
         sovga(c)
     elif t == "👥 Do'stlar":
-        st[c] = {"dost":True}; bot.send_message(c, "Dostlar:", reply_markup=dost_menu())
+        st[c] = {"dost":True}; bot.send_message(c, "👥 Do'stlar:", reply_markup=dost_menu())
     elif t == "⭐ Sevimlilar":
         sevimlilar(c)
     elif t == "📖 Grammatika":
-        st[c] = {"gram":True}; bot.send_message(c, "Grammatika:", reply_markup=gram_menu())
+        st[c] = {"gram":True}; bot.send_message(c, "📖 Grammatika:", reply_markup=gram_menu())
     elif t == "💬 Chat":
         st[c] = {"chat":True}
         next_savol(c)
     elif t == "📢 Talab va taklif":
-        st[c] = {"talab":True}; bot.send_message(c, "Talab:", reply_markup=talab_menu())
+        st[c] = {"talab":True}; bot.send_message(c, "📢 Talab:", reply_markup=talab_menu())
     elif t == "🏆 Reyting":
-        bot.send_message(c, "Reyting:", reply_markup=reyting_menu())
+        bot.send_message(c, "🏆 Reyting:", reply_markup=reyting_menu())
     elif t == "🥇 TOP-10":
         top10(c)
     elif t == "📊 Mening reytingim":
@@ -878,9 +786,9 @@ def hand(m):
         grafik(c)
     elif t == "📊 Statistika":
         ball = R.get(c, 0); streak = D.get(c, {}).get("streak", 0)
-        bot.send_message(c, f"Statistika\n\nJami: {len(S)}\nGaplar: {len(KUNDALIK_GAPLAR)}\nBall: {ball}\nDaraja: {daraja(ball)}\nStreak: {streak} kun")
+        bot.send_message(c, f"📊 Statistika\n\n📚 Jami: {len(S)}\n💬 Gaplar: {len(KUNDALIK_GAPLAR)}\n🏆 Ball: {ball}\n📊 Daraja: {daraja(ball)}\n🔥 Streak: {streak} kun")
     elif t == "ℹ️ Yordam":
-        bot.send_message(c, "Yordam\n\nKundalik (+1)\nFlashcard (+2)\nTestlar (+5)\nO'yin (+10)\nGap tuzish (+15)\nDostlar (+50)\nSovga\nTalaffuz\nKategoriya\nGrammatika\nChat\nTalab va taklif\nSevimlilar\nReyting\nTarjima")
+        bot.send_message(c, "📖 Yordam\n\n📅 Kundalik (+1)\n📚 Flashcard (+2)\n🎯 Testlar (+5)\n🎮 O'yin (+10)\n📝 Gap tuzish (+15)\n🎁 Challenge (+20)\n👥 Do'stlar (+50)\n🎁 Sovga\n🎵 Talaffuz\n📚 Kategoriya\n📖 Grammatika\n💬 Chat\n📢 Talab va taklif\n⭐ Sevimlilar\n🏆 Reyting\n🔄 Tarjima")
     elif t == "👁 Ko'rsatish":
         idx = x.get("i",0)
         if idx < len(S):
@@ -908,14 +816,23 @@ def hand(m):
             if uid not in SV: SV[uid] = []
             if s["ru"] not in SV[uid]:
                 SV[uid].append(s["ru"]); sevimlilar_saqlash()
-                bot.send_message(c, "Saqlandi!")
+                bot.send_message(c, "⭐ Saqlandi!")
             else: bot.send_message(c, "Allaqachon saqlangan.")
     elif t == "⏹ To'xtatish":
         x["a"] = False; st[c] = x
-        bot.send_message(c, "Toxtatildi.", reply_markup=menu())
+        bot.send_message(c, "To'xtatildi.", reply_markup=menu())
     elif t == "⏹ Testdan chiqish":
         x["ta"] = False; st[c] = x
-        bot.send_message(c, "Toxtatildi.", reply_markup=menu())
+        bot.send_message(c, "To'xtatildi.", reply_markup=menu())
+    elif t == "⬅️ Oldingi":
+        sh = x.get("sh",0)-1
+        if sh < 0: bot.send_message(c, "Birinchi sahifa.")
+        else: barcha(c, sh)
+    elif t == "➡️ Keyingi":
+        sh = x.get("sh",0)+1
+        js = (len(S)+19)//20
+        if sh >= js: bot.send_message(c, "Oxirgi sahifa.")
+        else: barcha(c, sh)
     elif t == "⬅️ Orqaga":
         for k in ["ta","tarj","oyin","challenge","kat","dost","gap","gram","chat","talaffuz","suhbat","suhbat_kat","talab","kundalik_gaplar"]:
             x[k] = False
@@ -925,12 +842,12 @@ def hand(m):
         if TARJIMA_BOR and len(t) > 2:
             try:
                 natija = GoogleTranslator(source='auto', target='uz').translate(t)
-                bot.send_message(c, f"Tarjima:\n\nRU: {t}\n\nUZ: {natija}")
+                bot.send_message(c, f"📝 Tarjima:\n\n🇷🇺 {t}\n\n🇺🇿 {natija}")
                 return
             except: pass
         bot.send_message(c, "Tugmalardan birini tanlang", reply_markup=menu())
 
-print("Bot ishga tushdi...")
+print("🚀 Bot ishga tushdi...")
 while True:
     try: bot.polling(non_stop=True, timeout=60)
     except Exception as e: print("Xato:", e); time.sleep(5)

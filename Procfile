@@ -1,1 +1,1 @@
-web: python bot_yakuniy.py
+web: python bot_yangi.py

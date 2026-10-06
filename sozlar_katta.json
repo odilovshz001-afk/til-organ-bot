@@ -1,54 +1,8004 @@
 {
   "sozlar": [
-    {"ru": "Привет", "uz": "Salom", "en": "Hello", "talaffuz": "Privet", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Спасибо", "uz": "Rahmat", "en": "Thanks", "talaffuz": "Spasiba", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Пожалуйста", "uz": "Marhamat", "en": "Please", "talaffuz": "Pajalusta", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Да", "uz": "Ha", "en": "Yes", "talaffuz": "Da", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Нет", "uz": "Yo'q", "en": "No", "talaffuz": "Net", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Хорошо", "uz": "Yaxshi", "en": "Good", "talaffuz": "Xarasho", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Плохо", "uz": "Yomon", "en": "Bad", "talaffuz": "Ploxa", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Здравствуйте", "uz": "Assalomu alaykum", "en": "Hello", "talaffuz": "Zdrastvuyte", "misol_ru": "", "misol_uz": ""},
-    {"ru": "До свидания", "uz": "Xayr", "en": "Goodbye", "talaffuz": "Da svidaniya", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Как дела?", "uz": "Qalaysiz?", "en": "How are you?", "talaffuz": "Kak dela?", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Меня зовут", "uz": "Mening ismim", "en": "My name is", "talaffuz": "Menya zovut", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Я не понимаю", "uz": "Men tushunmayman", "en": "I don't understand", "talaffuz": "Ya ne panimayu", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Сколько стоит?", "uz": "Narxi qancha?", "en": "How much?", "talaffuz": "Skolka stoit?", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Где находится?", "uz": "Qayerda joylashgan?", "en": "Where is it?", "talaffuz": "Gde naxoditsya?", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Помогите", "uz": "Yordam bering", "en": "Help", "talaffuz": "Pamagite", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Извините", "uz": "Kechirasiz", "en": "Sorry", "talaffuz": "Izvinite", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Вода", "uz": "Suv", "en": "Water", "talaffuz": "Vada", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Хлеб", "uz": "Non", "en": "Bread", "talaffuz": "Xleb", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Дом", "uz": "Uy", "en": "House", "talaffuz": "Dom", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Работа", "uz": "Ish", "en": "Work", "talaffuz": "Rabota", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Учитель", "uz": "O'qituvchi", "en": "Teacher", "talaffuz": "Uchitel", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Ученик", "uz": "O'quvchi", "en": "Student", "talaffuz": "Uchenik", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Книга", "uz": "Kitob", "en": "Book", "talaffuz": "Kniga", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Стол", "uz": "Stol", "en": "Table", "talaffuz": "Stol", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Стул", "uz": "Stul", "en": "Chair", "talaffuz": "Stul", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Машина", "uz": "Mashina", "en": "Car", "talaffuz": "Mashina", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Город", "uz": "Shahar", "en": "City", "talaffuz": "Gorod", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Страна", "uz": "Mamlakat", "en": "Country", "talaffuz": "Strana", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Язык", "uz": "Til", "en": "Language", "talaffuz": "Yazik", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Друг", "uz": "Do'st", "en": "Friend", "talaffuz": "Drug", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Семья", "uz": "Oila", "en": "Family", "talaffuz": "Semya", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Мама", "uz": "Ona", "en": "Mother", "talaffuz": "Mama", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Папа", "uz": "Ota", "en": "Father", "talaffuz": "Papa", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Брат", "uz": "Aka/Uka", "en": "Brother", "talaffuz": "Brat", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Сестра", "uz": "Opa/Singil", "en": "Sister", "talaffuz": "Sestra", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Любовь", "uz": "Sevgi", "en": "Love", "talaffuz": "Lyubov", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Счастье", "uz": "Baxt", "en": "Happiness", "talaffuz": "Schastye", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Время", "uz": "Vaqt", "en": "Time", "talaffuz": "Vremya", "misol_ru": "", "misol_uz": ""},
-    {"ru": "День", "uz": "Kun", "en": "Day", "talaffuz": "Den", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Ночь", "uz": "Tun", "en": "Night", "talaffuz": "Noch", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Утро", "uz": "Ertalab", "en": "Morning", "talaffuz": "Utra", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Вечер", "uz": "Kechqurun", "en": "Evening", "talaffuz": "Vecher", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Еда", "uz": "Ovqat", "en": "Food", "talaffuz": "Yeda", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Чай", "uz": "Choy", "en": "Tea", "talaffuz": "Chay", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Кофе", "uz": "Kofe", "en": "Coffee", "talaffuz": "Kofe", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Молоко", "uz": "Sut", "en": "Milk", "talaffuz": "Malako", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Мясо", "uz": "Go'sht", "en": "Meat", "talaffuz": "Myasa", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Рыба", "uz": "Baliq", "en": "Fish", "talaffuz": "Riba", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Фрукт", "uz": "Meva", "en": "Fruit", "talaffuz": "Frukt", "misol_ru": "", "misol_uz": ""},
-    {"ru": "Овощ", "uz": "Sabzavot", "en": "Vegetable", "talaffuz": "Ovosch", "misol_ru": "", "misol_uz": ""}
+    {
+      "ru": "человек",
+      "en": "person",
+      "uz": "odam",
+      "talaffuz": "человек",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "год",
+      "en": "year",
+      "uz": "yil",
+      "talaffuz": "год",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "время",
+      "en": "time",
+      "uz": "vaqt",
+      "talaffuz": "время",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "рука",
+      "en": "hand",
+      "uz": "qo'l",
+      "talaffuz": "рука",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "стать",
+      "en": "figure",
+      "uz": "raqam",
+      "talaffuz": "стать",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "дело",
+      "en": "business",
+      "uz": "biznes",
+      "talaffuz": "дело",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "раз",
+      "en": "time",
+      "uz": "vaqt",
+      "talaffuz": "раз",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "глаз",
+      "en": "eye",
+      "uz": "ko'z",
+      "talaffuz": "глаз",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "день",
+      "en": "day",
+      "uz": "kun",
+      "talaffuz": "день",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "жизнь",
+      "en": "life",
+      "uz": "hayot",
+      "talaffuz": "жизнь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "тут",
+      "en": "mulberry fruit",
+      "uz": "tut mevasi",
+      "talaffuz": "тут",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "голова",
+      "en": "head",
+      "uz": "bosh",
+      "talaffuz": "голова",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "друг",
+      "en": "friend",
+      "uz": "do'st",
+      "talaffuz": "друг",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "дом",
+      "en": "house",
+      "uz": "uy",
+      "talaffuz": "дом",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "слово",
+      "en": "word",
+      "uz": "so'z",
+      "talaffuz": "слово",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "место",
+      "en": "place",
+      "uz": "joy",
+      "talaffuz": "место",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "лицо",
+      "en": "face",
+      "uz": "yuz",
+      "talaffuz": "лицо",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "сторона",
+      "en": "side",
+      "uz": "tomoni",
+      "talaffuz": "сторона",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "нога",
+      "en": "leg",
+      "uz": "oyoq",
+      "talaffuz": "нога",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "работа",
+      "en": "work",
+      "uz": "ish",
+      "talaffuz": "работа",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "дверь",
+      "en": "door",
+      "uz": "eshik",
+      "talaffuz": "дверь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "конец",
+      "en": "end",
+      "uz": "oxiri",
+      "talaffuz": "конец",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "город",
+      "en": "town",
+      "uz": "shaharcha",
+      "talaffuz": "город",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "голос",
+      "en": "voice",
+      "uz": "ovoz",
+      "talaffuz": "голос",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "час",
+      "en": "hour",
+      "uz": "soat",
+      "talaffuz": "час",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "уж",
+      "en": "grass snake",
+      "uz": "o't iloni",
+      "talaffuz": "уж",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "земля",
+      "en": "earth",
+      "uz": "yer",
+      "talaffuz": "земля",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "сила",
+      "en": "power",
+      "uz": "kuch",
+      "talaffuz": "сила",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "вода",
+      "en": "water",
+      "uz": "suv",
+      "talaffuz": "вода",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "случай",
+      "en": "case",
+      "uz": "hol",
+      "talaffuz": "случай",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "стол",
+      "en": "table",
+      "uz": "stol",
+      "talaffuz": "стол",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "машина",
+      "en": "car",
+      "uz": "mashina",
+      "talaffuz": "машина",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "мир",
+      "en": "world",
+      "uz": "dunyo",
+      "talaffuz": "мир",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ночь",
+      "en": "night",
+      "uz": "tun",
+      "talaffuz": "ночь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "женщина",
+      "en": "woman",
+      "uz": "ayol",
+      "talaffuz": "женщина",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ребёнок",
+      "en": "child",
+      "uz": "bola",
+      "talaffuz": "ребёнок",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "вид",
+      "en": "appearance",
+      "uz": "ko'rinish",
+      "talaffuz": "вид",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "отец",
+      "en": "father",
+      "uz": "ota",
+      "talaffuz": "отец",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "вопрос",
+      "en": "question",
+      "uz": "savol",
+      "talaffuz": "вопрос",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ряд",
+      "en": "row",
+      "uz": "qator",
+      "talaffuz": "ряд",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "страна",
+      "en": "country",
+      "uz": "mamlakat",
+      "talaffuz": "страна",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "война",
+      "en": "war",
+      "uz": "urush",
+      "talaffuz": "война",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "минута",
+      "en": "minute",
+      "uz": "daqiqa",
+      "talaffuz": "минута",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "товарищ",
+      "en": "comrade",
+      "uz": "o'rtoq",
+      "talaffuz": "товарищ",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "правда",
+      "en": "truth",
+      "uz": "haqiqat",
+      "talaffuz": "правда",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "часть",
+      "en": "part",
+      "uz": "qismi",
+      "talaffuz": "часть",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "дорога",
+      "en": "road",
+      "uz": "yo'l",
+      "talaffuz": "дорога",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "свет",
+      "en": "light",
+      "uz": "yorug'lik",
+      "talaffuz": "свет",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "жена",
+      "en": "wife",
+      "uz": "xotini",
+      "talaffuz": "жена",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "окно",
+      "en": "window",
+      "uz": "oyna",
+      "talaffuz": "окно",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "Россия",
+      "en": "Russia",
+      "uz": "Rossiya",
+      "talaffuz": "Россия",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "мать",
+      "en": "mother",
+      "uz": "ona",
+      "talaffuz": "мать",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "Москва",
+      "en": "Moscow",
+      "uz": "Moskva",
+      "talaffuz": "Москва",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "улица",
+      "en": "street",
+      "uz": "ko'cha",
+      "talaffuz": "улица",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "комната",
+      "en": "room",
+      "uz": "xona",
+      "talaffuz": "комната",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "утро",
+      "en": "morning",
+      "uz": "ertalab",
+      "talaffuz": "утро",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "вечер",
+      "en": "evening",
+      "uz": "kechqurun",
+      "talaffuz": "вечер",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "душа",
+      "en": "soul",
+      "uz": "jon",
+      "talaffuz": "душа",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "книга",
+      "en": "book",
+      "uz": "kitob",
+      "talaffuz": "книга",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "плечо",
+      "en": "shoulder",
+      "uz": "elka",
+      "talaffuz": "плечо",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "пол",
+      "en": "floor",
+      "uz": "qavat",
+      "talaffuz": "пол",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "народ",
+      "en": "people",
+      "uz": "odamlar",
+      "talaffuz": "народ",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "взгляд",
+      "en": "look",
+      "uz": "qarang",
+      "talaffuz": "взгляд",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "история",
+      "en": "history",
+      "uz": "tarix",
+      "talaffuz": "история",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "бог",
+      "en": "God",
+      "uz": "Xudo",
+      "talaffuz": "бог",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "палец",
+      "en": "finger",
+      "uz": "barmoq",
+      "talaffuz": "палец",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "имя",
+      "en": "name",
+      "uz": "nomi",
+      "talaffuz": "имя",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "мысль",
+      "en": "thought",
+      "uz": "o'yladi",
+      "talaffuz": "мысль",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "разговор",
+      "en": "conversation",
+      "uz": "suhbat",
+      "talaffuz": "разговор",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "право",
+      "en": "right",
+      "uz": "to'g'ri",
+      "talaffuz": "право",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "лес",
+      "en": "wood",
+      "uz": "yog'och",
+      "talaffuz": "лес",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "пять",
+      "en": "five",
+      "uz": "besh",
+      "talaffuz": "пять",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "сын",
+      "en": "son",
+      "uz": "o'g'lim",
+      "talaffuz": "сын",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "путь",
+      "en": "way",
+      "uz": "yo'l",
+      "talaffuz": "путь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "тысяча",
+      "en": "a thousand",
+      "uz": "ming",
+      "talaffuz": "тысяча",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "пора",
+      "en": "time",
+      "uz": "vaqt",
+      "talaffuz": "пора",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "стена",
+      "en": "wall",
+      "uz": "devor",
+      "talaffuz": "стена",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "спина",
+      "en": "back",
+      "uz": "orqaga",
+      "talaffuz": "спина",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "месяц",
+      "en": "month",
+      "uz": "oy",
+      "talaffuz": "месяц",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "тело",
+      "en": "body",
+      "uz": "tanasi",
+      "talaffuz": "тело",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "язык",
+      "en": "language",
+      "uz": "til",
+      "talaffuz": "язык",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "мама",
+      "en": "mom",
+      "uz": "onam",
+      "talaffuz": "мама",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "старик",
+      "en": "old man",
+      "uz": "chol",
+      "talaffuz": "старик",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "смерть",
+      "en": "death",
+      "uz": "o'lim",
+      "talaffuz": "смерть",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "власть",
+      "en": "power",
+      "uz": "kuch",
+      "talaffuz": "власть",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "мальчик",
+      "en": "boy",
+      "uz": "yigit",
+      "talaffuz": "мальчик",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "образ",
+      "en": "shape",
+      "uz": "shakli",
+      "talaffuz": "образ",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "письмо",
+      "en": "letter",
+      "uz": "xat",
+      "talaffuz": "письмо",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "отношение",
+      "en": "relation",
+      "uz": "munosabat",
+      "talaffuz": "отношение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "сердце",
+      "en": "heart",
+      "uz": "yurak",
+      "talaffuz": "сердце",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "начальник",
+      "en": "boss",
+      "uz": "xo'jayin",
+      "talaffuz": "начальник",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "девушка",
+      "en": "girl",
+      "uz": "qiz",
+      "talaffuz": "девушка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "солдат",
+      "en": "soldier",
+      "uz": "askar",
+      "talaffuz": "солдат",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "небо",
+      "en": "sky",
+      "uz": "osmon",
+      "talaffuz": "небо",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "система",
+      "en": "system",
+      "uz": "tizimi",
+      "talaffuz": "система",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "воздух",
+      "en": "air",
+      "uz": "havo",
+      "talaffuz": "воздух",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ребята",
+      "en": "lads",
+      "uz": "yigitlar",
+      "talaffuz": "ребята",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "брат",
+      "en": "brother",
+      "uz": "uka",
+      "talaffuz": "брат",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "квартира",
+      "en": "flat",
+      "uz": "tekis",
+      "talaffuz": "квартира",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "генерал",
+      "en": "general",
+      "uz": "umumiy",
+      "talaffuz": "генерал",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "кровь",
+      "en": "blood",
+      "uz": "qon",
+      "talaffuz": "кровь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "шаг",
+      "en": "step",
+      "uz": "qadam",
+      "talaffuz": "шаг",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "хозяин",
+      "en": "master",
+      "uz": "usta",
+      "talaffuz": "хозяин",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "внимание",
+      "en": "attention",
+      "uz": "e'tibor",
+      "talaffuz": "внимание",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "школа",
+      "en": "school",
+      "uz": "maktab",
+      "talaffuz": "школа",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "труд",
+      "en": "difficulty",
+      "uz": "qiyinchilik",
+      "talaffuz": "труд",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "капитан",
+      "en": "captain",
+      "uz": "kapitan",
+      "talaffuz": "капитан",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "парень",
+      "en": "boy",
+      "uz": "yigit",
+      "talaffuz": "парень",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "группа",
+      "en": "group",
+      "uz": "guruh",
+      "talaffuz": "группа",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "солнце",
+      "en": "sun",
+      "uz": "quyosh",
+      "talaffuz": "солнце",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "любовь",
+      "en": "love",
+      "uz": "sevgi",
+      "talaffuz": "любовь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ухо",
+      "en": "ear",
+      "uz": "quloq",
+      "talaffuz": "ухо",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "неделя",
+      "en": "week",
+      "uz": "hafta",
+      "talaffuz": "неделя",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ответ",
+      "en": "answer",
+      "uz": "javob",
+      "talaffuz": "ответ",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "берег",
+      "en": "bank",
+      "uz": "bank",
+      "talaffuz": "берег",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "помощь",
+      "en": "help",
+      "uz": "yordam",
+      "talaffuz": "помощь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "мужчина",
+      "en": "man",
+      "uz": "odam",
+      "talaffuz": "мужчина",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "момент",
+      "en": "moment",
+      "uz": "moment",
+      "talaffuz": "момент",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "газета",
+      "en": "newspaper",
+      "uz": "gazeta",
+      "talaffuz": "газета",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "чувство",
+      "en": "feeling",
+      "uz": "tuyg'u",
+      "talaffuz": "чувство",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "порядок",
+      "en": "In order",
+      "uz": "Tartibda; ... uchun",
+      "talaffuz": "порядок",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "семья",
+      "en": "family",
+      "uz": "oila",
+      "talaffuz": "семья",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "армия",
+      "en": "army",
+      "uz": "armiya",
+      "talaffuz": "армия",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "возможность",
+      "en": "possibility",
+      "uz": "imkoniyat",
+      "talaffuz": "возможность",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "движение",
+      "en": "movement",
+      "uz": "harakat",
+      "talaffuz": "движение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "муж",
+      "en": "husband",
+      "uz": "er",
+      "talaffuz": "муж",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "нос",
+      "en": "nose",
+      "uz": "burun",
+      "talaffuz": "нос",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "огонь",
+      "en": "fire",
+      "uz": "olov",
+      "talaffuz": "огонь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "двор",
+      "en": "courtyard",
+      "uz": "hovli",
+      "talaffuz": "двор",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "угол",
+      "en": "corner",
+      "uz": "burchak",
+      "talaffuz": "угол",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "смысл",
+      "en": "sense",
+      "uz": "tuyg'u",
+      "talaffuz": "смысл",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "общество",
+      "en": "society",
+      "uz": "jamiyat",
+      "talaffuz": "общество",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "грудь",
+      "en": "breast",
+      "uz": "ko'krak",
+      "talaffuz": "грудь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "дерево",
+      "en": "tree",
+      "uz": "daraxt",
+      "talaffuz": "дерево",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "немец",
+      "en": "German",
+      "uz": "nemis",
+      "talaffuz": "немец",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "губа",
+      "en": "lip",
+      "uz": "lab",
+      "talaffuz": "губа",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "снег",
+      "en": "snow",
+      "uz": "qor",
+      "talaffuz": "снег",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "дядя",
+      "en": "uncle",
+      "uz": "amaki",
+      "talaffuz": "дядя",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "очередь",
+      "en": "queue",
+      "uz": "navbat",
+      "talaffuz": "очередь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "форма",
+      "en": "form",
+      "uz": "shakl",
+      "talaffuz": "форма",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "закон",
+      "en": "law",
+      "uz": "qonun",
+      "talaffuz": "закон",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "собака",
+      "en": "dog",
+      "uz": "it",
+      "talaffuz": "собака",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "состояние",
+      "en": "condition",
+      "uz": "holat",
+      "talaffuz": "состояние",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "сон",
+      "en": "dream",
+      "uz": "orzu",
+      "talaffuz": "сон",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "карман",
+      "en": "pocket",
+      "uz": "cho'ntak",
+      "talaffuz": "карман",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "девочка",
+      "en": "girl",
+      "uz": "qiz",
+      "talaffuz": "девочка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "камень",
+      "en": "stone",
+      "uz": "tosh",
+      "talaffuz": "камень",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ветер",
+      "en": "wind",
+      "uz": "shamol",
+      "talaffuz": "ветер",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "проблема",
+      "en": "problem",
+      "uz": "muammo",
+      "talaffuz": "проблема",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "связь",
+      "en": "connection",
+      "uz": "ulanish",
+      "talaffuz": "связь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "гость",
+      "en": "visitor",
+      "uz": "mehmon",
+      "talaffuz": "гость",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "зуб",
+      "en": "tooth",
+      "uz": "tish",
+      "talaffuz": "зуб",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "мера",
+      "en": "measure",
+      "uz": "o'lchov",
+      "talaffuz": "мера",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "век",
+      "en": "century",
+      "uz": "asr",
+      "talaffuz": "век",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "номер",
+      "en": "number",
+      "uz": "raqam",
+      "talaffuz": "номер",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "средство",
+      "en": "way",
+      "uz": "yo'l",
+      "talaffuz": "средство",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "действие",
+      "en": "action",
+      "uz": "harakat",
+      "talaffuz": "действие",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ход",
+      "en": "motion",
+      "uz": "harakat",
+      "talaffuz": "ход",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "государство",
+      "en": "State",
+      "uz": "Davlat",
+      "talaffuz": "государство",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "глава",
+      "en": "head",
+      "uz": "bosh",
+      "talaffuz": "глава",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "партия",
+      "en": "party",
+      "uz": "partiya",
+      "talaffuz": "партия",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "край",
+      "en": "border",
+      "uz": "chegara",
+      "talaffuz": "край",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "река",
+      "en": "river",
+      "uz": "daryo",
+      "talaffuz": "река",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "судьба",
+      "en": "fate",
+      "uz": "taqdir",
+      "talaffuz": "судьба",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "рота",
+      "en": "company",
+      "uz": "kompaniya",
+      "talaffuz": "рота",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "речь",
+      "en": "speech",
+      "uz": "nutq",
+      "talaffuz": "речь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "причина",
+      "en": "reason",
+      "uz": "sabab",
+      "talaffuz": "причина",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "гора",
+      "en": "mountain",
+      "uz": "tog'",
+      "talaffuz": "гора",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "страх",
+      "en": "fear",
+      "uz": "qo'rquv",
+      "talaffuz": "страх",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "море",
+      "en": "sea",
+      "uz": "dengiz",
+      "talaffuz": "море",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "зал",
+      "en": "hall",
+      "uz": "zal",
+      "talaffuz": "зал",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "врач",
+      "en": "physician",
+      "uz": "shifokor",
+      "talaffuz": "врач",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "командир",
+      "en": "commander",
+      "uz": "qo'mondon",
+      "talaffuz": "командир",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "боль",
+      "en": "pain",
+      "uz": "og'riq",
+      "talaffuz": "боль",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "господин",
+      "en": "gentleman",
+      "uz": "janob",
+      "talaffuz": "господин",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "вещь",
+      "en": "thing",
+      "uz": "narsa",
+      "talaffuz": "вещь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "результат",
+      "en": "result",
+      "uz": "natija",
+      "talaffuz": "результат",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "число",
+      "en": "number",
+      "uz": "raqam",
+      "talaffuz": "число",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "цель",
+      "en": "aim",
+      "uz": "maqsad",
+      "talaffuz": "цель",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "положение",
+      "en": "position",
+      "uz": "pozitsiya",
+      "talaffuz": "положение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "писатель",
+      "en": "writer",
+      "uz": "yozuvchi",
+      "talaffuz": "писатель",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "бумага",
+      "en": "paper",
+      "uz": "qog'oz",
+      "talaffuz": "бумага",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "план",
+      "en": "plan",
+      "uz": "reja",
+      "talaffuz": "план",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "черта",
+      "en": "line",
+      "uz": "chiziq",
+      "talaffuz": "черта",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "документ",
+      "en": "document",
+      "uz": "hujjat",
+      "talaffuz": "документ",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "волос",
+      "en": "hair",
+      "uz": "soch",
+      "talaffuz": "волос",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "пара",
+      "en": "couple (human)",
+      "uz": "er-xotin (odam)",
+      "talaffuz": "пара",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "след",
+      "en": "track",
+      "uz": "trek",
+      "talaffuz": "след",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "решение",
+      "en": "decision",
+      "uz": "qaror",
+      "talaffuz": "решение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "класс",
+      "en": "class",
+      "uz": "sinf",
+      "talaffuz": "класс",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "условие",
+      "en": "condition",
+      "uz": "holat",
+      "talaffuz": "условие",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "центр",
+      "en": "center",
+      "uz": "markaz",
+      "talaffuz": "центр",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "встреча",
+      "en": "meeting",
+      "uz": "uchrashuv",
+      "talaffuz": "встреча",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "директор",
+      "en": "director",
+      "uz": "direktor",
+      "talaffuz": "директор",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "рубль",
+      "en": "rouble (Russian currency)",
+      "uz": "rubl (rus valyutasi)",
+      "talaffuz": "рубль",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "служба",
+      "en": "service",
+      "uz": "xizmat",
+      "talaffuz": "служба",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "процесс",
+      "en": "process",
+      "uz": "jarayon",
+      "talaffuz": "процесс",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "президент",
+      "en": "president",
+      "uz": "prezident",
+      "talaffuz": "президент",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "память",
+      "en": "memory",
+      "uz": "xotira",
+      "talaffuz": "память",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "герой",
+      "en": "hero",
+      "uz": "qahramon",
+      "talaffuz": "герой",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "дух",
+      "en": "spirit",
+      "uz": "ruh",
+      "talaffuz": "дух",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "враг",
+      "en": "enemy",
+      "uz": "dushman",
+      "talaffuz": "враг",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "счастье",
+      "en": "happiness",
+      "uz": "baxt",
+      "talaffuz": "счастье",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "удар",
+      "en": "blow /kick  stroke",
+      "uz": "zarba / zarba",
+      "talaffuz": "удар",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "самолёт",
+      "en": "aircraft",
+      "uz": "samolyot",
+      "talaffuz": "самолёт",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "деревня",
+      "en": "village",
+      "uz": "qishloq",
+      "talaffuz": "деревня",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "картина",
+      "en": "picture",
+      "uz": "rasm",
+      "talaffuz": "картина",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "будущее",
+      "en": "the future",
+      "uz": "kelajak",
+      "talaffuz": "будущее",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "коридор",
+      "en": "corridor",
+      "uz": "koridor",
+      "talaffuz": "коридор",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ум",
+      "en": "mind",
+      "uz": "aql",
+      "talaffuz": "ум",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "кабинет",
+      "en": "office",
+      "uz": "ofis",
+      "talaffuz": "кабинет",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "колено",
+      "en": "knee",
+      "uz": "tizza",
+      "talaffuz": "колено",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "бутылка",
+      "en": "bottle",
+      "uz": "shisha",
+      "talaffuz": "бутылка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "телефон",
+      "en": "telephone",
+      "uz": "telefon",
+      "talaffuz": "телефон",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "компания",
+      "en": "company",
+      "uz": "kompaniya",
+      "talaffuz": "компания",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "доктор",
+      "en": "doctor of Philosophy",
+      "uz": "falsafa fanlari doktori",
+      "talaffuz": "доктор",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "автор",
+      "en": "author",
+      "uz": "muallif",
+      "talaffuz": "автор",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "мужик",
+      "en": "guy",
+      "uz": "yigit",
+      "talaffuz": "мужик",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "интерес",
+      "en": "interest",
+      "uz": "qiziqish",
+      "talaffuz": "интерес",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "счёт",
+      "en": "bill",
+      "uz": "hisob",
+      "talaffuz": "счёт",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "лейтенант",
+      "en": "lieutenant",
+      "uz": "leytenant",
+      "talaffuz": "лейтенант",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "оружие",
+      "en": "weapon",
+      "uz": "qurol",
+      "talaffuz": "оружие",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "игра",
+      "en": "play",
+      "uz": "o'ynash",
+      "talaffuz": "игра",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "бой",
+      "en": "beating",
+      "uz": "urish",
+      "talaffuz": "бой",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "качество",
+      "en": "quality",
+      "uz": "sifat",
+      "talaffuz": "качество",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "член",
+      "en": "member",
+      "uz": "a'zosi",
+      "talaffuz": "член",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "хлеб",
+      "en": "bread",
+      "uz": "non",
+      "talaffuz": "хлеб",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "развитие",
+      "en": "development",
+      "uz": "rivojlanish",
+      "talaffuz": "развитие",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "банк",
+      "en": "bank",
+      "uz": "bank",
+      "talaffuz": "банк",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "совет",
+      "en": "advice",
+      "uz": "maslahat",
+      "talaffuz": "совет",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "трубка",
+      "en": "tube",
+      "uz": "quvur",
+      "talaffuz": "трубка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ладонь",
+      "en": "palm (of the hand)",
+      "uz": "kaft (qo'l)",
+      "talaffuz": "ладонь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "институт",
+      "en": "institute",
+      "uz": "instituti",
+      "talaffuz": "институт",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "правительство",
+      "en": "government",
+      "uz": "hukumat",
+      "talaffuz": "правительство",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "идея",
+      "en": "idea",
+      "uz": "fikr",
+      "talaffuz": "идея",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "точка",
+      "en": "dot",
+      "uz": "nuqta",
+      "talaffuz": "точка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "уровень",
+      "en": "level",
+      "uz": "darajasi",
+      "talaffuz": "уровень",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "профессор",
+      "en": "professor",
+      "uz": "professor",
+      "talaffuz": "профессор",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "наука",
+      "en": "science",
+      "uz": "fan",
+      "talaffuz": "наука",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "событие",
+      "en": "event",
+      "uz": "voqea",
+      "talaffuz": "событие",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "союз",
+      "en": "union",
+      "uz": "ittifoq",
+      "talaffuz": "союз",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "король",
+      "en": "king",
+      "uz": "shoh",
+      "talaffuz": "король",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "половина",
+      "en": "half",
+      "uz": "yarmi",
+      "talaffuz": "половина",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "метр",
+      "en": "metre",
+      "uz": "metr",
+      "talaffuz": "метр",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "вера",
+      "en": "faith",
+      "uz": "imon",
+      "talaffuz": "вера",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "область",
+      "en": "oblast",
+      "uz": "viloyati",
+      "talaffuz": "область",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ситуация",
+      "en": "situation",
+      "uz": "vaziyat",
+      "talaffuz": "ситуация",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "кухня",
+      "en": "kitchen",
+      "uz": "oshxona",
+      "talaffuz": "кухня",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "надежда",
+      "en": "hope",
+      "uz": "umid",
+      "talaffuz": "надежда",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "род",
+      "en": "generation",
+      "uz": "avlod",
+      "talaffuz": "род",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "офицер",
+      "en": "officer",
+      "uz": "ofitser",
+      "talaffuz": "офицер",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "течение",
+      "en": "current",
+      "uz": "joriy",
+      "talaffuz": "течение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "информация",
+      "en": "information",
+      "uz": "ma'lumot",
+      "talaffuz": "информация",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "граница",
+      "en": "abroad",
+      "uz": "chet elda",
+      "talaffuz": "граница",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "слеза",
+      "en": "tear",
+      "uz": "yirtish",
+      "talaffuz": "слеза",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "рассказ",
+      "en": "story",
+      "uz": "hikoya",
+      "talaffuz": "рассказ",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "трава",
+      "en": "grass",
+      "uz": "o't",
+      "talaffuz": "трава",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "тридцать",
+      "en": "thirty",
+      "uz": "o'ttiz",
+      "talaffuz": "тридцать",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "борьба",
+      "en": "struggle",
+      "uz": "kurash",
+      "talaffuz": "борьба",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "шея",
+      "en": "neck",
+      "uz": "bo'yin",
+      "talaffuz": "шея",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "десяток",
+      "en": "dozen",
+      "uz": "o'nlab",
+      "talaffuz": "десяток",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "толпа",
+      "en": "crowd",
+      "uz": "olomon",
+      "talaffuz": "толпа",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "родитель",
+      "en": "parent",
+      "uz": "ota-ona",
+      "talaffuz": "родитель",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "правило",
+      "en": "rule",
+      "uz": "qoida",
+      "talaffuz": "правило",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "секунда",
+      "en": "second",
+      "uz": "ikkinchi",
+      "talaffuz": "секунда",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "программа",
+      "en": "program",
+      "uz": "dastur",
+      "talaffuz": "программа",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "фамилия",
+      "en": "last name",
+      "uz": "familiyasi",
+      "talaffuz": "фамилия",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "звук",
+      "en": "sound",
+      "uz": "ovoz",
+      "talaffuz": "звук",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "роман",
+      "en": "novel",
+      "uz": "roman",
+      "talaffuz": "роман",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "чай",
+      "en": "tea",
+      "uz": "choy",
+      "talaffuz": "чай",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "роль",
+      "en": "role",
+      "uz": "rol",
+      "talaffuz": "роль",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "сознание",
+      "en": "consciousness",
+      "uz": "ong",
+      "talaffuz": "сознание",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "команда",
+      "en": "team",
+      "uz": "jamoa",
+      "talaffuz": "команда",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "магазин",
+      "en": "shop",
+      "uz": "do'kon",
+      "talaffuz": "магазин",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ворот",
+      "en": "collar (of a shirt)",
+      "uz": "yoqasi (ko'ylakning)",
+      "talaffuz": "ворот",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "полковник",
+      "en": "colonel",
+      "uz": "polkovnik",
+      "talaffuz": "полковник",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "природа",
+      "en": "nature",
+      "uz": "tabiat",
+      "talaffuz": "природа",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "запах",
+      "en": "smell",
+      "uz": "hid",
+      "talaffuz": "запах",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "поэт",
+      "en": "poet",
+      "uz": "shoir",
+      "talaffuz": "поэт",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "район",
+      "en": "region",
+      "uz": "mintaqa",
+      "talaffuz": "район",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "лист",
+      "en": "leaf",
+      "uz": "barg",
+      "talaffuz": "лист",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "стекло",
+      "en": "glass",
+      "uz": "stakan",
+      "talaffuz": "стекло",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "количество",
+      "en": "quantity",
+      "uz": "miqdori",
+      "talaffuz": "количество",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "этаж",
+      "en": "floor",
+      "uz": "qavat",
+      "talaffuz": "этаж",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "тип",
+      "en": "type",
+      "uz": "turi",
+      "talaffuz": "тип",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "свобода",
+      "en": "freedom",
+      "uz": "erkinlik",
+      "talaffuz": "свобода",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "сапог",
+      "en": "boot",
+      "uz": "yuklash",
+      "talaffuz": "сапог",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "суд",
+      "en": "law-court",
+      "uz": "sud",
+      "talaffuz": "суд",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "выход",
+      "en": "exit",
+      "uz": "chiqish",
+      "talaffuz": "выход",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "дед",
+      "en": "grandfather",
+      "uz": "bobo",
+      "talaffuz": "дед",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "лоб",
+      "en": "forehead",
+      "uz": "peshona",
+      "talaffuz": "лоб",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "кресло",
+      "en": "armchair",
+      "uz": "kreslo",
+      "talaffuz": "кресло",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "дочь",
+      "en": "daughter",
+      "uz": "qizi",
+      "talaffuz": "дочь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "характер",
+      "en": "character",
+      "uz": "xarakter",
+      "talaffuz": "характер",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "опыт",
+      "en": "experience",
+      "uz": "tajriba",
+      "talaffuz": "опыт",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "площадь",
+      "en": "area (geometry)",
+      "uz": "maydon (geometriya)",
+      "talaffuz": "площадь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "управление",
+      "en": "administration",
+      "uz": "boshqaruv",
+      "talaffuz": "управление",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "мнение",
+      "en": "opinion",
+      "uz": "fikr",
+      "talaffuz": "мнение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "революция",
+      "en": "revolution",
+      "uz": "inqilob",
+      "talaffuz": "революция",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "улыбка",
+      "en": "smile",
+      "uz": "tabassum",
+      "talaffuz": "улыбка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "рост",
+      "en": "growth (in a living organism)",
+      "uz": "o'sish (tirik organizmda)",
+      "talaffuz": "рост",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "лошадь",
+      "en": "horse",
+      "uz": "ot",
+      "talaffuz": "лошадь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "кожа",
+      "en": "skin",
+      "uz": "teri",
+      "talaffuz": "кожа",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "звезда",
+      "en": "star",
+      "uz": "yulduz",
+      "talaffuz": "звезда",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "поезд",
+      "en": "train",
+      "uz": "poyezd",
+      "talaffuz": "поезд",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "сестра",
+      "en": "sister",
+      "uz": "opa",
+      "talaffuz": "сестра",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "баба",
+      "en": "woman",
+      "uz": "ayol",
+      "talaffuz": "баба",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "цветок",
+      "en": "flower",
+      "uz": "gul",
+      "talaffuz": "цветок",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "дождь",
+      "en": "rain",
+      "uz": "yomg'ir",
+      "talaffuz": "дождь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "желание",
+      "en": "wishes",
+      "uz": "tilaklar",
+      "talaffuz": "желание",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "болезнь",
+      "en": "illness",
+      "uz": "kasallik",
+      "talaffuz": "болезнь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "сосед",
+      "en": "neighbour",
+      "uz": "qo'shni",
+      "talaffuz": "сосед",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "пример",
+      "en": "example",
+      "uz": "misol",
+      "talaffuz": "пример",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "дама",
+      "en": "lady",
+      "uz": "xonim",
+      "talaffuz": "дама",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "орган",
+      "en": "organ",
+      "uz": "organ",
+      "talaffuz": "орган",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "поле",
+      "en": "field",
+      "uz": "maydon",
+      "talaffuz": "поле",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ящик",
+      "en": "box",
+      "uz": "quti",
+      "talaffuz": "ящик",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "цена",
+      "en": "price",
+      "uz": "narx",
+      "talaffuz": "цена",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "карта",
+      "en": "map",
+      "uz": "xarita",
+      "talaffuz": "карта",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "слава",
+      "en": "glory",
+      "uz": "shon-sharaf",
+      "talaffuz": "слава",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "радость",
+      "en": "gladness",
+      "uz": "xursandchilik",
+      "talaffuz": "радость",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "тень",
+      "en": "shadow",
+      "uz": "soya",
+      "talaffuz": "тень",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "операция",
+      "en": "operation",
+      "uz": "operatsiya",
+      "talaffuz": "операция",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "музыка",
+      "en": "music",
+      "uz": "musiqa",
+      "talaffuz": "музыка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "завод",
+      "en": "factory",
+      "uz": "zavod",
+      "talaffuz": "завод",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "лето",
+      "en": "summer",
+      "uz": "yoz",
+      "talaffuz": "лето",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "станция",
+      "en": "station",
+      "uz": "stantsiya",
+      "talaffuz": "станция",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "повод",
+      "en": "reason",
+      "uz": "sabab",
+      "talaffuz": "повод",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "воля",
+      "en": "will",
+      "uz": "bo'ladi",
+      "talaffuz": "воля",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "литература",
+      "en": "literature",
+      "uz": "adabiyot",
+      "talaffuz": "литература",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "дурак",
+      "en": "fool",
+      "uz": "ahmoq",
+      "talaffuz": "дурак",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "приказ",
+      "en": "order",
+      "uz": "buyurtma",
+      "talaffuz": "приказ",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "гражданин",
+      "en": "citizen",
+      "uz": "fuqaro",
+      "talaffuz": "гражданин",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "крыша",
+      "en": "roof",
+      "uz": "tom",
+      "talaffuz": "крыша",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "цвет",
+      "en": "color",
+      "uz": "rang",
+      "talaffuz": "цвет",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "статья",
+      "en": "article",
+      "uz": "maqola",
+      "talaffuz": "статья",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "круг",
+      "en": "circle",
+      "uz": "doira",
+      "talaffuz": "круг",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "факт",
+      "en": "fact",
+      "uz": "haqiqat",
+      "talaffuz": "факт",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "бок",
+      "en": "side",
+      "uz": "tomoni",
+      "talaffuz": "бок",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "стул",
+      "en": "chair",
+      "uz": "stul",
+      "talaffuz": "стул",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "лагерь",
+      "en": "camp",
+      "uz": "lager",
+      "talaffuz": "лагерь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "войско",
+      "en": "army",
+      "uz": "armiya",
+      "talaffuz": "войско",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "удовольствие",
+      "en": "pleasure",
+      "uz": "zavq",
+      "talaffuz": "удовольствие",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "вино",
+      "en": "wine",
+      "uz": "sharob",
+      "talaffuz": "вино",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "возраст",
+      "en": "age",
+      "uz": "yoshi",
+      "talaffuz": "возраст",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "лестница",
+      "en": "stairs",
+      "uz": "zinapoyalar",
+      "talaffuz": "лестница",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "министр",
+      "en": "Minister",
+      "uz": "Vazir",
+      "talaffuz": "министр",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "фронт",
+      "en": "front",
+      "uz": "old",
+      "talaffuz": "фронт",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "Петербург",
+      "en": "St Petersburg",
+      "uz": "Sankt-Peterburg",
+      "talaffuz": "Петербург",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "сад",
+      "en": "garden",
+      "uz": "bog'",
+      "talaffuz": "сад",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "задача",
+      "en": "task",
+      "uz": "vazifa",
+      "talaffuz": "задача",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "мол",
+      "en": "(s)he sayss",
+      "uz": "(s) deydi u",
+      "talaffuz": "мол",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "темнота",
+      "en": "dark",
+      "uz": "qorong'i",
+      "talaffuz": "темнота",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "название",
+      "en": "name",
+      "uz": "nomi",
+      "talaffuz": "название",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "большинство",
+      "en": "most of the",
+      "uz": "ko'pchiligi",
+      "talaffuz": "большинство",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "организация",
+      "en": "organization",
+      "uz": "tashkilot",
+      "talaffuz": "организация",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "дым",
+      "en": "smoke",
+      "uz": "tutun",
+      "talaffuz": "дым",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "километр",
+      "en": "kilometre",
+      "uz": "kilometr",
+      "talaffuz": "километр",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "председатель",
+      "en": "chairman",
+      "uz": "rais",
+      "talaffuz": "председатель",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "прочее",
+      "en": "other",
+      "uz": "boshqa",
+      "talaffuz": "прочее",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "доллар",
+      "en": "dollar",
+      "uz": "dollar",
+      "talaffuz": "доллар",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "выражение",
+      "en": "expression",
+      "uz": "ifoda",
+      "talaffuz": "выражение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "танк",
+      "en": "tank",
+      "uz": "tank",
+      "talaffuz": "танк",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "зима",
+      "en": "winter",
+      "uz": "qish",
+      "talaffuz": "зима",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "знак",
+      "en": "sign",
+      "uz": "belgisi",
+      "talaffuz": "знак",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "мозг",
+      "en": "brain",
+      "uz": "miya",
+      "talaffuz": "мозг",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "учитель",
+      "en": "teacher",
+      "uz": "o'qituvchi",
+      "talaffuz": "учитель",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "майор",
+      "en": "major",
+      "uz": "mayor",
+      "talaffuz": "майор",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "тишина",
+      "en": "silence",
+      "uz": "sukunat",
+      "talaffuz": "тишина",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "кровать",
+      "en": "bed",
+      "uz": "yotoq",
+      "talaffuz": "кровать",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "деятельность",
+      "en": "activity",
+      "uz": "faoliyat",
+      "talaffuz": "деятельность",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "США",
+      "en": "United States of America (USA)",
+      "uz": "Amerika Qo'shma Shtatlari (AQSh)",
+      "talaffuz": "США",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "рыба",
+      "en": "fish",
+      "uz": "baliq",
+      "talaffuz": "рыба",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "щека",
+      "en": "cheek",
+      "uz": "yonoq",
+      "talaffuz": "щека",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "птица",
+      "en": "bird",
+      "uz": "qush",
+      "talaffuz": "птица",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "папа",
+      "en": "dad",
+      "uz": "dada",
+      "talaffuz": "папа",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "водка",
+      "en": "vodka",
+      "uz": "aroq",
+      "talaffuz": "водка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "здание",
+      "en": "building",
+      "uz": "bino",
+      "talaffuz": "здание",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "зеркало",
+      "en": "looking-glass",
+      "uz": "ko'zoynak",
+      "talaffuz": "зеркало",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "искусство",
+      "en": "art",
+      "uz": "san'at",
+      "talaffuz": "искусство",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "начало",
+      "en": "beginning",
+      "uz": "boshlanishi",
+      "talaffuz": "начало",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "вагон",
+      "en": "carriage",
+      "uz": "arava",
+      "talaffuz": "вагон",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "автомат",
+      "en": "automatic machine",
+      "uz": "avtomatik mashina",
+      "talaffuz": "автомат",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "милиция",
+      "en": "militia",
+      "uz": "militsiya",
+      "talaffuz": "милиция",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "срок",
+      "en": "deadline",
+      "uz": "topshirish muddati; tugatish muddati",
+      "talaffuz": "срок",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "одежда",
+      "en": "clothes",
+      "uz": "kiyimlar",
+      "talaffuz": "одежда",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "корабль",
+      "en": "ship",
+      "uz": "kema",
+      "talaffuz": "корабль",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "кулак",
+      "en": "fist",
+      "uz": "musht",
+      "talaffuz": "кулак",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "художник",
+      "en": "artist",
+      "uz": "rassom",
+      "talaffuz": "художник",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "курс",
+      "en": "course",
+      "uz": "kurs",
+      "talaffuz": "курс",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "куст",
+      "en": "bush",
+      "uz": "buta",
+      "talaffuz": "куст",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "состав",
+      "en": "composition",
+      "uz": "tarkibi",
+      "talaffuz": "состав",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "чудо",
+      "en": "miracle",
+      "uz": "mo''jiza",
+      "talaffuz": "чудо",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "кусок",
+      "en": "piece",
+      "uz": "parcha",
+      "talaffuz": "кусок",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "фирма",
+      "en": "firm",
+      "uz": "mustahkam",
+      "talaffuz": "фирма",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "миллион",
+      "en": "million",
+      "uz": "million",
+      "talaffuz": "миллион",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "пространство",
+      "en": "space",
+      "uz": "bo'sh joy",
+      "talaffuz": "пространство",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "тема",
+      "en": "subject",
+      "uz": "mavzu",
+      "talaffuz": "тема",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "линия",
+      "en": "line",
+      "uz": "chiziq",
+      "talaffuz": "линия",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "мешок",
+      "en": "bag",
+      "uz": "sumka",
+      "talaffuz": "мешок",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "бабушка",
+      "en": "grandmother",
+      "uz": "buvisi",
+      "talaffuz": "бабушка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "крик",
+      "en": "cry",
+      "uz": "yig'lamoq",
+      "talaffuz": "крик",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "рот",
+      "en": "mouth",
+      "uz": "og'iz",
+      "talaffuz": "рот",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "сутки",
+      "en": "twenty-four hours",
+      "uz": "yigirma to'rt soat",
+      "talaffuz": "сутки",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ключ",
+      "en": "key",
+      "uz": "kalit",
+      "talaffuz": "ключ",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "процент",
+      "en": "percentage",
+      "uz": "foiz",
+      "talaffuz": "процент",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ощущение",
+      "en": "feeling",
+      "uz": "tuyg'u",
+      "talaffuz": "ощущение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "остров",
+      "en": "island",
+      "uz": "orol",
+      "talaffuz": "остров",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "конь",
+      "en": "horse",
+      "uz": "ot",
+      "talaffuz": "конь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "театр",
+      "en": "theatre",
+      "uz": "teatr",
+      "talaffuz": "театр",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "живот",
+      "en": "stomach",
+      "uz": "oshqozon",
+      "talaffuz": "живот",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "производство",
+      "en": "production",
+      "uz": "ishlab chiqarish",
+      "talaffuz": "производство",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "штаб",
+      "en": "staff",
+      "uz": "xodimlar",
+      "talaffuz": "штаб",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "детство",
+      "en": "childhood",
+      "uz": "bolalik",
+      "talaffuz": "детство",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "сотня",
+      "en": "a hundred",
+      "uz": "yuz",
+      "talaffuz": "сотня",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "стакан",
+      "en": "glass",
+      "uz": "stakan",
+      "talaffuz": "стакан",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "материал",
+      "en": "material",
+      "uz": "material",
+      "talaffuz": "материал",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ужас",
+      "en": "terror",
+      "uz": "terror",
+      "talaffuz": "ужас",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "значение",
+      "en": "meaning",
+      "uz": "ma'nosi",
+      "talaffuz": "значение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "труба",
+      "en": "pipe",
+      "uz": "quvur",
+      "talaffuz": "труба",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "стихи",
+      "en": "poetry",
+      "uz": "she'riyat",
+      "talaffuz": "стихи",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "способ",
+      "en": "method",
+      "uz": "usuli",
+      "talaffuz": "способ",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "обстоятельство",
+      "en": "circumstance",
+      "uz": "vaziyat",
+      "talaffuz": "обстоятельство",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "степень",
+      "en": "degree",
+      "uz": "daraja",
+      "talaffuz": "степень",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "Германия",
+      "en": "Germany",
+      "uz": "Germaniya",
+      "talaffuz": "Германия",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "СССР",
+      "en": "USSR",
+      "uz": "SSSR",
+      "talaffuz": "СССР",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "волна",
+      "en": "wave",
+      "uz": "to'lqin",
+      "talaffuz": "волна",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "глубина",
+      "en": "depth",
+      "uz": "chuqurlik",
+      "talaffuz": "глубина",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "представитель",
+      "en": "representative",
+      "uz": "vakili",
+      "talaffuz": "представитель",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "нож",
+      "en": "knife",
+      "uz": "pichoq",
+      "talaffuz": "нож",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "рынок",
+      "en": "market",
+      "uz": "bozor",
+      "talaffuz": "рынок",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "шум",
+      "en": "noise",
+      "uz": "shovqin",
+      "talaffuz": "шум",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "студент",
+      "en": "student",
+      "uz": "talaba",
+      "talaffuz": "студент",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "впечатление",
+      "en": "impression",
+      "uz": "taassurot",
+      "talaffuz": "впечатление",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "отдел",
+      "en": "department",
+      "uz": "department",
+      "talaffuz": "отдел",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "запад",
+      "en": "west",
+      "uz": "g'arbiy",
+      "talaffuz": "запад",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "очко",
+      "en": "pip",
+      "uz": "pip",
+      "talaffuz": "очко",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "успех",
+      "en": "success",
+      "uz": "muvaffaqiyat",
+      "talaffuz": "успех",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "инженер",
+      "en": "engineer",
+      "uz": "muhandis",
+      "talaffuz": "инженер",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "население",
+      "en": "population",
+      "uz": "aholi",
+      "talaffuz": "население",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "пыль",
+      "en": "dust",
+      "uz": "chang",
+      "talaffuz": "пыль",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "знание",
+      "en": "knowledge",
+      "uz": "bilim",
+      "talaffuz": "знание",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "секретарь",
+      "en": "secretary",
+      "uz": "kotib",
+      "talaffuz": "секретарь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ошибка",
+      "en": "mistake",
+      "uz": "xato",
+      "talaffuz": "ошибка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "боец",
+      "en": "fighting-man",
+      "uz": "jangchi odam",
+      "talaffuz": "боец",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "масса",
+      "en": "mass",
+      "uz": "massa",
+      "talaffuz": "масса",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "чёрт",
+      "en": "devil",
+      "uz": "shayton",
+      "talaffuz": "чёрт",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "царь",
+      "en": "tsar",
+      "uz": "podshoh",
+      "talaffuz": "царь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "фигура",
+      "en": "figure",
+      "uz": "raqam",
+      "talaffuz": "фигура",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "противник",
+      "en": "enemy",
+      "uz": "dushman",
+      "talaffuz": "противник",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "даль",
+      "en": "distance",
+      "uz": "masofa",
+      "talaffuz": "даль",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "журнал",
+      "en": "periodical",
+      "uz": "davriy nashr",
+      "talaffuz": "журнал",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "направление",
+      "en": "direction",
+      "uz": "yo'nalishi",
+      "talaffuz": "направление",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "победа",
+      "en": "victory",
+      "uz": "g'alaba",
+      "talaffuz": "победа",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "сотрудник",
+      "en": "collaborator",
+      "uz": "hamkor",
+      "talaffuz": "сотрудник",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "адрес",
+      "en": "address",
+      "uz": "manzil",
+      "talaffuz": "адрес",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "период",
+      "en": "period",
+      "uz": "davr",
+      "talaffuz": "период",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "еврей",
+      "en": "Jew",
+      "uz": "yahudiy",
+      "talaffuz": "еврей",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "слух",
+      "en": "rumour",
+      "uz": "mish-mish",
+      "talaffuz": "слух",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "клуб",
+      "en": "club",
+      "uz": "klub",
+      "talaffuz": "клуб",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "хвост",
+      "en": "tail",
+      "uz": "quyruq",
+      "talaffuz": "хвост",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "предмет",
+      "en": "subject",
+      "uz": "mavzu",
+      "talaffuz": "предмет",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "лечение",
+      "en": "treatment",
+      "uz": "davolash",
+      "talaffuz": "лечение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "зрение",
+      "en": "sight",
+      "uz": "ko'rish",
+      "talaffuz": "зрение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "беда",
+      "en": "misfortune",
+      "uz": "baxtsizlik",
+      "talaffuz": "беда",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "столица",
+      "en": "capital",
+      "uz": "kapital",
+      "talaffuz": "столица",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "обед",
+      "en": "lunch",
+      "uz": "tushlik",
+      "talaffuz": "обед",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "культура",
+      "en": "culture",
+      "uz": "madaniyat",
+      "talaffuz": "культура",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "высота",
+      "en": "height",
+      "uz": "balandligi",
+      "talaffuz": "высота",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "территория",
+      "en": "territory",
+      "uz": "hudud",
+      "talaffuz": "территория",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "костюм",
+      "en": "costume",
+      "uz": "kostyum",
+      "talaffuz": "костюм",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "попытка",
+      "en": "attempt",
+      "uz": "urinish",
+      "talaffuz": "попытка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "дно",
+      "en": "bottom",
+      "uz": "pastki",
+      "talaffuz": "дно",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "страница",
+      "en": "page",
+      "uz": "sahifa",
+      "talaffuz": "страница",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "еда",
+      "en": "food",
+      "uz": "oziq-ovqat",
+      "talaffuz": "еда",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "размер",
+      "en": "dimensions",
+      "uz": "o'lchamlar",
+      "talaffuz": "размер",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "предприятие",
+      "en": "undertaking",
+      "uz": "majburiyat",
+      "talaffuz": "предприятие",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "сцена",
+      "en": "stage",
+      "uz": "bosqich",
+      "talaffuz": "сцена",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "фотография",
+      "en": "photography",
+      "uz": "fotografiya",
+      "talaffuz": "фотография",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "заболевание",
+      "en": "disease",
+      "uz": "kasallik",
+      "talaffuz": "заболевание",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "принцип",
+      "en": "principle",
+      "uz": "tamoyil",
+      "talaffuz": "принцип",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "миг",
+      "en": "moment",
+      "uz": "moment",
+      "talaffuz": "миг",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "Европа",
+      "en": "Europe",
+      "uz": "Yevropa",
+      "talaffuz": "Европа",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "тётя",
+      "en": "aunt",
+      "uz": "xola",
+      "talaffuz": "тётя",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "мастер",
+      "en": "foreman",
+      "uz": "usta",
+      "talaffuz": "мастер",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "отряд",
+      "en": "Squad",
+      "uz": "Otryad",
+      "talaffuz": "отряд",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "старуха",
+      "en": "old woman",
+      "uz": "kampir",
+      "talaffuz": "старуха",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "руководитель",
+      "en": "leader",
+      "uz": "rahbar",
+      "talaffuz": "руководитель",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "житель",
+      "en": "inhabitant",
+      "uz": "yashovchi",
+      "talaffuz": "житель",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "меч",
+      "en": "sword",
+      "uz": "qilich",
+      "talaffuz": "меч",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "господь",
+      "en": "God",
+      "uz": "Xudo",
+      "talaffuz": "господь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "тюрьма",
+      "en": "prison",
+      "uz": "qamoqxona",
+      "talaffuz": "тюрьма",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "дворец",
+      "en": "palace",
+      "uz": "saroy",
+      "talaffuz": "дворец",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "камера",
+      "en": "cell",
+      "uz": "hujayra",
+      "talaffuz": "камера",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "существо",
+      "en": "creature",
+      "uz": "mavjudot",
+      "talaffuz": "существо",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "билет",
+      "en": "ticket",
+      "uz": "chipta",
+      "talaffuz": "билет",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "фраза",
+      "en": "phrase",
+      "uz": "ibora",
+      "talaffuz": "фраза",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "америка",
+      "en": "America",
+      "uz": "Amerika",
+      "talaffuz": "америка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "весна",
+      "en": "spring",
+      "uz": "bahor",
+      "talaffuz": "весна",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "лодка",
+      "en": "boat",
+      "uz": "qayiq",
+      "talaffuz": "лодка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "фильм",
+      "en": "movie",
+      "uz": "kino",
+      "talaffuz": "фильм",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "больница",
+      "en": "hospital",
+      "uz": "kasalxona",
+      "talaffuz": "больница",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "смех",
+      "en": "laughter",
+      "uz": "kulgi",
+      "talaffuz": "смех",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "специалист",
+      "en": "specialist",
+      "uz": "mutaxassis",
+      "talaffuz": "специалист",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "образование",
+      "en": "education",
+      "uz": "ta'lim",
+      "talaffuz": "образование",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "мальчишка",
+      "en": "boy",
+      "uz": "yigit",
+      "talaffuz": "мальчишка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "продукт",
+      "en": "product",
+      "uz": "mahsulot",
+      "talaffuz": "продукт",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "пистолет",
+      "en": "pistol",
+      "uz": "to'pponcha",
+      "talaffuz": "пистолет",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "родина",
+      "en": "native land",
+      "uz": "ona yurt",
+      "talaffuz": "родина",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "личность",
+      "en": "personality",
+      "uz": "shaxsiyat",
+      "talaffuz": "личность",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "скорость",
+      "en": "speed",
+      "uz": "tezlik",
+      "talaffuz": "скорость",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "участок",
+      "en": "lot",
+      "uz": "ko'p",
+      "talaffuz": "участок",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "текст",
+      "en": "text",
+      "uz": "matn",
+      "talaffuz": "текст",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "зверь",
+      "en": "wild animal",
+      "uz": "yovvoyi hayvon",
+      "talaffuz": "зверь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "артист",
+      "en": "artist",
+      "uz": "rassom",
+      "talaffuz": "артист",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "автомобиль",
+      "en": "car",
+      "uz": "mashina",
+      "talaffuz": "автомобиль",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "участие",
+      "en": "participation",
+      "uz": "ishtirok etish",
+      "talaffuz": "участие",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "кот",
+      "en": "cat",
+      "uz": "mushuk",
+      "talaffuz": "кот",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "мост",
+      "en": "bridge",
+      "uz": "ko'prik",
+      "talaffuz": "мост",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "здоровье",
+      "en": "health",
+      "uz": "salomatlik",
+      "talaffuz": "здоровье",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "костёр",
+      "en": "bonfire",
+      "uz": "gulxan",
+      "talaffuz": "костёр",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "человечество",
+      "en": "humanity",
+      "uz": "insoniyat",
+      "talaffuz": "человечество",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "пуля",
+      "en": "bullet",
+      "uz": "o'q",
+      "talaffuz": "пуля",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "сомнение",
+      "en": "doubt",
+      "uz": "shubha",
+      "talaffuz": "сомнение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "отсутствие",
+      "en": "lacking of",
+      "uz": "etishmasligi",
+      "talaffuz": "отсутствие",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "мясо",
+      "en": "flesh",
+      "uz": "go'sht",
+      "talaffuz": "мясо",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "читатель",
+      "en": "reader",
+      "uz": "o'quvchi",
+      "talaffuz": "читатель",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "доска",
+      "en": "board",
+      "uz": "taxta",
+      "talaffuz": "доска",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "убийство",
+      "en": "murder",
+      "uz": "qotillik",
+      "talaffuz": "убийство",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "мгновение",
+      "en": "instant",
+      "uz": "bir zumda",
+      "talaffuz": "мгновение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "восток",
+      "en": "east",
+      "uz": "sharq",
+      "talaffuz": "восток",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "настроение",
+      "en": "mood",
+      "uz": "kayfiyat",
+      "talaffuz": "настроение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "пауза",
+      "en": "pause",
+      "uz": "pauza",
+      "talaffuz": "пауза",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "приём",
+      "en": "reception",
+      "uz": "qabul qilish",
+      "talaffuz": "приём",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "порог",
+      "en": "threshold",
+      "uz": "chegara",
+      "talaffuz": "порог",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "фон",
+      "en": "background",
+      "uz": "fon",
+      "talaffuz": "фон",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "пропасть",
+      "en": "precipice",
+      "uz": "jarlik",
+      "talaffuz": "пропасть",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "песок",
+      "en": "sand",
+      "uz": "qum",
+      "talaffuz": "песок",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "долг",
+      "en": "debt",
+      "uz": "qarz",
+      "talaffuz": "долг",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "предложение",
+      "en": "sentence",
+      "uz": "jumla",
+      "talaffuz": "предложение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "работник",
+      "en": "worker",
+      "uz": "ishchi",
+      "talaffuz": "работник",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "сожаление",
+      "en": "regret",
+      "uz": "afsus",
+      "talaffuz": "сожаление",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "горло",
+      "en": "throat",
+      "uz": "tomoq",
+      "talaffuz": "горло",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ресторан",
+      "en": "restaurant",
+      "uz": "restoran",
+      "talaffuz": "ресторан",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "список",
+      "en": "list",
+      "uz": "ro'yxati",
+      "talaffuz": "список",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "праздник",
+      "en": "holiday",
+      "uz": "bayram",
+      "talaffuz": "праздник",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "покой",
+      "en": "rest",
+      "uz": "dam olish",
+      "talaffuz": "покой",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "шутка",
+      "en": "joke",
+      "uz": "hazil",
+      "talaffuz": "шутка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "автобус",
+      "en": "bus",
+      "uz": "avtobus",
+      "talaffuz": "автобус",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "рада",
+      "en": "glad",
+      "uz": "xursand",
+      "talaffuz": "рада",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "вариант",
+      "en": "option",
+      "uz": "variant",
+      "talaffuz": "вариант",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "дыхание",
+      "en": "breathing",
+      "uz": "nafas olish",
+      "talaffuz": "дыхание",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "организм",
+      "en": "organism",
+      "uz": "organizm",
+      "talaffuz": "организм",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "жертва",
+      "en": "sacrifice",
+      "uz": "qurbon qilish",
+      "talaffuz": "жертва",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "начальство",
+      "en": "command",
+      "uz": "buyruq",
+      "talaffuz": "начальство",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "рукав",
+      "en": "sleeve",
+      "uz": "yeng",
+      "talaffuz": "рукав",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "занятие",
+      "en": "occupation",
+      "uz": "kasb",
+      "talaffuz": "занятие",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "охрана",
+      "en": "guarding",
+      "uz": "qo'riqlash",
+      "talaffuz": "охрана",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "масло",
+      "en": "butter",
+      "uz": "sariyog'",
+      "talaffuz": "масло",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "кость",
+      "en": "bone",
+      "uz": "suyak",
+      "talaffuz": "кость",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "пиво",
+      "en": "beer",
+      "uz": "pivo",
+      "talaffuz": "пиво",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "чиновник",
+      "en": "official",
+      "uz": "rasmiy",
+      "talaffuz": "чиновник",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "эхо",
+      "en": "echo",
+      "uz": "aks-sado",
+      "talaffuz": "эхо",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "потолок",
+      "en": "ceiling",
+      "uz": "shift",
+      "talaffuz": "потолок",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "лёгкое",
+      "en": "lung",
+      "uz": "o'pka",
+      "talaffuz": "лёгкое",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "руководство",
+      "en": "guidance",
+      "uz": "rahbarlik",
+      "talaffuz": "руководство",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "защита",
+      "en": "defence",
+      "uz": "mudofaa",
+      "talaffuz": "защита",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "энергия",
+      "en": "energy",
+      "uz": "energiya",
+      "talaffuz": "энергия",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "звонок",
+      "en": "(phone) call",
+      "uz": "(telefon) qo'ng'iroq qilish",
+      "talaffuz": "звонок",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "сигарета",
+      "en": "cigarette",
+      "uz": "sigaret",
+      "talaffuz": "сигарета",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "тепло",
+      "en": "heat",
+      "uz": "issiqlik",
+      "talaffuz": "тепло",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "кошка",
+      "en": "cat",
+      "uz": "mushuk",
+      "talaffuz": "кошка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "зона",
+      "en": "zone",
+      "uz": "zonasi",
+      "talaffuz": "зона",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "диван",
+      "en": "sofa",
+      "uz": "divan",
+      "talaffuz": "диван",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "предел",
+      "en": "limit",
+      "uz": "chegara",
+      "talaffuz": "предел",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "пятнадцать",
+      "en": "fifteen",
+      "uz": "o'n besh",
+      "talaffuz": "пятнадцать",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "постель",
+      "en": "bed",
+      "uz": "yotoq",
+      "talaffuz": "постель",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "тайна",
+      "en": "mystery",
+      "uz": "sir",
+      "talaffuz": "тайна",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "туман",
+      "en": "mist",
+      "uz": "tuman",
+      "talaffuz": "туман",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "книжка",
+      "en": "book",
+      "uz": "kitob",
+      "talaffuz": "книжка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "воспоминание",
+      "en": "recollection",
+      "uz": "eslash",
+      "talaffuz": "воспоминание",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "Ленинград",
+      "en": "Leningrad",
+      "uz": "Leningrad",
+      "talaffuz": "Ленинград",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "существование",
+      "en": "existence",
+      "uz": "mavjudligi",
+      "talaffuz": "существование",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "королева",
+      "en": "queen",
+      "uz": "malika",
+      "talaffuz": "королева",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "вход",
+      "en": "entrance",
+      "uz": "kirish",
+      "talaffuz": "вход",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "церковь",
+      "en": "church",
+      "uz": "cherkov",
+      "talaffuz": "церковь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "преступление",
+      "en": "crime",
+      "uz": "jinoyat",
+      "talaffuz": "преступление",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "музей",
+      "en": "museum",
+      "uz": "muzey",
+      "talaffuz": "музей",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "планета",
+      "en": "planet",
+      "uz": "sayyora",
+      "talaffuz": "планета",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "опасность",
+      "en": "danger",
+      "uz": "Xavfli",
+      "talaffuz": "опасность",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "поиск",
+      "en": "search",
+      "uz": "qidirish",
+      "talaffuz": "поиск",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "палатка",
+      "en": "tent",
+      "uz": "chodir",
+      "talaffuz": "палатка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "источник",
+      "en": "spring",
+      "uz": "bahor",
+      "talaffuz": "источник",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "основание",
+      "en": "foundation",
+      "uz": "asos",
+      "talaffuz": "основание",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "родственник",
+      "en": "relation",
+      "uz": "munosabat",
+      "talaffuz": "родственник",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "осень",
+      "en": "autumn",
+      "uz": "kuz",
+      "talaffuz": "осень",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "представление",
+      "en": "presentation",
+      "uz": "taqdimot",
+      "talaffuz": "представление",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "способность",
+      "en": "ability",
+      "uz": "qobiliyat",
+      "talaffuz": "способность",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "понятие",
+      "en": "idea",
+      "uz": "fikr",
+      "talaffuz": "понятие",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "тон",
+      "en": "tone",
+      "uz": "ohang",
+      "talaffuz": "тон",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "аппарат",
+      "en": "machine",
+      "uz": "mashina",
+      "talaffuz": "аппарат",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "водитель",
+      "en": "driver",
+      "uz": "haydovchi",
+      "talaffuz": "водитель",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "крыло",
+      "en": "wing",
+      "uz": "qanot",
+      "talaffuz": "крыло",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "изменение",
+      "en": "change",
+      "uz": "o'zgartirish",
+      "talaffuz": "изменение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "беседа",
+      "en": "conversation",
+      "uz": "suhbat",
+      "talaffuz": "беседа",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "пост",
+      "en": "post",
+      "uz": "post",
+      "talaffuz": "пост",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "вывод",
+      "en": "conclusion",
+      "uz": "xulosa",
+      "talaffuz": "вывод",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "комиссия",
+      "en": "commission",
+      "uz": "komissiya",
+      "talaffuz": "комиссия",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "множество",
+      "en": "tons of",
+      "uz": "tonna",
+      "talaffuz": "множество",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "явление",
+      "en": "phenomenon",
+      "uz": "hodisa",
+      "talaffuz": "явление",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "красота",
+      "en": "beauty",
+      "uz": "go'zallik",
+      "talaffuz": "красота",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "мороз",
+      "en": "frost",
+      "uz": "sovuq",
+      "talaffuz": "мороз",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "дача",
+      "en": "giving",
+      "uz": "berish",
+      "talaffuz": "дача",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "пастух",
+      "en": "herdsman",
+      "uz": "chorvachi",
+      "talaffuz": "пастух",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "дон",
+      "en": "don",
+      "uz": "don",
+      "talaffuz": "дон",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "остальное",
+      "en": "Everything that's left",
+      "uz": "Qolgan hamma narsa",
+      "talaffuz": "остальное",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "площадка",
+      "en": "ground",
+      "uz": "zamin",
+      "talaffuz": "площадка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "усилие",
+      "en": "effort",
+      "uz": "harakat",
+      "talaffuz": "усилие",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "приятель",
+      "en": "friend",
+      "uz": "do'st",
+      "talaffuz": "приятель",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ручка",
+      "en": "pen",
+      "uz": "qalam",
+      "talaffuz": "ручка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "столик",
+      "en": "small table",
+      "uz": "kichik stol",
+      "talaffuz": "столик",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "журналист",
+      "en": "journalist",
+      "uz": "jurnalist",
+      "talaffuz": "журналист",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "выстрел",
+      "en": "shot",
+      "uz": "otish",
+      "talaffuz": "выстрел",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "озеро",
+      "en": "lake",
+      "uz": "ko'l",
+      "talaffuz": "озеро",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "сумка",
+      "en": "bag",
+      "uz": "sumka",
+      "talaffuz": "сумка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "кино",
+      "en": "cinema",
+      "uz": "kino",
+      "talaffuz": "кино",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "должность",
+      "en": "post",
+      "uz": "post",
+      "talaffuz": "должность",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "зло",
+      "en": "evil",
+      "uz": "yomon",
+      "talaffuz": "зло",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "позиция",
+      "en": "position",
+      "uz": "pozitsiya",
+      "talaffuz": "позиция",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "удивление",
+      "en": "astonishment",
+      "uz": "hayrat",
+      "talaffuz": "удивление",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "следователь",
+      "en": "investigator",
+      "uz": "tergovchi",
+      "talaffuz": "следователь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ученик",
+      "en": "pupil",
+      "uz": "o'quvchi",
+      "talaffuz": "ученик",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "основа",
+      "en": "base",
+      "uz": "asos",
+      "talaffuz": "основа",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "горе",
+      "en": "grief",
+      "uz": "qayg'u",
+      "talaffuz": "горе",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "рождение",
+      "en": "birth",
+      "uz": "tug'ilish",
+      "talaffuz": "рождение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "песня",
+      "en": "song",
+      "uz": "qo'shiq",
+      "talaffuz": "песня",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "полок",
+      "en": "shelf",
+      "uz": "raf",
+      "talaffuz": "полок",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "старшина",
+      "en": "foreman",
+      "uz": "usta",
+      "talaffuz": "старшина",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "колесо",
+      "en": "wheel",
+      "uz": "g'ildirak",
+      "talaffuz": "колесо",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "шофёр",
+      "en": "chauffeur",
+      "uz": "haydovchi",
+      "talaffuz": "шофёр",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "проект",
+      "en": "project",
+      "uz": "loyiha",
+      "talaffuz": "проект",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "совесть",
+      "en": "conscience",
+      "uz": "vijdon",
+      "talaffuz": "совесть",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "суть",
+      "en": "essence",
+      "uz": "mohiyati",
+      "talaffuz": "суть",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "режим",
+      "en": "regime",
+      "uz": "rejim",
+      "talaffuz": "режим",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "стен",
+      "en": "sthene",
+      "uz": "sthene",
+      "talaffuz": "стен",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "чемодан",
+      "en": "suitcase",
+      "uz": "chamadon",
+      "talaffuz": "чемодан",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "платье",
+      "en": "dress",
+      "uz": "kiyinish",
+      "talaffuz": "платье",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "хозяйство",
+      "en": "farm",
+      "uz": "ferma",
+      "talaffuz": "хозяйство",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "полиция",
+      "en": "police",
+      "uz": "politsiya",
+      "talaffuz": "полиция",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "пункт",
+      "en": "point",
+      "uz": "nuqta",
+      "talaffuz": "пункт",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ствол",
+      "en": "gun",
+      "uz": "qurol",
+      "talaffuz": "ствол",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "толк",
+      "en": "sense",
+      "uz": "tuyg'u",
+      "talaffuz": "толк",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "вкус",
+      "en": "taste",
+      "uz": "ta'mi",
+      "talaffuz": "вкус",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "добро",
+      "en": "good",
+      "uz": "yaxshi",
+      "talaffuz": "добро",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "портрет",
+      "en": "portrait",
+      "uz": "portret",
+      "talaffuz": "портрет",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "полк",
+      "en": "regiment",
+      "uz": "polk",
+      "talaffuz": "полк",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "кофе",
+      "en": "coffee",
+      "uz": "kofe",
+      "talaffuz": "кофе",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "отделение",
+      "en": "separation",
+      "uz": "ajratish",
+      "talaffuz": "отделение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "подать",
+      "en": "tax",
+      "uz": "soliq",
+      "talaffuz": "подать",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "обстановка",
+      "en": "furniture",
+      "uz": "mebel",
+      "talaffuz": "обстановка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "пятно",
+      "en": "spot",
+      "uz": "nuqta",
+      "talaffuz": "пятно",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "бровь",
+      "en": "eyebrow",
+      "uz": "qosh",
+      "talaffuz": "бровь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "телевизор",
+      "en": "television set",
+      "uz": "televizor",
+      "talaffuz": "телевизор",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "база",
+      "en": "base",
+      "uz": "asos",
+      "talaffuz": "база",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "тревога",
+      "en": "alarm",
+      "uz": "signal",
+      "talaffuz": "тревога",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "помещение",
+      "en": "indoor location",
+      "uz": "ichki joylashuvi",
+      "talaffuz": "помещение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "урок",
+      "en": "lesson",
+      "uz": "dars",
+      "talaffuz": "урок",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "поведение",
+      "en": "behavior",
+      "uz": "xulq-atvor",
+      "talaffuz": "поведение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "создание",
+      "en": "creation",
+      "uz": "yaratish",
+      "talaffuz": "создание",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "собрание",
+      "en": "meeting",
+      "uz": "uchrashuv",
+      "talaffuz": "собрание",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "дедушка",
+      "en": "grandfather",
+      "uz": "bobo",
+      "talaffuz": "дедушка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "безопасность",
+      "en": "safety",
+      "uz": "xavfsizlik",
+      "talaffuz": "безопасность",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "функция",
+      "en": "function",
+      "uz": "funktsiyasi",
+      "talaffuz": "функция",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "нарушение",
+      "en": "breach",
+      "uz": "buzish",
+      "talaffuz": "нарушение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "экран",
+      "en": "screen",
+      "uz": "ekran",
+      "talaffuz": "экран",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "шапка",
+      "en": "cap",
+      "uz": "qopqoq",
+      "talaffuz": "шапка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "полоса",
+      "en": "stripe",
+      "uz": "chiziq",
+      "talaffuz": "полоса",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "хозяйка",
+      "en": "mistress",
+      "uz": "bekasi",
+      "talaffuz": "хозяйка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "штаны",
+      "en": "trousers",
+      "uz": "shimlar",
+      "talaffuz": "штаны",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "грязь",
+      "en": "dirt",
+      "uz": "axloqsizlik",
+      "talaffuz": "грязь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "заявление",
+      "en": "statement",
+      "uz": "bayonot",
+      "talaffuz": "заявление",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "труп",
+      "en": "dead body",
+      "uz": "o'lik jasad",
+      "talaffuz": "труп",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "подарок",
+      "en": "present",
+      "uz": "hozir",
+      "talaffuz": "подарок",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "рубашка",
+      "en": "shirt",
+      "uz": "ko'ylak",
+      "talaffuz": "рубашка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "август",
+      "en": "August",
+      "uz": "avgust",
+      "talaffuz": "август",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "объект",
+      "en": "object",
+      "uz": "ob'ekt",
+      "talaffuz": "объект",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "университет",
+      "en": "university",
+      "uz": "universitet",
+      "talaffuz": "университет",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "охота",
+      "en": "hunt",
+      "uz": "ov",
+      "talaffuz": "охота",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "штука",
+      "en": "thing",
+      "uz": "narsa",
+      "talaffuz": "штука",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "муха",
+      "en": "fly",
+      "uz": "uchish",
+      "talaffuz": "муха",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "молоко",
+      "en": "milk",
+      "uz": "sut",
+      "talaffuz": "молоко",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "буква",
+      "en": "letter",
+      "uz": "xat",
+      "talaffuz": "буква",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "вершина",
+      "en": "top",
+      "uz": "yuqori",
+      "talaffuz": "вершина",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "поверхность",
+      "en": "surface",
+      "uz": "sirt",
+      "talaffuz": "поверхность",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "товар",
+      "en": "commodity",
+      "uz": "tovar",
+      "talaffuz": "товар",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "лапа",
+      "en": "paw",
+      "uz": "panja",
+      "talaffuz": "лапа",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "гостиница",
+      "en": "hotel",
+      "uz": "mehmonxona",
+      "talaffuz": "гостиница",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "середина",
+      "en": "middle",
+      "uz": "o'rtada",
+      "talaffuz": "середина",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "бригада",
+      "en": "brigade",
+      "uz": "brigada",
+      "talaffuz": "бригада",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "признак",
+      "en": "sign",
+      "uz": "belgisi",
+      "talaffuz": "признак",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "среда",
+      "en": "Wednesday",
+      "uz": "chorshanba",
+      "talaffuz": "среда",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "политика",
+      "en": "politics",
+      "uz": "siyosat",
+      "talaffuz": "политика",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "капля",
+      "en": "drop",
+      "uz": "tushirish",
+      "talaffuz": "капля",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "вес",
+      "en": "weight",
+      "uz": "vazn",
+      "talaffuz": "вес",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "комитет",
+      "en": "committee",
+      "uz": "qo'mita",
+      "talaffuz": "комитет",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "плащ",
+      "en": "cloak",
+      "uz": "plash",
+      "talaffuz": "плащ",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "поток",
+      "en": "stream",
+      "uz": "oqim",
+      "talaffuz": "поток",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "холод",
+      "en": "cold",
+      "uz": "sovuq",
+      "talaffuz": "холод",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "Париж",
+      "en": "Paris",
+      "uz": "Parij",
+      "talaffuz": "Париж",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "записка",
+      "en": "note",
+      "uz": "Eslatma",
+      "talaffuz": "записка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "появление",
+      "en": "appearance",
+      "uz": "ko'rinish",
+      "talaffuz": "появление",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "платок",
+      "en": "shawl",
+      "uz": "ro'mol",
+      "talaffuz": "платок",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "корпус",
+      "en": "body",
+      "uz": "tanasi",
+      "talaffuz": "корпус",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "сведение",
+      "en": "information",
+      "uz": "ma'lumot",
+      "talaffuz": "сведение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "забор",
+      "en": "fence",
+      "uz": "panjara",
+      "talaffuz": "забор",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "октябрь",
+      "en": "October",
+      "uz": "oktyabr",
+      "talaffuz": "октябрь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "строй",
+      "en": "system",
+      "uz": "tizimi",
+      "talaffuz": "строй",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "морда",
+      "en": "muzzle",
+      "uz": "tumshuq",
+      "talaffuz": "морда",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "краска",
+      "en": "paint",
+      "uz": "bo'yoq",
+      "talaffuz": "краска",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "кружок",
+      "en": "circle",
+      "uz": "doira",
+      "talaffuz": "кружок",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "могила",
+      "en": "grave",
+      "uz": "qabr",
+      "talaffuz": "могила",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "облако",
+      "en": "cloud",
+      "uz": "bulut",
+      "talaffuz": "облако",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "шкаф",
+      "en": "cupboard",
+      "uz": "shkaf",
+      "talaffuz": "шкаф",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "милиционер",
+      "en": "policeman",
+      "uz": "politsiyachi",
+      "talaffuz": "милиционер",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "сумма",
+      "en": "sum",
+      "uz": "so'm",
+      "talaffuz": "сумма",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "сеть",
+      "en": "web",
+      "uz": "veb",
+      "talaffuz": "сеть",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "грех",
+      "en": "sin",
+      "uz": "gunoh",
+      "talaffuz": "грех",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ожидание",
+      "en": "expectation",
+      "uz": "kutish",
+      "talaffuz": "ожидание",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "необходимость",
+      "en": "necessity",
+      "uz": "zaruriyat",
+      "talaffuz": "необходимость",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "инспектор",
+      "en": "inspector",
+      "uz": "inspektor",
+      "talaffuz": "инспектор",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "сообщение",
+      "en": "message",
+      "uz": "xabar",
+      "talaffuz": "сообщение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "стенка",
+      "en": "wall",
+      "uz": "devor",
+      "talaffuz": "стенка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "подъезд",
+      "en": "porch",
+      "uz": "ayvon",
+      "talaffuz": "подъезд",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "парк",
+      "en": "park",
+      "uz": "park",
+      "talaffuz": "парк",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "вокзал",
+      "en": "station building",
+      "uz": "stantsiya binosi",
+      "talaffuz": "вокзал",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "борт",
+      "en": "aboard",
+      "uz": "bortida",
+      "talaffuz": "борт",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "взрыв",
+      "en": "explosion",
+      "uz": "portlash",
+      "talaffuz": "взрыв",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "расстояние",
+      "en": "distance",
+      "uz": "masofa",
+      "talaffuz": "расстояние",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "локоть",
+      "en": "elbow",
+      "uz": "tirsak",
+      "talaffuz": "локоть",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "актёр",
+      "en": "actor",
+      "uz": "aktyor",
+      "talaffuz": "актёр",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ус",
+      "en": "moustache",
+      "uz": "mo'ylov",
+      "talaffuz": "ус",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "куртка",
+      "en": "jacket",
+      "uz": "kurtka",
+      "talaffuz": "куртка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "луна",
+      "en": "moon",
+      "uz": "oy",
+      "talaffuz": "луна",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "скала",
+      "en": "rock",
+      "uz": "tosh",
+      "talaffuz": "скала",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "экономика",
+      "en": "economy",
+      "uz": "iqtisodiyot",
+      "talaffuz": "экономика",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "песнь",
+      "en": "canto",
+      "uz": "kanto",
+      "talaffuz": "песнь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "шинель",
+      "en": "greatcoat",
+      "uz": "katta palto",
+      "talaffuz": "шинель",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "лёд",
+      "en": "ice",
+      "uz": "muz",
+      "talaffuz": "лёд",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "волк",
+      "en": "wolf",
+      "uz": "bo'ri",
+      "talaffuz": "волк",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "структура",
+      "en": "structure",
+      "uz": "tuzilishi",
+      "talaffuz": "структура",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "сержант",
+      "en": "sergeant",
+      "uz": "serjant",
+      "talaffuz": "сержант",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "клетка",
+      "en": "cage",
+      "uz": "qafas",
+      "talaffuz": "клетка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "поколение",
+      "en": "generation",
+      "uz": "avlod",
+      "talaffuz": "поколение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "газ",
+      "en": "gas",
+      "uz": "gaz",
+      "talaffuz": "газ",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "пила",
+      "en": "saw",
+      "uz": "ko'rgan",
+      "talaffuz": "пила",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "файл",
+      "en": "file",
+      "uz": "fayl",
+      "talaffuz": "файл",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "орудие",
+      "en": "instrument",
+      "uz": "asbob",
+      "talaffuz": "орудие",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "коллега",
+      "en": "colleague",
+      "uz": "hamkasb",
+      "talaffuz": "коллега",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "просьба",
+      "en": "request",
+      "uz": "iltimos",
+      "talaffuz": "просьба",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "выбор",
+      "en": "choice",
+      "uz": "tanlash",
+      "talaffuz": "выбор",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "куча",
+      "en": "a lot",
+      "uz": "juda ko'p",
+      "talaffuz": "куча",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "корень",
+      "en": "root",
+      "uz": "ildiz",
+      "talaffuz": "корень",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "содержание",
+      "en": "maintenance",
+      "uz": "texnik xizmat ko'rsatish",
+      "talaffuz": "содержание",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "разница",
+      "en": "difference",
+      "uz": "farq",
+      "talaffuz": "разница",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "остаток",
+      "en": "remainder",
+      "uz": "qolgan",
+      "talaffuz": "остаток",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "расчёт",
+      "en": "calculation",
+      "uz": "hisoblash",
+      "talaffuz": "расчёт",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "температура",
+      "en": "temperature",
+      "uz": "harorat",
+      "talaffuz": "температура",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "республика",
+      "en": "republic",
+      "uz": "respublika",
+      "talaffuz": "республика",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "пояс",
+      "en": "belt",
+      "uz": "kamar",
+      "talaffuz": "пояс",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "шёпот",
+      "en": "whisper",
+      "uz": "shivirlash",
+      "talaffuz": "шёпот",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "сентябрь",
+      "en": "September",
+      "uz": "sentyabr",
+      "talaffuz": "сентябрь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "дивизия",
+      "en": "division",
+      "uz": "bo'linish",
+      "talaffuz": "дивизия",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "гриб",
+      "en": "mushroom",
+      "uz": "qo'ziqorin",
+      "talaffuz": "гриб",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "сравнение",
+      "en": "comparison",
+      "uz": "solishtirish",
+      "talaffuz": "сравнение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "бабка",
+      "en": "grandmother",
+      "uz": "buvisi",
+      "talaffuz": "бабка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "реакция",
+      "en": "reaction",
+      "uz": "reaktsiya",
+      "talaffuz": "реакция",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "тоска",
+      "en": "melancholy",
+      "uz": "melankolik",
+      "talaffuz": "тоска",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "посёлок",
+      "en": "settlement",
+      "uz": "turar-joy",
+      "talaffuz": "посёлок",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "кольцо",
+      "en": "ring",
+      "uz": "uzuk",
+      "talaffuz": "кольцо",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "достоинство",
+      "en": "dignity/virtue/ quality",
+      "uz": "qadr-qimmat / fazilat / sifat",
+      "talaffuz": "достоинство",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "слой",
+      "en": "layer",
+      "uz": "qatlam",
+      "talaffuz": "слой",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "страсть",
+      "en": "passion",
+      "uz": "ehtiros",
+      "talaffuz": "страсть",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "напряжение",
+      "en": "effort / tension",
+      "uz": "harakat / kuchlanish",
+      "talaffuz": "напряжение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "коммунист",
+      "en": "communist",
+      "uz": "kommunist",
+      "talaffuz": "коммунист",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "участник",
+      "en": "participant",
+      "uz": "ishtirokchi",
+      "talaffuz": "участник",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "подруга",
+      "en": "friend (female)",
+      "uz": "do'st (ayol)",
+      "talaffuz": "подруга",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "изба",
+      "en": "cottage",
+      "uz": "yozgi uy",
+      "talaffuz": "изба",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "голод",
+      "en": "hunger",
+      "uz": "ochlik",
+      "talaffuz": "голод",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "пёс",
+      "en": "dog",
+      "uz": "it",
+      "talaffuz": "пёс",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "заместитель",
+      "en": "substitute",
+      "uz": "almashtirmoq",
+      "talaffuz": "заместитель",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "истина",
+      "en": "truth",
+      "uz": "haqiqat",
+      "talaffuz": "истина",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "колонна",
+      "en": "column",
+      "uz": "ustun",
+      "talaffuz": "колонна",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "оборона",
+      "en": "defence",
+      "uz": "mudofaa",
+      "talaffuz": "оборона",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "элемент",
+      "en": "element",
+      "uz": "element",
+      "talaffuz": "элемент",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "пиджак",
+      "en": "coat",
+      "uz": "palto",
+      "talaffuz": "пиджак",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "крыльцо",
+      "en": "porch",
+      "uz": "ayvon",
+      "talaffuz": "крыльцо",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "отличие",
+      "en": "difference",
+      "uz": "farq",
+      "talaffuz": "отличие",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "брюки",
+      "en": "trousers",
+      "uz": "shimlar",
+      "talaffuz": "брюки",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "исследование",
+      "en": "research",
+      "uz": "tadqiqot",
+      "talaffuz": "исследование",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "орден",
+      "en": "order",
+      "uz": "buyurtma",
+      "talaffuz": "орден",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "техника",
+      "en": "engineering",
+      "uz": "muhandislik",
+      "talaffuz": "техника",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "канал",
+      "en": "canal",
+      "uz": "kanal",
+      "talaffuz": "канал",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "девчонка",
+      "en": "girl",
+      "uz": "qiz",
+      "talaffuz": "девчонка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "крест",
+      "en": "cross",
+      "uz": "xoch",
+      "talaffuz": "крест",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "теория",
+      "en": "theory",
+      "uz": "nazariya",
+      "talaffuz": "теория",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "луч",
+      "en": "ray",
+      "uz": "nur",
+      "talaffuz": "луч",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "молчание",
+      "en": "silence",
+      "uz": "sukunat",
+      "talaffuz": "молчание",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "батарея",
+      "en": "battery",
+      "uz": "batareya",
+      "talaffuz": "батарея",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "устройство",
+      "en": "device",
+      "uz": "qurilma",
+      "talaffuz": "устройство",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "палка",
+      "en": "stick",
+      "uz": "tayoq",
+      "talaffuz": "палка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "фонарь",
+      "en": "lantern",
+      "uz": "fonar",
+      "talaffuz": "фонарь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "контроль",
+      "en": "control",
+      "uz": "nazorat qilish",
+      "talaffuz": "контроль",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ветка",
+      "en": "branch",
+      "uz": "filiali",
+      "talaffuz": "ветка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "влияние",
+      "en": "influence",
+      "uz": "ta'sir qilish",
+      "talaffuz": "влияние",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "разведка",
+      "en": "secret service",
+      "uz": "maxfiy xizmat",
+      "talaffuz": "разведка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "справа",
+      "en": "to the right",
+      "uz": "O'ngga",
+      "talaffuz": "справа",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "польза",
+      "en": "benefit",
+      "uz": "foyda",
+      "talaffuz": "польза",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "дочка",
+      "en": "daughter",
+      "uz": "qizi",
+      "talaffuz": "дочка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "надпись",
+      "en": "inscription",
+      "uz": "yozuv",
+      "talaffuz": "надпись",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "обезьяна",
+      "en": "monkey",
+      "uz": "maymun",
+      "talaffuz": "обезьяна",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "склад",
+      "en": "storehouse",
+      "uz": "ombor",
+      "talaffuz": "склад",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "север",
+      "en": "north",
+      "uz": "shimol",
+      "talaffuz": "север",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "печать",
+      "en": "seal",
+      "uz": "muhr",
+      "talaffuz": "печать",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "крестьянин",
+      "en": "peasant",
+      "uz": "dehqon",
+      "talaffuz": "крестьянин",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "пальто",
+      "en": "coat",
+      "uz": "palto",
+      "talaffuz": "пальто",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "любопытство",
+      "en": "curiosity",
+      "uz": "qiziquvchanlik",
+      "talaffuz": "любопытство",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "тарелка",
+      "en": "plate",
+      "uz": "plastinka",
+      "talaffuz": "тарелка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "следствие",
+      "en": "consequence",
+      "uz": "oqibat",
+      "talaffuz": "следствие",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ракета",
+      "en": "rocket",
+      "uz": "raketa",
+      "talaffuz": "ракета",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "зарплата",
+      "en": "salary",
+      "uz": "ish haqi",
+      "talaffuz": "зарплата",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "топор",
+      "en": "axe",
+      "uz": "bolta",
+      "talaffuz": "топор",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "убийца",
+      "en": "killer",
+      "uz": "qotil",
+      "talaffuz": "убийца",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "сущность",
+      "en": "essence",
+      "uz": "mohiyati",
+      "talaffuz": "сущность",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "домик",
+      "en": "cottage",
+      "uz": "yozgi uy",
+      "talaffuz": "домик",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "запись",
+      "en": "record",
+      "uz": "rekord",
+      "talaffuz": "запись",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "пожар",
+      "en": "fire",
+      "uz": "olov",
+      "talaffuz": "пожар",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "пачка",
+      "en": "packet",
+      "uz": "paket",
+      "talaffuz": "пачка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ага",
+      "en": "cane toad",
+      "uz": "qamish qurbaqasi",
+      "talaffuz": "ага",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "свидетель",
+      "en": "witness",
+      "uz": "guvoh",
+      "talaffuz": "свидетель",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "пища",
+      "en": "food",
+      "uz": "oziq-ovqat",
+      "talaffuz": "пища",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "забота",
+      "en": "care",
+      "uz": "g'amxo'rlik",
+      "talaffuz": "забота",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "открытие",
+      "en": "discovery",
+      "uz": "kashfiyot",
+      "talaffuz": "открытие",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "девица",
+      "en": "girl",
+      "uz": "qiz",
+      "talaffuz": "девица",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "вождь",
+      "en": "leader",
+      "uz": "rahbar",
+      "talaffuz": "вождь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "одеяло",
+      "en": "blanket",
+      "uz": "adyol",
+      "talaffuz": "одеяло",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "храм",
+      "en": "temple",
+      "uz": "ma'bad",
+      "talaffuz": "храм",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "пассажир",
+      "en": "passenger",
+      "uz": "yo'lovchi",
+      "talaffuz": "пассажир",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "строительство",
+      "en": "building",
+      "uz": "bino",
+      "talaffuz": "строительство",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "поездка",
+      "en": "journey",
+      "uz": "sayohat",
+      "talaffuz": "поездка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "рана",
+      "en": "wound",
+      "uz": "yara",
+      "talaffuz": "рана",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "верёвка",
+      "en": "rope",
+      "uz": "arqon",
+      "talaffuz": "верёвка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "погода",
+      "en": "weather",
+      "uz": "ob-havo",
+      "talaffuz": "погода",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "двести",
+      "en": "two hundred",
+      "uz": "ikki yuz",
+      "talaffuz": "двести",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "паспорт",
+      "en": "passport",
+      "uz": "pasport",
+      "talaffuz": "паспорт",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "привычка",
+      "en": "habit",
+      "uz": "odat",
+      "talaffuz": "привычка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "холм",
+      "en": "hill",
+      "uz": "tepalik",
+      "talaffuz": "холм",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "шоссе",
+      "en": "highway",
+      "uz": "avtomagistral",
+      "talaffuz": "шоссе",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "поворот",
+      "en": "turn",
+      "uz": "burilish",
+      "talaffuz": "поворот",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "восторг",
+      "en": "excitement",
+      "uz": "hayajon",
+      "talaffuz": "восторг",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "мечта",
+      "en": "dream",
+      "uz": "orzu",
+      "talaffuz": "мечта",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "кабина",
+      "en": "booth",
+      "uz": "kabina",
+      "talaffuz": "кабина",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "картошка",
+      "en": "potatoes",
+      "uz": "kartoshka",
+      "talaffuz": "картошка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "Израиль",
+      "en": "Israel",
+      "uz": "Isroil",
+      "talaffuz": "Израиль",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "борода",
+      "en": "beard below chin",
+      "uz": "soqol iyagi ostida",
+      "talaffuz": "борода",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "запас",
+      "en": "stock",
+      "uz": "aktsiya",
+      "talaffuz": "запас",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "тайга",
+      "en": "taiga",
+      "uz": "tayga",
+      "talaffuz": "тайга",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "молодец",
+      "en": "Well done",
+      "uz": "Juda qoyil",
+      "talaffuz": "молодец",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "пресса",
+      "en": "the press",
+      "uz": "matbuot",
+      "talaffuz": "пресса",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "подробность",
+      "en": "detail",
+      "uz": "tafsilot",
+      "talaffuz": "подробность",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "талант",
+      "en": "talent",
+      "uz": "iste'dod",
+      "talaffuz": "талант",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "особенность",
+      "en": "feature",
+      "uz": "xususiyat",
+      "talaffuz": "особенность",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "дружба",
+      "en": "friendship",
+      "uz": "do'stlik",
+      "talaffuz": "дружба",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "памятник",
+      "en": "monument",
+      "uz": "yodgorlik",
+      "talaffuz": "памятник",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "помощник",
+      "en": "assistant",
+      "uz": "yordamchi",
+      "talaffuz": "помощник",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "шляпа",
+      "en": "hat",
+      "uz": "shlyapa",
+      "talaffuz": "шляпа",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "произведение",
+      "en": "work",
+      "uz": "ish",
+      "talaffuz": "произведение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "подготовка",
+      "en": "preparation",
+      "uz": "tayyorlash",
+      "talaffuz": "подготовка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "вызов",
+      "en": "challenge",
+      "uz": "qiyinchilik",
+      "talaffuz": "вызов",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "батальон",
+      "en": "battalion",
+      "uz": "batalyon",
+      "talaffuz": "батальон",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "смена",
+      "en": "shift",
+      "uz": "siljish",
+      "talaffuz": "смена",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "потеря",
+      "en": "loss",
+      "uz": "yo'qotish",
+      "talaffuz": "потеря",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "сигнал",
+      "en": "signal",
+      "uz": "signal",
+      "talaffuz": "сигнал",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "затылок",
+      "en": "back of the head",
+      "uz": "boshning orqa tomoni",
+      "talaffuz": "затылок",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "мотор",
+      "en": "motor",
+      "uz": "motor",
+      "talaffuz": "мотор",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "обида",
+      "en": "offence",
+      "uz": "jinoyat",
+      "talaffuz": "обида",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "профессия",
+      "en": "occupation",
+      "uz": "kasb",
+      "talaffuz": "профессия",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "юноша",
+      "en": "young man",
+      "uz": "yigit",
+      "talaffuz": "юноша",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "юг",
+      "en": "south",
+      "uz": "janub",
+      "talaffuz": "юг",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "доля",
+      "en": "part",
+      "uz": "qismi",
+      "talaffuz": "доля",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "воин",
+      "en": "fighting man",
+      "uz": "jangchi odam",
+      "talaffuz": "воин",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "медведь",
+      "en": "bear",
+      "uz": "ayiq",
+      "talaffuz": "медведь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ведро",
+      "en": "bucket",
+      "uz": "chelak",
+      "talaffuz": "ведро",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "сказка",
+      "en": "tale",
+      "uz": "ertak",
+      "talaffuz": "сказка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "цк",
+      "en": "the Central Committee",
+      "uz": "Markaziy Qo'mita",
+      "talaffuz": "цк",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "полёт",
+      "en": "flight",
+      "uz": "parvoz",
+      "talaffuz": "полёт",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "пулемёт",
+      "en": "machine-gun",
+      "uz": "pulemyot",
+      "talaffuz": "пулемёт",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "железо",
+      "en": "iron",
+      "uz": "temir",
+      "talaffuz": "железо",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "механизм",
+      "en": "mechanism",
+      "uz": "mexanizmi",
+      "talaffuz": "механизм",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "тьма",
+      "en": "dark",
+      "uz": "qorong'i",
+      "talaffuz": "тьма",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "новость",
+      "en": "news",
+      "uz": "yangiliklar",
+      "talaffuz": "новость",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "строка",
+      "en": "line",
+      "uz": "chiziq",
+      "talaffuz": "строка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "сфера",
+      "en": "sphere",
+      "uz": "shar",
+      "talaffuz": "сфера",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "комиссар",
+      "en": "commissar",
+      "uz": "komissar",
+      "talaffuz": "комиссар",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "малыш",
+      "en": "small child",
+      "uz": "kichik bola",
+      "talaffuz": "малыш",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "повесть",
+      "en": "narrative",
+      "uz": "hikoya",
+      "talaffuz": "повесть",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "поражение",
+      "en": "defeat/lesion hitting",
+      "uz": "mag'lubiyat/lezyon urish",
+      "talaffuz": "поражение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "цифра",
+      "en": "figure",
+      "uz": "raqam",
+      "talaffuz": "цифра",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "компьютер",
+      "en": "computer",
+      "uz": "kompyuter",
+      "talaffuz": "компьютер",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "угроза",
+      "en": "threat",
+      "uz": "tahdid",
+      "talaffuz": "угроза",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "исключение",
+      "en": "exclusion",
+      "uz": "istisno qilish",
+      "talaffuz": "исключение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "бумажка",
+      "en": "scrap of paper",
+      "uz": "qog'oz parchasi",
+      "talaffuz": "бумажка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "договор",
+      "en": "agreement",
+      "uz": "kelishuv",
+      "talaffuz": "договор",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "башня",
+      "en": "tower",
+      "uz": "minora",
+      "talaffuz": "башня",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "секрет",
+      "en": "secret",
+      "uz": "sir",
+      "talaffuz": "секрет",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "лампа",
+      "en": "lamp",
+      "uz": "chiroq",
+      "talaffuz": "лампа",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ремень",
+      "en": "strap",
+      "uz": "tasma",
+      "talaffuz": "ремень",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "глупость",
+      "en": "foolishness",
+      "uz": "ahmoqlik",
+      "talaffuz": "глупость",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "библиотека",
+      "en": "library",
+      "uz": "kutubxona",
+      "talaffuz": "библиотека",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ботинок",
+      "en": "boot",
+      "uz": "yuklash",
+      "talaffuz": "ботинок",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ткань",
+      "en": "cloth",
+      "uz": "mato",
+      "talaffuz": "ткань",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "халат",
+      "en": "dressing-gown",
+      "uz": "xalat",
+      "talaffuz": "халат",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "океан",
+      "en": "ocean",
+      "uz": "okean",
+      "talaffuz": "океан",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "деталь",
+      "en": "detail",
+      "uz": "tafsilot",
+      "talaffuz": "деталь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "молодёжь",
+      "en": "youth",
+      "uz": "yoshlar",
+      "talaffuz": "молодёжь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "радио",
+      "en": "radio",
+      "uz": "radio",
+      "talaffuz": "радио",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "лидер",
+      "en": "leader",
+      "uz": "rahbar",
+      "talaffuz": "лидер",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "корова",
+      "en": "cow",
+      "uz": "sigir",
+      "talaffuz": "корова",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "преступник",
+      "en": "criminal",
+      "uz": "jinoyatchi",
+      "talaffuz": "преступник",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "итог",
+      "en": "sum",
+      "uz": "so'm",
+      "talaffuz": "итог",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "задание",
+      "en": "task",
+      "uz": "vazifa",
+      "talaffuz": "задание",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "заседание",
+      "en": "session",
+      "uz": "sessiya",
+      "talaffuz": "заседание",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "папка",
+      "en": "father",
+      "uz": "ota",
+      "talaffuz": "папка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "Франция",
+      "en": "France",
+      "uz": "Fransiya",
+      "talaffuz": "Франция",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "депутат",
+      "en": "government official",
+      "uz": "hukumat xodimi",
+      "talaffuz": "депутат",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "молодость",
+      "en": "youth",
+      "uz": "yoshlar",
+      "talaffuz": "молодость",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "норма",
+      "en": "standard",
+      "uz": "standart",
+      "talaffuz": "норма",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "гном",
+      "en": "gnome",
+      "uz": "gnom",
+      "talaffuz": "гном",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "цепь",
+      "en": "chain",
+      "uz": "zanjir",
+      "talaffuz": "цепь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "метода",
+      "en": "method",
+      "uz": "usuli",
+      "talaffuz": "метода",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ответственность",
+      "en": "responsibility",
+      "uz": "mas'uliyat",
+      "talaffuz": "ответственность",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "жар",
+      "en": "heat",
+      "uz": "issiqlik",
+      "talaffuz": "жар",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "пакет",
+      "en": "bag",
+      "uz": "sumka",
+      "talaffuz": "пакет",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "уважение",
+      "en": "respect",
+      "uz": "hurmat",
+      "talaffuz": "уважение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "контакт",
+      "en": "contact",
+      "uz": "aloqa",
+      "talaffuz": "контакт",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "пот",
+      "en": "sweat",
+      "uz": "ter",
+      "talaffuz": "пот",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "подвал",
+      "en": "basement",
+      "uz": "podval",
+      "talaffuz": "подвал",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ужин",
+      "en": "supper",
+      "uz": "kechki ovqat",
+      "talaffuz": "ужин",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "переход",
+      "en": "passage",
+      "uz": "o'tish",
+      "talaffuz": "переход",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "бег",
+      "en": "run",
+      "uz": "yugur",
+      "talaffuz": "бег",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "американец",
+      "en": "American",
+      "uz": "amerikalik",
+      "talaffuz": "американец",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "традиция",
+      "en": "tradition",
+      "uz": "an'ana",
+      "talaffuz": "традиция",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "привет",
+      "en": "hello (informal)",
+      "uz": "salom (norasmiy)",
+      "talaffuz": "привет",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "столб",
+      "en": "post",
+      "uz": "post",
+      "talaffuz": "столб",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "услуга",
+      "en": "service",
+      "uz": "xizmat",
+      "talaffuz": "услуга",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "шеф",
+      "en": "chief",
+      "uz": "boshliq",
+      "talaffuz": "шеф",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "вещество",
+      "en": "matter / substance",
+      "uz": "modda / modda",
+      "talaffuz": "вещество",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "баня",
+      "en": "banya",
+      "uz": "banya",
+      "talaffuz": "баня",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "снаряд",
+      "en": "projectile",
+      "uz": "snaryad",
+      "talaffuz": "снаряд",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "вор",
+      "en": "thief",
+      "uz": "o'g'ri",
+      "talaffuz": "вор",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "разведчик",
+      "en": "secret service man",
+      "uz": "maxfiy xizmat xodimi",
+      "talaffuz": "разведчик",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "редактор",
+      "en": "editor",
+      "uz": "muharrir",
+      "talaffuz": "редактор",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "бандит",
+      "en": "gunman",
+      "uz": "qurolli odam",
+      "talaffuz": "бандит",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "подушка",
+      "en": "pillow",
+      "uz": "yostiq",
+      "talaffuz": "подушка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "грузовик",
+      "en": "lorry",
+      "uz": "yuk mashinasi",
+      "talaffuz": "грузовик",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "раствор",
+      "en": "solution",
+      "uz": "yechim",
+      "talaffuz": "раствор",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "яма",
+      "en": "pit",
+      "uz": "chuqur",
+      "talaffuz": "яма",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "министерство",
+      "en": "ministry",
+      "uz": "vazirlik",
+      "talaffuz": "министерство",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "модель",
+      "en": "model",
+      "uz": "model",
+      "talaffuz": "модель",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "инструмент",
+      "en": "instrument",
+      "uz": "asbob",
+      "talaffuz": "инструмент",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "золото",
+      "en": "gold",
+      "uz": "oltin",
+      "talaffuz": "золото",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "стрелок",
+      "en": "rifleman",
+      "uz": "miltiqchi",
+      "talaffuz": "стрелок",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "жест",
+      "en": "gesture",
+      "uz": "imo-ishora",
+      "talaffuz": "жест",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "ноябрь",
+      "en": "November",
+      "uz": "Noyabr",
+      "talaffuz": "ноябрь",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "эпоха",
+      "en": "epoch",
+      "uz": "davr",
+      "talaffuz": "эпоха",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "отдых",
+      "en": "rest",
+      "uz": "dam olish",
+      "talaffuz": "отдых",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "передача",
+      "en": "transmission",
+      "uz": "yuqish",
+      "talaffuz": "передача",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "шар",
+      "en": "ball",
+      "uz": "to'p",
+      "talaffuz": "шар",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "звание",
+      "en": "rank",
+      "uz": "daraja",
+      "talaffuz": "звание",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "обязанность",
+      "en": "responsibility",
+      "uz": "mas'uliyat",
+      "talaffuz": "обязанность",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "волнение",
+      "en": "agitation",
+      "uz": "qo'zg'alish",
+      "talaffuz": "волнение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "щель",
+      "en": "chink",
+      "uz": "chig'anoq",
+      "talaffuz": "щель",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "акция",
+      "en": "share",
+      "uz": "baham ko'ring",
+      "talaffuz": "акция",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "узел",
+      "en": "knot",
+      "uz": "tugun",
+      "talaffuz": "узел",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "гроб",
+      "en": "coffin",
+      "uz": "tobut",
+      "talaffuz": "гроб",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "редакция",
+      "en": "editorial staff",
+      "uz": "tahririyat xodimlari",
+      "talaffuz": "редакция",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "распоряжение",
+      "en": "order",
+      "uz": "buyurtma",
+      "talaffuz": "распоряжение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "май",
+      "en": "May",
+      "uz": "may",
+      "talaffuz": "май",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "поддержка",
+      "en": "backing",
+      "uz": "qo'llab-quvvatlash",
+      "talaffuz": "поддержка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "дверца",
+      "en": "door",
+      "uz": "eshik",
+      "talaffuz": "дверца",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "Чечня",
+      "en": "Chechnya",
+      "uz": "Checheniston",
+      "talaffuz": "Чечня",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "марка",
+      "en": "stamp",
+      "uz": "shtamp",
+      "talaffuz": "марка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "разрешение",
+      "en": "permission",
+      "uz": "ruxsat",
+      "talaffuz": "разрешение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "император",
+      "en": "emperor",
+      "uz": "imperator",
+      "talaffuz": "император",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "листок",
+      "en": "form",
+      "uz": "shakl",
+      "talaffuz": "листок",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "двигатель",
+      "en": "motor",
+      "uz": "motor",
+      "talaffuz": "двигатель",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "присутствие",
+      "en": "presence",
+      "uz": "mavjudligi",
+      "talaffuz": "присутствие",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "лев",
+      "en": "lion",
+      "uz": "sher",
+      "talaffuz": "лев",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "возвращение",
+      "en": "return",
+      "uz": "qaytish",
+      "talaffuz": "возвращение",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "коробка",
+      "en": "box",
+      "uz": "quti",
+      "talaffuz": "коробка",
+      "misol_ru": "",
+      "misol_uz": ""
+    },
+    {
+      "ru": "печка",
+      "en": "stove",
+      "uz": "pechka",
+      "talaffuz": "печка",
+      "misol_ru": "",
+      "misol_uz": ""
+    }
   ]
 }

@@ -15,6 +15,14 @@ import telebot, random, json, time
 from telebot import types
 from datetime import datetime
 
+# Tarjima kutubxonasi
+try:
+    from deep_translator import GoogleTranslator
+    TARJIMA_BOR = True
+except:
+    TARJIMA_BOR = False
+    print("⚠️ deep-translator yo'q — tarjima ishlamaydi")
+
 T = "8774189119:AAGM1_wXOJ_pGwkyYKSIdgkOSWPVoudTn6M"
 A = 8178917212
 
@@ -55,12 +63,17 @@ def saqlash():
 
 def menu():
     m = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
-    m.add("📅 Kundalik","📚 Flashcard","🎯 Testlar","📖 Barcha","📊 Statistika","ℹ️ Yordam")
+    m.add("📅 Kundalik","📚 Flashcard","🎯 Testlar","📖 Barcha","🔄 Tarjima","📊 Statistika","ℹ️ Yordam")
     return m
 
 def flash_btn():
     m = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
     m.add("👁 Ko'rsatish","✅ Bilaman","❌ Bilmayman","⏹ To'xtatish")
+    return m
+
+def tarjima_menu():
+    m = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
+    m.add("🇷🇺 Ruscha → 🇺🇿 O'zbekcha","🇺🇿 O'zbekcha → 🇷🇺 Ruscha","⬅️ Orqaga")
     return m
 
 @bot.message_handler(commands=['start'])
@@ -69,7 +82,7 @@ def start(m):
     if m.chat.id == A:
         bot.send_message(c, "Admin"); return
     if c in U and U[c].get("ism"):
-        st[c] = {"i":0,"s":0,"t":0,"a":False}
+        st[c] = {"i":0,"s":0,"t":0,"a":False,"tarj":False,"tarj_til":"ru-uz"}
         bot.send_message(c, f"Salom, {U[c]['ism']}!\n\n{len(S)} ta so'z mavjud.{REKLAMA}", reply_markup=menu())
         bot.send_message(c, "Bizni kuzatib boring 👇", reply_markup=insta_btn())
         return
@@ -91,7 +104,7 @@ def reg(m):
         bot.send_message(c, f"Rahmat, {u['ism']}!\n\n{len(S)} ta so'z mavjud.{REKLAMA}")
         try: bot.send_message(A, f"YANGI:\n{u['ism']} {u['familiya']}\n{u['tel']}")
         except: pass
-        st[c] = {"i":0,"s":0,"t":0,"a":False}
+        st[c] = {"i":0,"s":0,"t":0,"a":False,"tarj":False,"tarj_til":"ru-uz"}
         bot.send_message(c, f"Menyu:{REKLAMA}", reply_markup=menu())
         bot.send_message(c, "Bizni kuzatib boring 👇", reply_markup=insta_btn())
 
@@ -100,9 +113,39 @@ def hand(m):
     c = str(m.chat.id); t = m.text
     if m.chat.id == A: return
     if c not in U or not U[c].get("ism") or U[c].get("h"): return
-    if c not in st: st[c] = {"i":0,"s":0,"t":0,"a":False}
+    if c not in st: st[c] = {"i":0,"s":0,"t":0,"a":False,"tarj":False,"tarj_til":"ru-uz"}
     x = st[c]
 
+    # ===== TARJIMA REJIMI =====
+    if x.get("tarj"):
+        if t == "⬅️ Orqaga":
+            x["tarj"] = False; st[c] = x
+            bot.send_message(c, f"Menyu:{REKLAMA}", reply_markup=menu())
+            return
+        if t == "🇷🇺 Ruscha → 🇺🇿 O'zbekcha":
+            x["tarj_til"] = "ru-uz"; st[c] = x
+            bot.send_message(c, f"✅ Ruscha → O'zbekcha rejimi.\n\nEndi ruscha so'z yoki gap yozing.{REKLAMA}")
+            return
+        if t == "🇺🇿 O'zbekcha → 🇷🇺 Ruscha":
+            x["tarj_til"] = "uz-ru"; st[c] = x
+            bot.send_message(c, f"✅ O'zbekcha → Ruscha rejimi.\n\nEndi o'zbekcha so'z yoki gap yozing.{REKLAMA}")
+            return
+        # Tarjima qilamiz
+        if TARJIMA_BOR:
+            try:
+                if x["tarj_til"] == "ru-uz":
+                    natija = GoogleTranslator(source='ru', target='uz').translate(t)
+                    bot.send_message(c, f"🇷🇺 {t}\n\n🇺🇿 {natija}{REKLAMA}")
+                else:
+                    natija = GoogleTranslator(source='uz', target='ru').translate(t)
+                    bot.send_message(c, f"🇺🇿 {t}\n\n🇷🇺 {natija}{REKLAMA}")
+            except Exception as e:
+                bot.send_message(c, f"❌ Tarjima xatosi: {e}{REKLAMA}")
+        else:
+            bot.send_message(c, f"❌ Tarjima xizmati ishlamayapti.{REKLAMA}")
+        return
+
+    # ===== TEST JAVOBI =====
     if x.get("ta") and x.get("ca"):
         if t == x["ca"]:
             x["ts"] = x.get("ts",0)+1; x["tt"] = x.get("tt",0)+1; x["ti"] = x.get("ti",0)+1
@@ -111,6 +154,7 @@ def hand(m):
             x["tt"] = x.get("tt",0)+1; x["ti"] = x.get("ti",0)+1
             st[c] = x; bot.send_message(c, f"Notogri. Togri: {x['ca']}{REKLAMA}"); test(c); return
 
+    # ===== MENYU =====
     if t == "📅 Kundalik":
         k = datetime.now().day; gs = 10; jg = max(1, len(S)//gs); gi = k % jg
         sz = S[gi*gs:(gi+1)*gs]
@@ -118,15 +162,18 @@ def hand(m):
         for i, s in enumerate(sz, 1): txt += f"{i}. {s['ru']} - {s['uz']}\n\n"
         bot.send_message(c, txt + REKLAMA)
     elif t == "📚 Flashcard":
-        st[c] = {"i":0,"s":0,"t":0,"a":True}; flash(c)
+        st[c] = {"i":0,"s":0,"t":0,"a":True,"tarj":False,"tarj_til":"ru-uz"}; flash(c)
     elif t == "🎯 Testlar":
-        st[c] = {"ti":0,"ts":0,"tt":0,"ta":True,"ca":None}; test(c)
+        st[c] = {"ti":0,"ts":0,"tt":0,"ta":True,"ca":None,"tarj":False}; test(c)
     elif t == "📖 Barcha":
         barcha(c, 0)
+    elif t == "🔄 Tarjima":
+        x["tarj"] = True; st[c] = x
+        bot.send_message(c, f"🔄 Tarjima rejimi.\n\nYo'nalishni tanlang:{REKLAMA}", reply_markup=tarjima_menu())
     elif t == "📊 Statistika":
         bot.send_message(c, f"Jami: {len(S)}\nKorilgan: {x.get('i',0)}\nTogri: {x.get('s',0)}{REKLAMA}")
     elif t == "ℹ️ Yordam":
-        bot.send_message(c, f"Yordam{REKLAMA}")
+        bot.send_message(c, f"📖 Yordam\n\n• 📅 Kundalik — kunlik so'zlar\n• 📚 Flashcard — so'z yodlash\n• 🎯 Testlar — bilim sinash\n• 📖 Barcha — hamma so'zlar\n• 🔄 Tarjima — matn tarjimasi{REKLAMA}")
     elif t == "👁 Ko'rsatish":
         idx = x.get("i",0)
         if idx < len(S):
@@ -154,9 +201,16 @@ def hand(m):
         if sh >= js: bot.send_message(c, f"Oxirgi sahifa.{REKLAMA}")
         else: barcha(c, sh)
     elif t == "⬅️ Orqaga":
-        x["ta"] = False; st[c] = x
+        x["ta"] = False; x["tarj"] = False; st[c] = x
         bot.send_message(c, f"Menyu:{REKLAMA}", reply_markup=menu())
     else:
+        # Agar foydalanuvchi menuda bo'lmasa va matn yozsa
+        if TARJIMA_BOR and len(t) > 2:
+            try:
+                natija = GoogleTranslator(source='auto', target='uz').translate(t)
+                bot.send_message(c, f"📝 Tarjima:\n\n🇷🇺 {t}\n\n🇺🇿 {natija}{REKLAMA}")
+                return
+            except: pass
         bot.send_message(c, f"Tugmalardan birini tanlang{REKLAMA}", reply_markup=menu())
 
 def flash(c):

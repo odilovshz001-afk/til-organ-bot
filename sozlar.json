@@ -1,0 +1,14 @@
+{
+  "sozlar": [
+    {"ru": "Привет", "uz": "Salom", "en": "Hello", "talaffuz": "Privet", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Спасибо", "uz": "Rahmat", "en": "Thanks", "talaffuz": "Spasiba", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Да", "uz": "Ha", "en": "Yes", "talaffuz": "Da", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Нет", "uz": "Yo'q", "en": "No", "talaffuz": "Net", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Вода", "uz": "Suv", "en": "Water", "talaffuz": "Vada", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Хлеб", "uz": "Non", "en": "Bread", "talaffuz": "Xleb", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Дом", "uz": "Uy", "en": "House", "talaffuz": "Dom", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Работа", "uz": "Ish", "en": "Work", "talaffuz": "Rabota", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Книга", "uz": "Kitob", "en": "Book", "talaffuz": "Kniga", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Друг", "uz": "Do'st", "en": "Friend", "talaffuz": "Drug", "misol_ru": "", "misol_uz": ""}
+  ]
+}

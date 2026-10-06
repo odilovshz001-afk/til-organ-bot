@@ -1,9 +1,29 @@
+import os
+from threading import Thread
+from http.server import HTTPServer, BaseHTTPRequestHandler
+
+# ===== SOXTA VEB-SERVER (Render uchun) =====
+class HealthHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.end_headers()
+        self.wfile.write(b"Bot ishlayapti!")
+    def log_message(self, format, *args):
+        pass
+
+def run_health_server():
+    port = int(os.environ.get("PORT", 8080))
+    server = HTTPServer(("0.0.0.0", port), HealthHandler)
+    server.serve_forever()
+
+Thread(target=run_health_server, daemon=True).start()
+
+# ===== BOT KODI =====
 import telebot
 from telebot import types
 import time
 import random
 import json
-import os
 from datetime import datetime
 
 TOKEN = "8774189119:AAGM1_wXOJ_pGwkyYKSIdgkOSWPVoudTn6M"

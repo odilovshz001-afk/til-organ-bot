@@ -1,0 +1,8 @@
+{
+  "sozlar": [
+    {"ru": "Привет!", "uz": "Salom!", "en": "Hello!", "talaffuz": "Privet!", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Доброе утро!", "uz": "Xayrli tong!", "en": "Good morning!", "talaffuz": "Dobroe utro!", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Добрый день!", "uz": "Xayrli kun!", "en": "Good day!", "talaffuz": "Dobriy den!", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Добрый вечер!", "uz": "Xayrli kech!", "en": "Good evening!", "talaffuz": "Dobriy vecher!", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Как дела?", "uz": "Qalay siz?", "en": "How are you?", "talaffuz": "Kak dela?", "misol_ru": "", "misol_uz": ""},
+    {"ru": "Как ваше настроение?", "uz": "Kayfiyatingiz qanday?", "en": "How is your mood

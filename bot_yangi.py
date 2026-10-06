@@ -361,4 +361,76 @@ while True:
         bot.polling(none_stop=True, timeout=60)
     except Exception as e:
         print("Xatolik:", e)
-        time.sleep(5)
+        time.sleep(5)@bot.message_handler(func=lambda m: str(m.chat.id) in USERS and USERS[str(m.chat.id)].get("holat"))
+def royxat_handler(message):
+    cid = str(message.chat.id)
+    user = USERS[cid]
+    text = message.text.strip()
+    
+    if user["holat"] == "ism_kutilmoqda":
+        user["ism"] = text
+        user["holat"] = "familiya_kutilmoqda"
+        users_saqlash(USERS)
+        bot.send_message(message.chat.id, "Familiyangizni kiriting:")
+    
+    elif user["holat"] == "familiya_kutilmoqda":
+        user["familiya"] = text
+        user["holat"] = "telefon_kutilmoqda"
+        users_saqlash(USERS)
+        bot.send_message(message.chat.id, "Telefon:")
+    
+    elif user["holat"] == "telefon_kutilmoqda":
+        user["telefon"] = text
+        user["holat"] = ""
+        users_saqlash(USERS)
+        bot.send_message(message.chat.id, f"Rahmat, {user['ism']}!")
+        adminga_xabar_yuborish(user)
+        user_state[cid] = {"index": 0, "score": 0, "total": 0, "active": False, "barcha_sahifa": 0, "test_active": False}
+        bot.send_message(message.chat.id, "Tugmalardan tanlang", reply_markup=main_menu())
+
+@bot.message_handler(func=lambda m: True)
+def handle(message):
+    cid = str(message.chat.id)
+    
+    if message.chat.id == ADMIN_ID:
+        return
+    if cid not in USERS or not USERS[cid].get("ism") or USERS[cid].get("holat"):
+        return
+    
+    text = message.text
+    if cid not in user_state:
+        user_state[cid] = {"index": 0, "score": 0, "total": 0, "active": False, "barcha_sahifa": 0, "test_active": False}
+    st = user_state.get(cid, {})
+
+    if text == "⏹ Testdan chiqish":
+        st["test_active"] = False
+        user_state[cid] = st
+        bot.send_message(cid, "To'xtatildi.", reply_markup=main_menu())
+        return
+
+    if st.get("test_active") and st.get("current_answer"):
+        togri = st["current_answer"]
+        if text == togri:
+            st["test_score"] = st.get("test_score", 0) + 1
+            st["test_total"] = st.get("test_total", 0) + 1
+            st["test_index"] = st.get("test_index", 0) + 1
+            user_state[cid] = st
+            bot.send_message(cid, "Togri!")
+            show_test(cid)
+        elif text in [s["uz"] for s in RUS_SOZLAR]:
+            st["test_total"] = st.get("test_total", 0) + 1
+            st["test_index"] = st.get("test_index", 0) + 1
+            user_state[cid] = st
+            bot.send_message(cid, f"Notogri. Togri: {togri}")
+            show_test(cid)
+        return
+
+    if text == "📅 Kundalik so'zlar":
+        kundalik_sozlar(cid)
+    elif text == "📚 Flashcard":
+        user_state[cid] = {"index": 0, "score": 0, "total": 0, "active": True, "barcha_sahifa": 0, "test_active": False}
+        show_flashcard(cid)
+    elif text == "🎯 Testlar":
+        start_test(cid)
+    elif text == "📖 Barcha so'zlar":
+        barcha_korsat(cid, 0

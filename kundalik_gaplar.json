@@ -277,4 +277,39 @@
     {"ru": "Я хочу вернуть.", "uz": "Men qaytarmoqchiman.", "kat": "Xarid"},
     {"ru": "Это брак.", "uz": "Bu nuqsonli.", "kat": "Xarid"},
     {"ru": "Гарантия есть?", "uz": "Kafolat bormi?", "kat": "Xarid"},
-    {"ru": "Упакуйте, пожалуйста.", "uz": "O'
+    {"ru": "Упакуйте, пожалуйста.", "uz": "O'rang, iltimos.", "kat": "Xarid"},
+    
+    {"ru": "Я хочу отдохнуть.", "uz": "Men dam olmoqchiman.", "kat": "Dam"},
+    {"ru": "Пойдём в кино?", "uz": "Kinoga boramizmi?", "kat": "Dam"},
+    {"ru": "Что будем делать?", "uz": "Nima qilamiz?", "kat": "Dam"},
+    {"ru": "Я хочу спать.", "uz": "Uxlagim kelyapti.", "kat": "Dam"},
+    {"ru": "Давай погуляем.", "uz": "Keling, sayr qilamiz.", "kat": "Dam"},
+    {"ru": "Я устал.", "uz": "Men charchadim.", "kat": "Dam"},
+    {"ru": "Мне нужно отдохнуть.", "uz": "Dam olishim kerak.", "kat": "Dam"},
+    {"ru": "Выходные прошли хорошо.", "uz": "Dam olish kunlari yaxshi o'tdi.", "kat": "Dam"},
+    {"ru": "Я хочу в отпуск.", "uz": "Ta'tilga chiqmoqchiman.", "kat": "Dam"},
+    {"ru": "Отдохнул отлично!", "uz": "Ajoyib dam oldim!", "kat": "Dam"},
+    
+    {"ru": "Я хочу учиться.", "uz": "Men o'qimoqchiman.", "kat": "Ta'lim"},
+    {"ru": "Где университет?", "uz": "Universitet qayerda?", "kat": "Ta'lim"},
+    {"ru": "Я студент.", "uz": "Men talabaman.", "kat": "Ta'lim"},
+    {"ru": "Какой у вас факультет?", "uz": "Fakultetingiz qanday?", "kat": "Ta'lim"},
+    {"ru": "Я сдал экзамен.", "uz": "Men imtihon topshirdim.", "kat": "Ta'lim"},
+    {"ru": "Я не сдал.", "uz": "Men topshira olmadim.", "kat": "Ta'lim"},
+    {"ru": "Мне нравится учиться.", "uz": "Menga o'qish yoqadi.", "kat": "Ta'lim"},
+    {"ru": "Я хочу изучать русский.", "uz": "Men rus tilini o'rganmoqchiman.", "kat": "Ta'lim"},
+    {"ru": "У меня урок.", "uz": "Mening darsim bor.", "kat": "Ta'lim"},
+    {"ru": "Сколько стоит обучение?", "uz": "O'qish qancha turadi?", "kat": "Ta'lim"},
+    
+    {"ru": "Я хочу мира.", "uz": "Men tinchlikni xohlayman.", "kat": "Umumiy"},
+    {"ru": "Жизнь прекрасна!", "uz": "Hayot go'zal!", "kat": "Umumiy"},
+    {"ru": "Всё будет хорошо!", "uz": "Hammasi yaxshi bo'ladi!", "kat": "Umumiy"},
+    {"ru": "Не сдавайся!", "uz": "Taslim bo'lmang!", "kat": "Umumiy"},
+    {"ru": "Ты сможешь!", "uz": "Sen qila olasan!", "kat": "Umumiy"},
+    {"ru": "Я верю в тебя!", "uz": "Men senga ishonaman!", "kat": "Umumiy"},
+    {"ru": "Всё в твоих руках.", "uz": "Hammasi o'z qo'lingizda.", "kat": "Umumiy"},
+    {"ru": "Никогда не сдавайся!", "uz": "Hech qachon taslim bo'lmang!", "kat": "Umumiy"},
+    {"ru": "У тебя всё получится!", "uz": "Senda hammasi chiqadi!", "kat": "Umumiy"},
+    {"ru": "Я горжусь тобой!", "uz": "Men sen bilan faxrlanaman!", "kat": "Umumiy"}
+  ]
+}

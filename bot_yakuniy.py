@@ -658,6 +658,16 @@ def test_loop():
                         uid,
                         f"🎯 *TEST!*\n\n🇷🇺 *{tg['ru']}*\n\nTo'g'ri javobni tanlang:\n🎁 +5 ball",
                         parse_mode='Markdown',
+                        reply_markup=mk
+                    )
+                    time.sleep(0.1)
+                except: pass
+        except Exception as e:
+            log.error(f"Test loop: {e}"); time.sleep(60)
+
+Thread(target=reklama_loop, daemon=True).start()
+Thread(target=soz_loop, daemon=True).start()
+Thread(target=test_loop, daemon=True).start()
 @bot.message_handler(commands=['start'])
 def start(m):
     c = str(m.chat.id)
@@ -1342,13 +1352,3 @@ if __name__ == "__main__":
         except Exception as e:
             log.error(f"Polling: {e}")
             time.sleep(5)
-                        reply_markup=mk
-                    )
-                    time.sleep(0.1)
-                except: pass
-        except Exception as e:
-            log.error(f"Test loop: {e}"); time.sleep(60)
-
-Thread(target=reklama_loop, daemon=True).start()
-Thread(target=soz_loop, daemon=True).start()
-Thread(target=test_loop, daemon=True).start()

@@ -11,16 +11,17 @@ log = logging.getLogger(__name__)
 
 T = os.environ.get("BOT_TOKEN", "")
 A = int(os.environ.get("ADMIN_ID", "8178917212"))
+ADMIN_PASS = os.environ.get("ADMIN_PASS", "Alijonodilov77$$")
+
 if not T:
-    log.error("BOT_TOKEN yo'q!")
-    exit(1)
+    log.error("BOT_TOKEN yo'q!"); exit(1)
 try:
     from deep_translator import GoogleTranslator
     TARJIMA_BOR = True
 except ImportError:
     TARJIMA_BOR = False
 
-log.info(f"✅ Bot ishga tushmoqda... Admin: {A}")
+log.info(f"✅ Bot ishga tushmoqda... Asosiy admin: {A}")
 
 class HH(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -28,13 +29,15 @@ class HH(BaseHTTPRequestHandler):
     def log_message(self, *a): pass
 
 Thread(target=lambda: HTTPServer(("0.0.0.0", int(os.environ.get("PORT", 8080))), HH).serve_forever(), daemon=True).start()
-
 bot = telebot.TeleBot(T, num_threads=8)
 
+# ==================== SQLITE ====================
 DB = "bot_data.db"
 dblock = Lock()
+ADMINS = set()
 
 def db_init():
+    global ADMINS
     with dblock:
         conn = sqlite3.connect(DB, check_same_thread=False)
         c = conn.cursor()
@@ -44,7 +47,7 @@ def db_init():
             ball INTEGER DEFAULT 0, streak INTEGER DEFAULT 0,
             oxirgi_kun TEXT DEFAULT '', sovga_kun TEXT DEFAULT '',
             sana TEXT DEFAULT '', aktiv INTEGER DEFAULT 1,
-            oxirgi_soz TEXT DEFAULT '')""")
+            oxirgi_soz TEXT DEFAULT '', oxirgi_test TEXT DEFAULT '')""")
         c.execute("""CREATE TABLE IF NOT EXISTS sevimlilar (
             id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER,
             soz_ru TEXT, UNIQUE(user_id, soz_ru))""")
@@ -54,8 +57,10 @@ def db_init():
         c.execute("""CREATE TABLE IF NOT EXISTS talablar (
             id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER,
             matn TEXT, sana TEXT)""")
-        c.execute("""CREATE TABLE IF NOT EXISTS config (
-            key TEXT PRIMARY KEY, value TEXT)""")
+        c.execute("""CREATE TABLE IF NOT EXISTS config (key TEXT PRIMARY KEY, value TEXT)""")
+        c.execute("""CREATE TABLE IF NOT EXISTS admins (user_id INTEGER PRIMARY KEY, ism TEXT, sana TEXT)""")
+        c.execute("""CREATE TABLE IF NOT EXISTS admin_log (
+            id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER, ism TEXT, amal TEXT, sana TEXT)""")
         defaults = {
             "reklama": "📢 *Bizni kuzatib boring!*\n\n📸 Instagram: @odilov03_\n💬 Telegram: @odilov0_3",
             "reklama_instagram": "https://instagram.com/odilov03_",
@@ -64,14 +69,18 @@ def db_init():
             "reklama_vaqt": "09:00",
             "soz_auto": "1",
             "soz_interval": "300",
+            "test_auto": "1",
+            "test_interval": "600",
             "sovga_min": "10",
             "sovga_max": "100"
         }
         for k, v in defaults.items():
             c.execute("INSERT OR IGNORE INTO config (key, value) VALUES (?, ?)", (k, v))
-        conn.commit()
-        conn.close()
-    log.info("✅ SQLite tayyor")
+        conn.commit(); conn.close()
+    ADMINS = {A}
+    r = db("SELECT user_id FROM admins", (), True)
+    for row in r or []: ADMINS.add(row["user_id"])
+    log.info(f"✅ SQLite tayyor. Adminlar: {len(ADMINS)}")
 
 db_init()
 
@@ -79,12 +88,9 @@ def db(sql, p=(), f=False):
     with dblock:
         conn = sqlite3.connect(DB, check_same_thread=False)
         conn.row_factory = sqlite3.Row
-        c = conn.cursor()
-        c.execute(sql, p)
+        c = conn.cursor(); c.execute(sql, p)
         r = [dict(x) for x in c.fetchall()] if f else None
-        conn.commit()
-        conn.close()
-        return r
+        conn.commit(); conn.close(); return r
 
 def u_get(uid):
     r = db("SELECT * FROM users WHERE user_id = ?", (uid,), True)
@@ -113,6 +119,11 @@ def cfg_get(k, d=""):
 def cfg_set(k, v):
     db("INSERT OR REPLACE INTO config (key, value) VALUES (?, ?)", (k, str(v)))
 
+def log_admin(uid, ism, amal):
+    db("INSERT INTO admin_log (user_id, ism, amal, sana) VALUES (?, ?, ?, ?)",
+       (uid, ism or "?", amal, datetime.now().strftime("%d.%m.%Y %H:%M")))
+
+# ==================== MA'LUMOTLAR ====================
 S, kor, KUNDALIK_GAPLAR = [], set(), []
 
 for f in ["sozlar.json", "sozlar_katta.json", "sozlar_qoshimcha.json", "sozlar_ish.json", "sozlar_vaqt.json"]:
@@ -122,8 +133,7 @@ for f in ["sozlar.json", "sozlar_katta.json", "sozlar_qoshimcha.json", "sozlar_i
                 d = json.load(fp)
             for s in d.get("sozlar", []):
                 if s.get("ru") and s["ru"] not in kor:
-                    S.append(s)
-                    kor.add(s["ru"])
+                    S.append(s); kor.add(s["ru"])
         except Exception as e:
             log.error(f"{f}: {e}")
 
@@ -276,23 +286,36 @@ def admin_menu():
     m = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
     m.add("📊 Statistika", "👥 Foydalanuvchilar")
     m.add("📢 Reklama sozlash", "📚 So'z sozlash")
-    m.add("✉️ Xabar yuborish", "📋 Talablar")
-    m.add("🎁 Sovga sozlash", "🗑 Ban qilish")
+    m.add("🎯 Test sozlash", "✉️ Xabar yuborish")
+    m.add("📋 Talablar", "🎁 Sovga sozlash")
+    m.add("🗑 Ban qilish", "🔐 Xavfsizlik")
     m.add("⬅️ Chiqish")
+    return m
+
+def xavfsizlik_menu():
+    m = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
+    m.add("👥 Adminlar", "➕ Admin qo'shish")
+    m.add("➖ Admin o'chirish", "🔑 Parol ko'rish")
+    m.add("📜 Admin loglar", "⬅️ Orqaga")
     return m
 
 def rek_admin_menu():
     m = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
-    m.add("✏️ Matnni o'zgartirish", "📸 Instagram")
-    m.add("💬 Telegram", "🔄 Avto reklama")
-    m.add("⏰ Reklama vaqti", "👁 Ko'rish")
+    m.add("✏️ Matn", "📸 Instagram", "💬 Telegram")
+    m.add("🔄 Avto reklama", "⏰ Reklama vaqti", "👁 Ko'rish")
     m.add("⬅️ Orqaga")
     return m
 
 def soz_admin_menu():
     m = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
-    m.add("🔄 Avto so'z yuborish", "⏱ Interval")
-    m.add("👁 Hozir yuborish", "⬅️ Orqaga")
+    m.add("🔄 Avto so'z", "⏱ Interval", "👁 Hozir yuborish")
+    m.add("⬅️ Orqaga")
+    return m
+
+def test_admin_menu():
+    m = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
+    m.add("🔄 Avto test", "⏱ Test interval", "👁 Hozir yuborish")
+    m.add("⬅️ Orqaga")
     return m
 
 def kun_menu():
@@ -356,8 +379,7 @@ def soz_bilaman_menu():
 
 def kundalik_gaplar(c):
     if not KUNDALIK_GAPLAR:
-        bot.send_message(c, "Gaplar yo'q.")
-        return
+        bot.send_message(c, "Gaplar yo'q."); return
     gaplar = random.sample(KUNDALIK_GAPLAR, min(10, len(KUNDALIK_GAPLAR)))
     txt = f"💬 *Kundalik gaplar*\n📅 {datetime.now().strftime('%d.%m.%Y')}\n\n"
     for i, g in enumerate(gaplar, 1):
@@ -374,8 +396,7 @@ def suhbat_korsat(c):
     gaplar = SUHBAT_GAPLAR[kat]
     if i >= len(gaplar):
         ss(c, suhbat_kat=None)
-        bot.send_message(c, "Tugadi!", reply_markup=menu())
-        return
+        bot.send_message(c, "Tugadi!", reply_markup=menu()); return
     gap = gaplar[i]
     txt = f"💬 *{kat}* ({i+1}/{len(gaplar)})\n\n🇷🇺 *{gap['ru']}*\n\n🇺🇿 {gap['uz']}"
     mk = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=3)
@@ -393,12 +414,10 @@ def next_savol(c):
 
 def gap_tuzish(c):
     g = random.choice(GAPLAR)
-    sozlar = g["sozlar"].copy()
-    random.shuffle(sozlar)
+    sozlar = g["sozlar"].copy(); random.shuffle(sozlar)
     st[c] = {"gap": True, "gap_togri": g["togri"]}
     txt = "📝 *Gap tuzish*\n\nSo'zlardan gap tuzing:\n\n"
-    for s in sozlar:
-        txt += f"• {s}\n"
+    for s in sozlar: txt += f"• {s}\n"
     txt += f"\n💡 _{g['tarjima']}_\n🎁 +15 ball"
     bot.send_message(c, txt, parse_mode='Markdown', reply_markup=gap_menu())
 
@@ -407,11 +426,9 @@ def sovga(c):
     bugun = datetime.now().strftime("%d.%m.%Y")
     if not u: return
     if u.get("sovga_kun") == bugun:
-        bot.send_message(c, "Bugungi sovgani oldingiz!", reply_markup=menu())
-        return
+        bot.send_message(c, "Bugungi sovgani oldingiz!", reply_markup=menu()); return
     ball = random.randint(int(cfg_get("sovga_min", "10")), int(cfg_get("sovga_max", "100")))
-    ball_qosh(c, ball)
-    u_upd(c, sovga_kun=bugun)
+    ball_qosh(c, ball); u_upd(c, sovga_kun=bugun)
     bot.send_message(c, f"🎁 *Sovga!*\n\n+{ball} ball!\n🏆 Jami: {ball_get(c)}",
                      parse_mode='Markdown', reply_markup=menu())
 
@@ -451,21 +468,18 @@ def grafik(c):
 def sevimlilar(c):
     r = db("SELECT soz_ru FROM sevimlilar WHERE user_id = ?", (c,), True)
     if not r:
-        bot.send_message(c, "⭐ Bo'sh.")
-        return
+        bot.send_message(c, "⭐ Bo'sh."); return
     txt = "⭐ *Sevimlilar:*\n\n"
     for i, row in enumerate(r, 1):
         for s in S:
             if s["ru"] == row["soz_ru"]:
-                txt += f"{i}. {s['ru']} — {s['uz']}\n"
-                break
+                txt += f"{i}. {s['ru']} — {s['uz']}\n"; break
     bot.send_message(c, txt, parse_mode='Markdown')
 
 def top10(c):
     r = db("SELECT user_id, ball FROM users ORDER BY ball DESC LIMIT 10", (), True)
     if not r:
-        bot.send_message(c, "🏆 Bo'sh.")
-        return
+        bot.send_message(c, "🏆 Bo'sh."); return
     txt = "🏆 *TOP-10*\n\n"
     med = ["🥇", "🥈", "🥉", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣", "🔟"]
     for i, row in enumerate(r):
@@ -480,38 +494,29 @@ def mening_reyting(c):
     orin = (r[0]["n"] + 1) if r else 1
     total = db("SELECT COUNT(*) as n FROM users", (), True)
     total = total[0]["n"] if total else 0
-    u = u_get(c) or {}
-    streak = u.get("streak", 0)
+    u = u_get(c) or {}; streak = u.get("streak", 0)
     bot.send_message(c, f"📊 *Reytingingiz*\n\n🏆 Ball: *{ball}*\n📍 O'rin: *{orin}* / {total}\n📊 {daraja(ball)}\n🔥 Streak: {streak} kun",
                      parse_mode='Markdown')
 
 def flash(c):
-    x = gs(c)
-    idx = x.get("i", 0)
+    x = gs(c); idx = x.get("i", 0)
     if not S or idx >= len(S):
-        bot.send_message(c, "Tugadi!", reply_markup=menu())
-        return
+        bot.send_message(c, "Tugadi!", reply_markup=menu()); return
     s = S[idx]
     bot.send_message(c, f"Flashcard ({idx+1}/{len(S)})\n\nRuscha: {s['ru']}",
                      reply_markup=flash_btn())
 
 def test(c):
-    x = gs(c)
-    idx = x.get("ti", 0)
+    x = gs(c); idx = x.get("ti", 0)
     if not S or idx >= len(S):
-        sc = x.get("ts", 0)
-        tt = x.get("tt", 0)
+        sc = x.get("ts", 0); tt = x.get("tt", 0)
         ss(c, ta=False)
-        bot.send_message(c, f"Tugadi!\n\nJami: {tt}\nTo'g'ri: {sc}", reply_markup=menu())
-        return
+        bot.send_message(c, f"Tugadi!\n\nJami: {tt}\nTo'g'ri: {sc}", reply_markup=menu()); return
     tg = S[idx]
     bs = [s for s in S if s["uz"] != tg["uz"]]
     if len(bs) < 3:
-        bot.send_message(c, "So'zlar kam.")
-        return
-    nt = random.sample(bs, 3)
-    vr = [tg] + nt
-    random.shuffle(vr)
+        bot.send_message(c, "So'zlar kam."); return
+    nt = random.sample(bs, 3); vr = [tg] + nt; random.shuffle(vr)
     ss(c, ca=tg["uz"])
     mk = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
     for v in vr: mk.add(v["uz"])
@@ -520,8 +525,7 @@ def test(c):
 
 def oyin_navbat(c):
     if len(S) < 4:
-        bot.send_message(c, "So'zlar kam.", reply_markup=menu())
-        return
+        bot.send_message(c, "So'zlar kam.", reply_markup=menu()); return
     s = random.choice(S)
     ss(c, oyin_javob=s["uz"], oyin=True)
     mk = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
@@ -531,18 +535,12 @@ def oyin_navbat(c):
 
 def admin_statistika():
     bugun = datetime.now().strftime("%d.%m.%Y")
-    t_u = db("SELECT COUNT(*) as n FROM users", (), True)
-    t_u = t_u[0]["n"] if t_u else 0
-    b_u = db("SELECT COUNT(*) as n FROM users WHERE sana LIKE ?", (bugun + "%",), True)
-    b_u = b_u[0]["n"] if b_u else 0
-    a_u = db("SELECT COUNT(*) as n FROM users WHERE oxirgi_kun = ?", (bugun,), True)
-    a_u = a_u[0]["n"] if a_u else 0
-    t_t = db("SELECT COUNT(*) as n FROM talablar", (), True)
-    t_t = t_t[0]["n"] if t_t else 0
-    t_s = db("SELECT COUNT(*) as n FROM sevimlilar", (), True)
-    t_s = t_s[0]["n"] if t_s else 0
-    t_d = db("SELECT COUNT(*) as n FROM dostlar", (), True)
-    t_d = t_d[0]["n"] if t_d else 0
+    t_u = db("SELECT COUNT(*) as n FROM users", (), True); t_u = t_u[0]["n"] if t_u else 0
+    b_u = db("SELECT COUNT(*) as n FROM users WHERE sana LIKE ?", (bugun + "%",), True); b_u = b_u[0]["n"] if b_u else 0
+    a_u = db("SELECT COUNT(*) as n FROM users WHERE oxirgi_kun = ?", (bugun,), True); a_u = a_u[0]["n"] if a_u else 0
+    t_t = db("SELECT COUNT(*) as n FROM talablar", (), True); t_t = t_t[0]["n"] if t_t else 0
+    t_s = db("SELECT COUNT(*) as n FROM sevimlilar", (), True); t_s = t_s[0]["n"] if t_s else 0
+    t_d = db("SELECT COUNT(*) as n FROM dostlar", (), True); t_d = t_d[0]["n"] if t_d else 0
     return (
         "📊 *BOT STATISTIKASI*\n\n"
         f"👥 Jami: *{t_u}*\n"
@@ -552,7 +550,8 @@ def admin_statistika():
         f"💬 Gaplar: *{len(KUNDALIK_GAPLAR)}*\n"
         f"⭐ Sevimlilar: *{t_s}*\n"
         f"👫 Do'stlik: *{t_d}*\n"
-        f"📢 Talablar: *{t_t}*\n\n"
+        f"📢 Talablar: *{t_t}*\n"
+        f"👑 Adminlar: *{len(ADMINS)}*\n\n"
         f"⏰ {datetime.now().strftime('%d.%m.%Y %H:%M')}"
     )
 
@@ -577,8 +576,7 @@ def reklama_loop():
                 log.info(f"✅ Reklama: {bugun}")
             time.sleep(30)
         except Exception as e:
-            log.error(f"Reklama: {e}")
-            time.sleep(60)
+            log.error(f"Reklama: {e}"); time.sleep(60)
 
 def soz_loop():
     while True:
@@ -599,27 +597,67 @@ def soz_loop():
                     for _ in range(5):
                         s = random.choice(S)
                         if s["ru"] != oxirgi:
-                            yangi = s
-                            break
-                    if not yangi:
-                        yangi = random.choice(S)
+                            yangi = s; break
+                    if not yangi: yangi = random.choice(S)
                     u_upd(uid, oxirgi_soz=yangi["ru"])
                     ss(str(uid), soz_yangi=yangi)
                     bot.send_message(
                         uid,
-                        f"📚 *Yangi so'z!*\n\n🇷🇺 *{yangi['ru']}*\n\nTarjimasini bilasizmi?",
+                        f"📚 *Yangi so'z!*\n\n🇷🇺 *{yangi['ru']}*\n🇺🇿 _{yangi['uz']}_\n\nEslab qoldingizmi?",
                         parse_mode='Markdown',
                         reply_markup=soz_bilaman_menu()
                     )
                     time.sleep(0.1)
                 except: pass
         except Exception as e:
-            log.error(f"So'z loop: {e}")
-            time.sleep(60)
+            log.error(f"So'z loop: {e}"); time.sleep(60)
+
+def test_loop():
+    while True:
+        try:
+            if cfg_get("test_auto", "1") != "1":
+                time.sleep(60); continue
+            interval = int(cfg_get("test_interval", "600"))
+            time.sleep(interval)
+            if not S: continue
+            bugun = datetime.now().strftime("%d.%m.%Y")
+            r = db("SELECT user_id FROM users WHERE oxirgi_kun = ?", (bugun,), True)
+            for row in r or []:
+                try:
+                    uid = row["user_id"]
+                    u = u_get(uid)
+                    oxirgi = u.get("oxirgi_test", "") if u else ""
+                    tg = None
+                    for _ in range(5):
+                        s = random.choice(S)
+                        if s["ru"] != oxirgi:
+                            tg = s; break
+                    if not tg: tg = random.choice(S)
+                    bs = [s for s in S if s["uz"] != tg["uz"]]
+                    if len(bs) < 3: continue
+                    nt = random.sample(bs, 3)
+                    vr = [tg] + nt; random.shuffle(vr)
+                    u_upd(uid, oxirgi_test=tg["ru"])
+                    ss(str(uid), auto_test_javob=tg["uz"])
+                    mk = types.InlineKeyboardMarkup(row_width=2)
+                    btns = []
+                    for v in vr:
+                        btns.append(types.InlineKeyboardButton(v["uz"], callback_data=f"autotest_{uid}_{v['uz']}"))
+                    mk.add(*btns)
+                    bot.send_message(
+                        uid,
+                        f"🎯 *TEST!*\n\n🇷🇺 *{tg['ru']}*\n\nTo'g'ri javobni tanlang:\n🎁 +5 ball",
+                        parse_mode='Markdown',
+                        reply_markup=mk
+                    )
+                    time.sleep(0.1)
+                except: pass
+        except Exception as e:
+            log.error(f"Test loop: {e}"); time.sleep(60)
 
 Thread(target=reklama_loop, daemon=True).start()
 Thread(target=soz_loop, daemon=True).start()
-
+Thread(target=test_loop, daemon=True).start()
 @bot.message_handler(commands=['start'])
 def start(m):
     c = str(m.chat.id)
@@ -659,6 +697,16 @@ def start(m):
     bot.send_message(c, "🌍 Assalomu alaykum!\n\n📝 Ismingizni kiriting:",
                      reply_markup=types.ReplyKeyboardRemove())
 
+@bot.message_handler(commands=['admin'])
+def admin_cmd(m):
+    c = str(m.chat.id)
+    if m.chat.id in ADMINS:
+        bot.send_message(c, "👑 *ADMIN PANEL*", parse_mode='Markdown', reply_markup=admin_menu())
+        return
+    ss(c, admin_parol=True)
+    bot.send_message(c, "🔐 *Admin parolini kiriting:*", parse_mode='Markdown',
+                     reply_markup=types.ReplyKeyboardRemove())
+
 @bot.message_handler(func=lambda m: str(m.chat.id) != str(A) and u_get(m.chat.id) and u_get(m.chat.id).get("h"))
 def reg(m):
     if not m.text: return
@@ -668,26 +716,22 @@ def reg(m):
     h = u.get("h")
     if h == "ism":
         if not ism_ok(t):
-            bot.send_message(c, "❌ Ism noto'g'ri!\nQaytadan:")
-            return
+            bot.send_message(c, "❌ Ism noto'g'ri!\nQaytadan:"); return
         u_upd(m.chat.id, ism=t, h="fam")
         bot.send_message(c, "✅ Familiyangizni kiriting:")
     elif h == "fam":
         if not ism_ok(t):
-            bot.send_message(c, "❌ Familiya noto'g'ri!\nQaytadan:")
-            return
+            bot.send_message(c, "❌ Familiya noto'g'ri!\nQaytadan:"); return
         u_upd(m.chat.id, familiya=t, h="sana")
         bot.send_message(c, "✅ Tug'ilgan sana:\n\nFormat: DD.MM.YYYY")
     elif h == "sana":
         if not sana_ok(t):
-            bot.send_message(c, "❌ Sana noto'g'ri!\nFormat: DD.MM.YYYY")
-            return
+            bot.send_message(c, "❌ Sana noto'g'ri!\nFormat: DD.MM.YYYY"); return
         u_upd(m.chat.id, sana_tugilgan=t, h="tel")
         bot.send_message(c, "✅ Telefon:\n\nFormat: +998901234567")
     elif h == "tel":
         if not tel_ok(t):
-            bot.send_message(c, "❌ Telefon noto'g'ri!\nFormat: +998901234567")
-            return
+            bot.send_message(c, "❌ Telefon noto'g'ri!\nFormat: +998901234567"); return
         u_upd(m.chat.id, tel=t, h="")
         ball_qosh(m.chat.id, 5)
         kunlik(m.chat.id)
@@ -706,6 +750,20 @@ def admin_handler(m):
     c = str(m.chat.id)
     t = m.text
     x = gs(c)
+    if x.get("admin_parol"):
+        if t == ADMIN_PASS:
+            ADMINS.add(m.chat.id)
+            db("INSERT OR IGNORE INTO admins (user_id, ism, sana) VALUES (?, ?, ?)",
+               (m.chat.id, m.from_user.first_name or "?", datetime.now().strftime("%d.%m.%Y %H:%M")))
+            log_admin(m.chat.id, m.from_user.first_name, "Admin bo'ldi")
+            ss(c, admin_parol=False)
+            bot.send_message(c, "✅ *Tasdiqlandi!*\n\n👑 Admin panel:", parse_mode='Markdown', reply_markup=admin_menu())
+            log.info(f"✅ Yangi admin: {m.chat.id}")
+        else:
+            ss(c, admin_parol=False)
+            bot.send_message(c, "❌ Noto'g'ri parol!")
+        return
+
     if x.get("admin_holat"):
         h = x["admin_holat"]
         if h == "reklama_matn": cfg_set("reklama", t); bot.send_message(c, "✅", reply_markup=admin_menu())
@@ -722,6 +780,12 @@ def admin_handler(m):
                 if s < 60: raise ValueError
                 cfg_set("soz_interval", str(s)); bot.send_message(c, f"✅ Interval: {s}s", reply_markup=admin_menu())
             except: bot.send_message(c, "❌ Raqam (≥60)")
+        elif h == "test_interval":
+            try:
+                s = int(t)
+                if s < 60: raise ValueError
+                cfg_set("test_interval", str(s)); bot.send_message(c, f"✅ Test interval: {s}s", reply_markup=admin_menu())
+            except: bot.send_message(c, "❌ Raqam (≥60)")
         elif h == "sovga_min":
             try: cfg_set("sovga_min", str(int(t))); bot.send_message(c, "✅", reply_markup=admin_menu())
             except: bot.send_message(c, "❌ Raqam")
@@ -732,14 +796,39 @@ def admin_handler(m):
             y = 0
             r = db("SELECT user_id FROM users WHERE aktiv = 1", (), True)
             for row in r or []:
-                try: bot.send_message(row["user_id"], t, parse_mode='Markdown'); y += 1; time.sleep(0.05)
+                try:
+                    bot.send_message(row["user_id"], t, parse_mode='Markdown')
+                    y += 1; time.sleep(0.05)
                 except: pass
             bot.send_message(c, f"✅ Yuborildi: {y}", reply_markup=admin_menu())
         elif h == "ban_user":
             try:
                 uid = int(t.strip()); u_upd(uid, aktiv=0)
+                log_admin(m.chat.id, m.from_user.first_name, f"Ban: {uid}")
                 bot.send_message(c, f"✅ Ban: {uid}", reply_markup=admin_menu())
             except: bot.send_message(c, "❌ Raqam")
+        elif h == "admin_qoshish":
+            try:
+                uid = int(t.strip())
+                ADMINS.add(uid)
+                db("INSERT OR IGNORE INTO admins (user_id, ism, sana) VALUES (?, ?, ?)",
+                   (uid, "Admin", datetime.now().strftime("%d.%m.%Y %H:%M")))
+                log_admin(m.chat.id, m.from_user.first_name, f"Admin qo'shdi: {uid}")
+                bot.send_message(c, f"✅ Admin qo'shildi: {uid}", reply_markup=admin_menu())
+                try:
+                    bot.send_message(uid, "🎉 Siz admin qilindingiz!\n\n`/admin` yuboring.", parse_mode='Markdown')
+                except: pass
+            except: bot.send_message(c, "❌ Raqam kiriting!")
+        elif h == "admin_ochirish":
+            try:
+                uid = int(t.strip())
+                if uid == A:
+                    bot.send_message(c, "❌ Asosiy adminni o'chirib bo'lmaydi!"); return
+                ADMINS.discard(uid)
+                db("DELETE FROM admins WHERE user_id = ?", (uid,))
+                log_admin(m.chat.id, m.from_user.first_name, f"Admin o'chirdi: {uid}")
+                bot.send_message(c, f"✅ Admin o'chirildi: {uid}", reply_markup=admin_menu())
+            except: bot.send_message(c, "❌ Raqam kiriting!")
         ss(c, admin_holat=None)
         return
 
@@ -756,7 +845,7 @@ def admin_handler(m):
         bot.send_message(c, txt, parse_mode='Markdown')
     elif t == "📢 Reklama sozlash":
         bot.send_message(c, "📢 *Reklama sozlamalari*", parse_mode='Markdown', reply_markup=rek_admin_menu())
-    elif t == "✏️ Matnni o'zgartirish":
+    elif t == "✏️ Matn":
         ss(c, admin_holat="reklama_matn")
         bot.send_message(c, f"Hozirgi:\n\n{reklama_matn()}\n\nYangi matn:")
     elif t == "📸 Instagram":
@@ -778,7 +867,7 @@ def admin_handler(m):
         bot.send_message(c, reklama_matn(), parse_mode='Markdown', reply_markup=reklama_btn())
     elif t == "📚 So'z sozlash":
         bot.send_message(c, "📚 *So'z sozlamalari*", parse_mode='Markdown', reply_markup=soz_admin_menu())
-    elif t == "🔄 Avto so'z yuborish":
+    elif t == "🔄 Avto so'z":
         hozir = cfg_get("soz_auto", "1")
         yangi = "0" if hozir == "1" else "1"
         cfg_set("soz_auto", yangi)
@@ -786,7 +875,18 @@ def admin_handler(m):
         bot.send_message(c, holat, reply_markup=soz_admin_menu())
     elif t == "⏱ Interval":
         ss(c, admin_holat="soz_interval")
-        bot.send_message(c, f"Hozirgi: {cfg_get('soz_interval', '300')} sekund\n\nYangi (sekund):")
+        bot.send_message(c, f"Hozirgi: {cfg_get('soz_interval', '300')}s\n\nYangi:")
+    elif t == "🎯 Test sozlash":
+        bot.send_message(c, "🎯 *Test sozlamalari*", parse_mode='Markdown', reply_markup=test_admin_menu())
+    elif t == "🔄 Avto test":
+        hozir = cfg_get("test_auto", "1")
+        yangi = "0" if hozir == "1" else "1"
+        cfg_set("test_auto", yangi)
+        holat = "✅ YOQILDI" if yangi == "1" else "❌ O'CHIRILDI"
+        bot.send_message(c, holat, reply_markup=test_admin_menu())
+    elif t == "⏱ Test interval":
+        ss(c, admin_holat="test_interval")
+        bot.send_message(c, f"Hozirgi: {cfg_get('test_interval', '600')}s\n\nYangi:")
     elif t == "👁 Hozir yuborish":
         if not S:
             bot.send_message(c, "So'zlar yo'q."); return
@@ -797,7 +897,7 @@ def admin_handler(m):
             try:
                 s = random.choice(S)
                 bot.send_message(row["user_id"],
-                                 f"📚 *Yangi so'z!*\n\n🇷🇺 *{s['ru']}*\n\nTarjimasini bilasizmi?",
+                                 f"📚 *Yangi so'z!*\n\n🇷🇺 *{s['ru']}*\n🇺🇿 _{s['uz']}_",
                                  parse_mode='Markdown', reply_markup=soz_bilaman_menu())
                 y += 1; time.sleep(0.05)
             except: pass
@@ -821,11 +921,67 @@ def admin_handler(m):
     elif t == "🗑 Ban qilish":
         ss(c, admin_holat="ban_user")
         bot.send_message(c, "🗑 Ban qilish uchun user_id yuboring:")
+    elif t == "🔐 Xavfsizlik":
+        bot.send_message(c, "🔐 *Xavfsizlik*", parse_mode='Markdown', reply_markup=xavfsizlik_menu())
+    elif t == "👥 Adminlar":
+        txt = "👥 *Adminlar:*\n\n"
+        for i, uid in enumerate(ADMINS, 1):
+            u = u_get(uid)
+            ism = u.get("ism", "?") if u else "?"
+            marker = "👑 Asosiy" if uid == A else "🛡 Zaxira"
+            txt += f"{i}. {marker} {ism} ({uid})\n"
+        bot.send_message(c, txt, parse_mode='Markdown')
+    elif t == "➕ Admin qo'shish":
+        ss(c, admin_holat="admin_qoshish")
+        bot.send_message(c, "➕ Yangi admin user_id:")
+    elif t == "➖ Admin o'chirish":
+        ss(c, admin_holat="admin_ochirish")
+        bot.send_message(c, "➖ O'chiriladigan admin user_id:")
+    elif t == "🔑 Parol ko'rish":
+        bot.send_message(c, f"🔑 Parol: `{ADMIN_PASS}`", parse_mode='Markdown')
+    elif t == "📜 Admin loglar":
+        r = db("SELECT user_id, ism, amal, sana FROM admin_log ORDER BY id DESC LIMIT 20", (), True)
+        if not r:
+            bot.send_message(c, "📭 Bo'sh."); return
+        txt = "📜 *Admin loglar:*\n\n"
+        for i, row in enumerate(r, 1):
+            txt += f"{i}. {row['ism']} — {row['amal']}\n📅 {row['sana']}\n\n"
+        bot.send_message(c, txt, parse_mode='Markdown')
     elif t == "⬅️ Orqaga" or t == "⬅️ Chiqish":
         ss(c, admin_holat=None)
         bot.send_message(c, "👑 Admin panel", reply_markup=admin_menu())
 
-@bot.message_handler(func=lambda m: str(m.chat.id) != str(A), content_types=['text'])
+@bot.callback_query_handler(func=lambda call: call.data.startswith("autotest_"))
+def callback_autotest(call):
+    try:
+        parts = call.data.split("_", 2)
+        uid = int(parts[1])
+        javob = parts[2]
+        if call.from_user.id != uid:
+            bot.answer_callback_query(call.id, "❌ Bu test sizga tegishli emas!")
+            return
+        x = gs(str(uid))
+        togri = x.get("auto_test_javob", "")
+        if javob == togri:
+            ball_qosh(uid, 5)
+            bot.answer_callback_query(call.id, "✅ To'g'ri! +5 ball")
+            try:
+                bot.edit_message_text(f"✅ To'g'ri! +5 ball\n🏆 Jami: {ball_get(uid)}",
+                                      chat_id=call.message.chat.id,
+                                      message_id=call.message.message_id)
+            except: pass
+        else:
+            bot.answer_callback_query(call.id, f"❌ To'g'ri: {togri}")
+            try:
+                bot.edit_message_text(f"❌ Noto'g'ri!\n\nTo'g'ri javob: {togri}",
+                                      chat_id=call.message.chat.id,
+                                      message_id=call.message.message_id)
+            except: pass
+        ss(str(uid), auto_test_javob=None)
+    except Exception as e:
+        log.error(f"Callback: {e}")
+
+@bot.message_handler(func=lambda m: str(m.chat.id) != str(A) and m.chat.id not in ADMINS, content_types=['text'])
 def hand(m):
     c = str(m.chat.id)
     t = m.text
@@ -835,6 +991,25 @@ def hand(m):
     if u.get("aktiv", 1) == 0:
         return
     x = gs(c)
+
+    if x.get("admin_parol"):
+        if t == ADMIN_PASS:
+            ADMINS.add(m.chat.id)
+            db("INSERT OR IGNORE INTO admins (user_id, ism, sana) VALUES (?, ?, ?)",
+               (m.chat.id, m.from_user.first_name or "?", datetime.now().strftime("%d.%m.%Y %H:%M")))
+            log_admin(m.chat.id, m.from_user.first_name, "Admin bo'ldi")
+            ss(c, admin_parol=False)
+            bot.send_message(c, "✅ *Tasdiqlandi!*\n\n👑 Admin panel:",
+                             parse_mode='Markdown', reply_markup=admin_menu())
+            try:
+                bot.send_message(A, f"🔐 *YANGI ADMIN*\n\n👤 {m.from_user.first_name}\n🆔 {m.chat.id}",
+                                 parse_mode='Markdown')
+            except: pass
+            log.info(f"✅ Yangi admin parol bilan: {m.chat.id}")
+        else:
+            ss(c, admin_parol=False)
+            bot.send_message(c, "❌ Noto'g'ri parol!")
+        return
 
     if t == "✅ Bilaman":
         ball_qosh(m.chat.id, 2)
@@ -1049,8 +1224,7 @@ def hand(m):
             test(c); return
 
     if t == "📅 Kundalik":
-        ball_qosh(m.chat.id, 1)
-        kundalik_gaplar(c)
+        ball_qosh(m.chat.id, 1); kundalik_gaplar(c)
     elif t == "📚 Flashcard":
         cs(c); ss(c, a=True, i=0); flash(c)
     elif t == "🎯 Testlar":
@@ -1094,8 +1268,7 @@ def hand(m):
         grafik(c)
     elif t == "📊 Statistika":
         ball = ball_get(c)
-        u2 = u_get(c) or {}
-        streak = u2.get("streak", 0)
+        u2 = u_get(c) or {}; streak = u2.get("streak", 0)
         bot.send_message(c, f"📊 *Statistika*\n\n📚 Jami: {len(S)}\n💬 Gaplar: {len(KUNDALIK_GAPLAR)}\n🏆 Ball: {ball}\n📊 {daraja(ball)}\n🔥 Streak: {streak} kun",
                          parse_mode='Markdown')
     elif t == "ℹ️ Yordam":
@@ -1120,12 +1293,10 @@ def hand(m):
     elif t == "✅ Bilaman" and x.get("a"):
         ball_qosh(m.chat.id, 2)
         s = x.get("s", 0) + 1; tt = x.get("t", 0) + 1; i = x.get("i", 0) + 1
-        ss(c, s=s, t=tt, i=i)
-        flash(c)
+        ss(c, s=s, t=tt, i=i); flash(c)
     elif t == "❌ Bilmayman" and x.get("a"):
         tt = x.get("t", 0) + 1; i = x.get("i", 0) + 1
-        ss(c, t=tt, i=i)
-        flash(c)
+        ss(c, t=tt, i=i); flash(c)
     elif t == "⭐ Saqlash":
         idx = x.get("i", 0)
         if idx < len(S):
@@ -1136,14 +1307,11 @@ def hand(m):
             except:
                 bot.send_message(c, "Allaqachon saqlangan.")
     elif t == "⏹ To'xtatish":
-        ss(c, a=False)
-        bot.send_message(c, "To'xtatildi.", reply_markup=menu())
+        ss(c, a=False); bot.send_message(c, "To'xtatildi.", reply_markup=menu())
     elif t == "⏹ Testdan chiqish":
-        ss(c, ta=False)
-        bot.send_message(c, "To'xtatildi.", reply_markup=menu())
+        ss(c, ta=False); bot.send_message(c, "To'xtatildi.", reply_markup=menu())
     elif t == "⬅️ Orqaga":
-        cs(c)
-        bot.send_message(c, "Menyu:", reply_markup=menu())
+        cs(c); bot.send_message(c, "Menyu:", reply_markup=menu())
     else:
         if TARJIMA_BOR and len(t) > 2:
             try:

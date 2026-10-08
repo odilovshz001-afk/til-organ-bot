@@ -13,7 +13,6 @@ T = os.environ.get("BOT_TOKEN", "")
 A = int(os.environ.get("ADMIN_ID", "8178917212"))
 ADMIN_PASS = os.environ.get("ADMIN_PASS", "Alijonodilov77$$")
 
-# MUHIM: To'g'ri reklama linklari
 REK_INSTA = "https://instagram.com/odilov03_"
 REK_TELEGRAM = "https://t.me/odilov0_3"
 REK_MATN = "📢 *Bizni kuzatib boring!*\n\n📸 Instagram: @odilov03_\n💬 Telegram: @odilov0_3"
@@ -72,20 +71,15 @@ def db_init():
         c.execute("""CREATE TABLE IF NOT EXISTS admins (user_id INTEGER PRIMARY KEY, ism TEXT, sana TEXT)""")
         c.execute("""CREATE TABLE IF NOT EXISTS admin_log (
             id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER, ism TEXT, amal TEXT, sana TEXT)""")
-        # MUHIM: reklama linklarini MAJBURAN yangilash
+        # MUHIM: reklama MAJBURAN yangilanadi
         c.execute("INSERT OR REPLACE INTO config (key, value) VALUES (?, ?)", ("reklama", REK_MATN))
         c.execute("INSERT OR REPLACE INTO config (key, value) VALUES (?, ?)", ("reklama_instagram", REK_INSTA))
         c.execute("INSERT OR REPLACE INTO config (key, value) VALUES (?, ?)", ("reklama_telegram", REK_TELEGRAM))
-        # Qolganlari IGNORE
         defaults = {
-            "reklama_auto": "1",
-            "reklama_vaqt": "09:00",
-            "soz_auto": "1",
-            "soz_interval": "300",
-            "test_auto": "1",
-            "test_interval": "600",
-            "sovga_min": "10",
-            "sovga_max": "100"
+            "reklama_auto": "1", "reklama_vaqt": "09:00",
+            "soz_auto": "1", "soz_interval": "300",
+            "test_auto": "1", "test_interval": "600",
+            "sovga_min": "10", "sovga_max": "100"
         }
         for k, v in defaults.items():
             c.execute("INSERT OR IGNORE INTO config (key, value) VALUES (?, ?)", (k, v))
@@ -605,7 +599,6 @@ def soz_loop():
                             yangi = s; break
                     if not yangi: yangi = random.choice(S)
                     u_upd(uid, oxirgi_soz=yangi["ru"])
-                    # INLINE tugmalar — asosiy menyuni yashirmaydi!
                     mk = types.InlineKeyboardMarkup(row_width=2)
                     mk.add(
                         types.InlineKeyboardButton("✅ Bilaman", callback_data=f"bilaman_{uid}"),
@@ -671,9 +664,13 @@ Thread(target=test_loop, daemon=True).start()
 @bot.message_handler(commands=['start'])
 def start(m):
     c = str(m.chat.id)
+    # MUHIM: /start bosilganda barcha holatlar tozalanadi
+    cs(c)
+    # ADMIN
     if m.chat.id == A:
         bot.send_message(c, "👑 *ADMIN PANEL*", parse_mode='Markdown', reply_markup=admin_menu())
         return
+    # Referal
     if len(m.text.split()) > 1:
         try:
             taklif = m.text.split()[1]
@@ -684,10 +681,10 @@ def start(m):
                 ball_qosh(int(taklif), 50)
         except: pass
     u = u_get(m.chat.id)
-    if u and u.get("ism"):
+    # Ro'yxatdan o'tgan va h="" (reg tugagan)
+    if u and u.get("ism") and not u.get("h"):
         streak = kunlik(m.chat.id)
         ball_qosh(m.chat.id, 1)
-        cs(c)
         bot.send_message(
             c,
             f"Salom, {u['ism']}! 👋\n\n"
@@ -702,8 +699,11 @@ def start(m):
             bot.send_message(c, reklama_matn(), parse_mode='Markdown', reply_markup=reklama_btn())
         except: pass
         return
-    u_create(m.chat.id)
-    u_upd(m.chat.id, h="ism")
+    # Yangi yoki ro'yxatdan o'tmagan
+    if not u:
+        u_create(m.chat.id)
+    # MUHIM: Har safar boshidan boshlash
+    u_upd(m.chat.id, h="ism", ism="", familiya="", sana_tugilgan="", tel="")
     bot.send_message(c, "🌍 Assalomu alaykum!\n\n📝 Ismingizni kiriting:",
                      reply_markup=types.ReplyKeyboardRemove())
 
@@ -719,7 +719,10 @@ def admin_cmd(m):
 
 @bot.message_handler(func=lambda m: str(m.chat.id) != str(A) and u_get(m.chat.id) and u_get(m.chat.id).get("h"))
 def reg(m):
+    # MUHIM: /start bo'lsa, reg'ni o'tkazib yuborish
     if not m.text: return
+    if m.text.startswith('/'):
+        return
     c = str(m.chat.id)
     u = u_get(m.chat.id)
     t = m.text.strip()
@@ -759,6 +762,10 @@ def reg(m):
 def admin_handler(m):
     c = str(m.chat.id)
     t = m.text
+    if t and t.startswith('/start'):
+        cs(c)
+        bot.send_message(c, "👑 *ADMIN PANEL*", parse_mode='Markdown', reply_markup=admin_menu())
+        return
     x = gs(c)
     if x.get("admin_parol"):
         if t == ADMIN_PASS:
@@ -971,7 +978,6 @@ def callback_handler(call):
     try:
         data = call.data
         uid = call.from_user.id
-        # Inline Bilaman/Bilmadim
         if data.startswith("bilaman_"):
             target = int(data.split("_")[1])
             if uid != target:
@@ -991,7 +997,6 @@ def callback_handler(call):
                 bot.edit_message_reply_markup(chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=None)
             except: pass
             return
-        # Auto test
         if data.startswith("autotest_"):
             parts = data.split("_", 2)
             target = int(parts[1]); javob = parts[2]
@@ -1021,6 +1026,9 @@ def callback_handler(call):
 def hand(m):
     c = str(m.chat.id)
     t = m.text
+    # MUHIM: /start buyrug'i bo'lsa, hand'ni o'tkazib yuborish
+    if t and t.startswith('/'):
+        return
     u = u_get(m.chat.id)
     if not u or not u.get("ism") or u.get("h"):
         return

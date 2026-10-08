@@ -31,13 +31,19 @@ class HH(BaseHTTPRequestHandler):
 Thread(target=lambda: HTTPServer(("0.0.0.0", int(os.environ.get("PORT", 8080))), HH).serve_forever(), daemon=True).start()
 bot = telebot.TeleBot(T, num_threads=8)
 
-# ==================== SQLITE ====================
 DB = "bot_data.db"
 dblock = Lock()
 ADMINS = set()
 
+def db(sql, p=(), f=False):
+    with dblock:
+        conn = sqlite3.connect(DB, check_same_thread=False)
+        conn.row_factory = sqlite3.Row
+        c = conn.cursor(); c.execute(sql, p)
+        r = [dict(x) for x in c.fetchall()] if f else None
+        conn.commit(); conn.close(); return r
+
 def db_init():
-    global ADMINS
     with dblock:
         conn = sqlite3.connect(DB, check_same_thread=False)
         c = conn.cursor()
@@ -77,20 +83,19 @@ def db_init():
         for k, v in defaults.items():
             c.execute("INSERT OR IGNORE INTO config (key, value) VALUES (?, ?)", (k, v))
         conn.commit(); conn.close()
-    ADMINS = {A}
-    r = db("SELECT user_id FROM admins", (), True)
-    for row in r or []: ADMINS.add(row["user_id"])
-    log.info(f"✅ SQLite tayyor. Adminlar: {len(ADMINS)}")
+    log.info("✅ SQLite tayyor")
 
 db_init()
 
-def db(sql, p=(), f=False):
-    with dblock:
-        conn = sqlite3.connect(DB, check_same_thread=False)
-        conn.row_factory = sqlite3.Row
-        c = conn.cursor(); c.execute(sql, p)
-        r = [dict(x) for x in c.fetchall()] if f else None
-        conn.commit(); conn.close(); return r
+def admins_init():
+    global ADMINS
+    ADMINS = {A}
+    r = db("SELECT user_id FROM admins", (), True)
+    for row in r or []:
+        ADMINS.add(row["user_id"])
+    log.info(f"✅ Adminlar: {len(ADMINS)}")
+
+admins_init()
 
 def u_get(uid):
     r = db("SELECT * FROM users WHERE user_id = ?", (uid,), True)
@@ -123,7 +128,6 @@ def log_admin(uid, ism, amal):
     db("INSERT INTO admin_log (user_id, ism, amal, sana) VALUES (?, ?, ?, ?)",
        (uid, ism or "?", amal, datetime.now().strftime("%d.%m.%Y %H:%M")))
 
-# ==================== MA'LUMOTLAR ====================
 S, kor, KUNDALIK_GAPLAR = [], set(), []
 
 for f in ["sozlar.json", "sozlar_katta.json", "sozlar_qoshimcha.json", "sozlar_ish.json", "sozlar_vaqt.json"]:
@@ -1005,7 +1009,6 @@ def hand(m):
                 bot.send_message(A, f"🔐 *YANGI ADMIN*\n\n👤 {m.from_user.first_name}\n🆔 {m.chat.id}",
                                  parse_mode='Markdown')
             except: pass
-            log.info(f"✅ Yangi admin parol bilan: {m.chat.id}")
         else:
             ss(c, admin_parol=False)
             bot.send_message(c, "❌ Noto'g'ri parol!")

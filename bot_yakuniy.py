@@ -13,6 +13,11 @@ T = os.environ.get("BOT_TOKEN", "")
 A = int(os.environ.get("ADMIN_ID", "8178917212"))
 ADMIN_PASS = os.environ.get("ADMIN_PASS", "Alijonodilov77$$")
 
+# MUHIM: To'g'ri reklama linklari
+REK_INSTA = "https://instagram.com/odilov03_"
+REK_TELEGRAM = "https://t.me/odilov0_3"
+REK_MATN = "📢 *Bizni kuzatib boring!*\n\n📸 Instagram: @odilov03_\n💬 Telegram: @odilov0_3"
+
 if not T:
     log.error("BOT_TOKEN yo'q!"); exit(1)
 try:
@@ -67,10 +72,12 @@ def db_init():
         c.execute("""CREATE TABLE IF NOT EXISTS admins (user_id INTEGER PRIMARY KEY, ism TEXT, sana TEXT)""")
         c.execute("""CREATE TABLE IF NOT EXISTS admin_log (
             id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER, ism TEXT, amal TEXT, sana TEXT)""")
+        # MUHIM: reklama linklarini MAJBURAN yangilash
+        c.execute("INSERT OR REPLACE INTO config (key, value) VALUES (?, ?)", ("reklama", REK_MATN))
+        c.execute("INSERT OR REPLACE INTO config (key, value) VALUES (?, ?)", ("reklama_instagram", REK_INSTA))
+        c.execute("INSERT OR REPLACE INTO config (key, value) VALUES (?, ?)", ("reklama_telegram", REK_TELEGRAM))
+        # Qolganlari IGNORE
         defaults = {
-            "reklama": "📢 *Bizni kuzatib boring!*\n\n📸 Instagram: @odilov03_\n💬 Telegram: @odilov0_3",
-            "reklama_instagram": "https://instagram.com/odilov03_",
-            "reklama_telegram": "https://t.me/odilov0_3",
             "reklama_auto": "1",
             "reklama_vaqt": "09:00",
             "soz_auto": "1",
@@ -154,13 +161,13 @@ log.info(f"📚 So'zlar: {len(S)}, Gaplar: {len(KUNDALIK_GAPLAR)}")
 def reklama_btn():
     m = types.InlineKeyboardMarkup(row_width=2)
     m.add(
-        types.InlineKeyboardButton("📸 Instagram", url=cfg_get("reklama_instagram", "https://instagram.com/odilov03_")),
-        types.InlineKeyboardButton("💬 Telegram", url=cfg_get("reklama_telegram", "https://t.me/odilov0_3"))
+        types.InlineKeyboardButton("📸 Instagram", url=REK_INSTA),
+        types.InlineKeyboardButton("💬 Telegram", url=REK_TELEGRAM)
     )
     return m
 
 def reklama_matn():
-    return cfg_get("reklama", "📢 Bizni kuzatib boring!")
+    return REK_MATN
 
 SUHBAT_GAPLAR = {
     "💼 Ishda": [
@@ -376,11 +383,6 @@ def tarj_menu():
     m.add("🇷🇺 → 🇺🇿", "🇺🇿 → 🇷🇺", "⬅️ Orqaga")
     return m
 
-def soz_bilaman_menu():
-    m = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
-    m.add("✅ Bilaman", "❌ Bilmadim")
-    return m
-
 def kundalik_gaplar(c):
     if not KUNDALIK_GAPLAR:
         bot.send_message(c, "Gaplar yo'q."); return
@@ -569,11 +571,10 @@ def reklama_loop():
             hozir = datetime.now().strftime("%H:%M")
             bugun = datetime.now().strftime("%d.%m.%Y")
             if hozir == vaqt and oxirgi != bugun:
-                matn = reklama_matn()
                 r = db("SELECT user_id FROM users WHERE aktiv = 1", (), True)
                 for row in r or []:
                     try:
-                        bot.send_message(row["user_id"], matn, parse_mode='Markdown', reply_markup=reklama_btn())
+                        bot.send_message(row["user_id"], reklama_matn(), parse_mode='Markdown', reply_markup=reklama_btn())
                         time.sleep(0.05)
                     except: pass
                 oxirgi = bugun
@@ -604,12 +605,17 @@ def soz_loop():
                             yangi = s; break
                     if not yangi: yangi = random.choice(S)
                     u_upd(uid, oxirgi_soz=yangi["ru"])
-                    ss(str(uid), soz_yangi=yangi)
+                    # INLINE tugmalar — asosiy menyuni yashirmaydi!
+                    mk = types.InlineKeyboardMarkup(row_width=2)
+                    mk.add(
+                        types.InlineKeyboardButton("✅ Bilaman", callback_data=f"bilaman_{uid}"),
+                        types.InlineKeyboardButton("❌ Bilmadim", callback_data=f"bilmadim_{uid}")
+                    )
                     bot.send_message(
                         uid,
                         f"📚 *Yangi so'z!*\n\n🇷🇺 *{yangi['ru']}*\n🇺🇿 _{yangi['uz']}_\n\nEslab qoldingizmi?",
                         parse_mode='Markdown',
-                        reply_markup=soz_bilaman_menu()
+                        reply_markup=mk
                     )
                     time.sleep(0.1)
                 except: pass
@@ -652,16 +658,6 @@ def test_loop():
                         uid,
                         f"🎯 *TEST!*\n\n🇷🇺 *{tg['ru']}*\n\nTo'g'ri javobni tanlang:\n🎁 +5 ball",
                         parse_mode='Markdown',
-                        reply_markup=mk
-                    )
-                    time.sleep(0.1)
-                except: pass
-        except Exception as e:
-            log.error(f"Test loop: {e}"); time.sleep(60)
-
-Thread(target=reklama_loop, daemon=True).start()
-Thread(target=soz_loop, daemon=True).start()
-Thread(target=test_loop, daemon=True).start()
 @bot.message_handler(commands=['start'])
 def start(m):
     c = str(m.chat.id)
@@ -900,9 +896,14 @@ def admin_handler(m):
         for row in r or []:
             try:
                 s = random.choice(S)
+                mk = types.InlineKeyboardMarkup(row_width=2)
+                mk.add(
+                    types.InlineKeyboardButton("✅ Bilaman", callback_data=f"bilaman_{row['user_id']}"),
+                    types.InlineKeyboardButton("❌ Bilmadim", callback_data=f"bilmadim_{row['user_id']}")
+                )
                 bot.send_message(row["user_id"],
                                  f"📚 *Yangi so'z!*\n\n🇷🇺 *{s['ru']}*\n🇺🇿 _{s['uz']}_",
-                                 parse_mode='Markdown', reply_markup=soz_bilaman_menu())
+                                 parse_mode='Markdown', reply_markup=mk)
                 y += 1; time.sleep(0.05)
             except: pass
         bot.send_message(c, f"✅ Yuborildi: {y}")
@@ -955,33 +956,54 @@ def admin_handler(m):
         ss(c, admin_holat=None)
         bot.send_message(c, "👑 Admin panel", reply_markup=admin_menu())
 
-@bot.callback_query_handler(func=lambda call: call.data.startswith("autotest_"))
-def callback_autotest(call):
+@bot.callback_query_handler(func=lambda call: True)
+def callback_handler(call):
     try:
-        parts = call.data.split("_", 2)
-        uid = int(parts[1])
-        javob = parts[2]
-        if call.from_user.id != uid:
-            bot.answer_callback_query(call.id, "❌ Bu test sizga tegishli emas!")
+        data = call.data
+        uid = call.from_user.id
+        # Inline Bilaman/Bilmadim
+        if data.startswith("bilaman_"):
+            target = int(data.split("_")[1])
+            if uid != target:
+                bot.answer_callback_query(call.id, "❌ Bu sizga tegishli emas!"); return
+            ball_qosh(uid, 2)
+            bot.answer_callback_query(call.id, "✅ Zo'r! +2 ball")
+            try:
+                bot.edit_message_reply_markup(chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=None)
+            except: pass
             return
-        x = gs(str(uid))
-        togri = x.get("auto_test_javob", "")
-        if javob == togri:
-            ball_qosh(uid, 5)
-            bot.answer_callback_query(call.id, "✅ To'g'ri! +5 ball")
+        if data.startswith("bilmadim_"):
+            target = int(data.split("_")[1])
+            if uid != target:
+                bot.answer_callback_query(call.id, "❌ Bu sizga tegishli emas!"); return
+            bot.answer_callback_query(call.id, "❌ Bilmadim")
             try:
-                bot.edit_message_text(f"✅ To'g'ri! +5 ball\n🏆 Jami: {ball_get(uid)}",
-                                      chat_id=call.message.chat.id,
-                                      message_id=call.message.message_id)
+                bot.edit_message_reply_markup(chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=None)
             except: pass
-        else:
-            bot.answer_callback_query(call.id, f"❌ To'g'ri: {togri}")
-            try:
-                bot.edit_message_text(f"❌ Noto'g'ri!\n\nTo'g'ri javob: {togri}",
-                                      chat_id=call.message.chat.id,
-                                      message_id=call.message.message_id)
-            except: pass
-        ss(str(uid), auto_test_javob=None)
+            return
+        # Auto test
+        if data.startswith("autotest_"):
+            parts = data.split("_", 2)
+            target = int(parts[1]); javob = parts[2]
+            if uid != target:
+                bot.answer_callback_query(call.id, "❌ Bu test sizga tegishli emas!"); return
+            x = gs(str(uid))
+            togri = x.get("auto_test_javob", "")
+            if javob == togri:
+                ball_qosh(uid, 5)
+                bot.answer_callback_query(call.id, "✅ To'g'ri! +5 ball")
+                try:
+                    bot.edit_message_text(f"✅ To'g'ri! +5 ball\n🏆 Jami: {ball_get(uid)}",
+                                          chat_id=call.message.chat.id, message_id=call.message.message_id)
+                except: pass
+            else:
+                bot.answer_callback_query(call.id, f"❌ To'g'ri: {togri}")
+                try:
+                    bot.edit_message_text(f"❌ Noto'g'ri!\n\nTo'g'ri javob: {togri}",
+                                          chat_id=call.message.chat.id, message_id=call.message.message_id)
+                except: pass
+            ss(str(uid), auto_test_javob=None)
+            return
     except Exception as e:
         log.error(f"Callback: {e}")
 
@@ -1012,20 +1034,6 @@ def hand(m):
         else:
             ss(c, admin_parol=False)
             bot.send_message(c, "❌ Noto'g'ri parol!")
-        return
-
-    if t == "✅ Bilaman":
-        ball_qosh(m.chat.id, 2)
-        ss(c, soz_yangi=None)
-        bot.send_message(c, "✅ Zo'r! +2 ball", reply_markup=menu())
-        return
-    if t == "❌ Bilmadim":
-        s = x.get("soz_yangi")
-        if s:
-            bot.send_message(c, f"🇷🇺 {s['ru']} — 🇺🇿 {s['uz']}", reply_markup=menu())
-        else:
-            bot.send_message(c, "Menyu:", reply_markup=menu())
-        ss(c, soz_yangi=None)
         return
 
     if x.get("kundalik_gaplar"):
@@ -1334,3 +1342,13 @@ if __name__ == "__main__":
         except Exception as e:
             log.error(f"Polling: {e}")
             time.sleep(5)
+                        reply_markup=mk
+                    )
+                    time.sleep(0.1)
+                except: pass
+        except Exception as e:
+            log.error(f"Test loop: {e}"); time.sleep(60)
+
+Thread(target=reklama_loop, daemon=True).start()
+Thread(target=soz_loop, daemon=True).start()
+Thread(target=test_loop, daemon=True).start()
